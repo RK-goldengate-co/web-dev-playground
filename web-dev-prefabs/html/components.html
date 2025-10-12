@@ -1,0 +1,215 @@
+<!-- Navigation Component -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="/" class="navbar-brand">Brand</a>
+        <ul class="navbar-menu">
+            <li class="navbar-item">
+                <a href="/" class="navbar-link">Home</a>
+            </li>
+            <li class="navbar-item dropdown">
+                <a href="#" class="navbar-link dropdown-toggle">Services</a>
+                <div class="dropdown-menu">
+                    <a href="/web-design" class="dropdown-item">Web Design</a>
+                    <a href="/development" class="dropdown-item">Development</a>
+                    <a href="/seo" class="dropdown-item">SEO</a>
+                </div>
+            </li>
+            <li class="navbar-item">
+                <a href="/about" class="navbar-link">About</a>
+            </li>
+            <li class="navbar-item">
+                <a href="/contact" class="navbar-link">Contact</a>
+            </li>
+        </ul>
+        <button class="navbar-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Section Component -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to Our Platform</h1>
+            <p class="hero-subtitle">We create amazing digital experiences that help businesses grow and succeed in the modern world.</p>
+            <div class="hero-actions">
+                <a href="#cta" class="btn btn-primary">Get Started</a>
+                <a href="#learn-more" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="hero-image.jpg" alt="Hero illustration" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- Card Component -->
+<div class="card">
+    <div class="card-image">
+        <img src="card-image.jpg" alt="Card image" loading="lazy">
+    </div>
+    <div class="card-content">
+        <h3 class="card-title">Card Title</h3>
+        <p class="card-text">This is a card component that can be used to display content in a visually appealing way.</p>
+        <a href="#" class="card-link">Read More</a>
+    </div>
+</div>
+
+<!-- Button Components -->
+<button class="btn btn-primary">Primary Button</button>
+<button class="btn btn-secondary">Secondary Button</button>
+<button class="btn btn-success">Success Button</button>
+<button class="btn btn-danger">Danger Button</button>
+<button class="btn btn-warning">Warning Button</button>
+<button class="btn btn-info">Info Button</button>
+<button class="btn btn-light">Light Button</button>
+<button class="btn btn-dark">Dark Button</button>
+
+<!-- Alert Components -->
+<div class="alert alert-success">
+    <span class="alert-icon">✓</span>
+    <span class="alert-message">Success! Your action was completed successfully.</span>
+</div>
+
+<div class="alert alert-danger">
+    <span class="alert-icon">⚠</span>
+    <span class="alert-message">Error! Something went wrong. Please try again.</span>
+</div>
+
+<div class="alert alert-warning">
+    <span class="alert-icon">!</span>
+    <span class="alert-message">Warning! Please review your input before proceeding.</span>
+</div>
+
+<div class="alert alert-info">
+    <span class="alert-icon">ℹ</span>
+    <span class="alert-message">Info! Here's some additional information you might find useful.</span>
+</div>
+
+<!-- Modal Component -->
+<div class="modal" id="exampleModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container">
+        <div class="modal-header">
+            <h2 class="modal-title">Modal Title</h2>
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>Modal content goes here. This is a flexible dialog box that can contain any content you need.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary modal-cancel">Cancel</button>
+            <button class="btn btn-primary modal-confirm">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Form Components -->
+<form class="form">
+    <div class="form-group">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" id="name" name="name" class="form-input" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" name="email" class="form-input" required>
+    </div>
+
+    <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Preferred Contact Method</label>
+        <div class="form-radio-group">
+            <input type="radio" id="contact-email" name="contact" value="email" checked>
+            <label for="contact-email">Email</label>
+            <input type="radio" id="contact-phone" name="contact" value="phone">
+            <label for="contact-phone">Phone</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-checkbox">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">Subscribe to newsletter</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Form</button>
+</form>
+
+<!-- Loading Spinner Component -->
+<div class="spinner-container">
+    <div class="spinner"></div>
+    <p class="spinner-text">Loading...</p>
+</div>
+
+<!-- Breadcrumb Component -->
+<nav class="breadcrumb">
+    <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+            <a href="/" class="breadcrumb-link">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/category" class="breadcrumb-link">Category</a>
+        </li>
+        <li class="breadcrumb-item active">
+            <span class="breadcrumb-current">Current Page</span>
+        </li>
+    </ol>
+</nav>
+
+<!-- Pagination Component -->
+<nav class="pagination">
+    <a href="#" class="pagination-link pagination-prev" aria-label="Previous page">‹ Previous</a>
+    <div class="pagination-pages">
+        <a href="#" class="pagination-link">1</a>
+        <a href="#" class="pagination-link active">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <span class="pagination-ellipsis">...</span>
+        <a href="#" class="pagination-link">10</a>
+    </div>
+    <a href="#" class="pagination-link pagination-next" aria-label="Next page">Next ›</a>
+</nav>
+
+<!-- Footer Component -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Company</h3>
+                <ul class="footer-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="/web-design">Web Design</a></li>
+                    <li><a href="/development">Development</a></li>
+                    <li><a href="/consulting">Consulting</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Connect</h3>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                    <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

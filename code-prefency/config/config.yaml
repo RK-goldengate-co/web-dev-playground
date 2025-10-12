@@ -1,0 +1,291 @@
+# User Management System Configuration
+# YAML format for better readability and structure
+
+# Application Information
+app:
+  name: "User Management System"
+  version: "1.0.0"
+  description: "Modern user management application with multiple technology stacks"
+  author: "Code Prefency Team"
+  license: "MIT"
+
+# Server Configuration
+server:
+  host: "localhost"
+  port: 8000
+  environment: "development"
+  debug: true
+
+  # CORS settings
+  cors:
+    origins:
+      - "*"
+    methods:
+      - "GET"
+      - "POST"
+      - "PUT"
+      - "DELETE"
+      - "OPTIONS"
+    headers:
+      - "Content-Type"
+      - "Authorization"
+
+# Database Configuration
+database:
+  type: "postgresql"
+  host: "localhost"
+  port: 5432
+  name: "user_management"
+  username: "postgres"
+  password: "${DB_PASSWORD}"
+  ssl: false
+
+  # Connection pool settings
+  pool:
+    min: 2
+    max: 10
+    timeout: 30
+
+# Authentication & Security
+authentication:
+  jwt:
+    secret: "${JWT_SECRET}"
+    expires_in: "24h"
+    refresh_token_expires_in: "7d"
+
+  session:
+    secret: "${SESSION_SECRET}"
+    max_age: 86400000  # 24 hours in milliseconds
+    secure: false
+    http_only: true
+
+# Email Configuration
+email:
+  smtp:
+    host: "smtp.gmail.com"
+    port: 587
+    secure: false
+    auth:
+      user: "${SMTP_USER}"
+      pass: "${SMTP_PASSWORD}"
+
+  from: "noreply@example.com"
+
+  templates:
+    welcome: "templates/welcome.html"
+    password_reset: "templates/password-reset.html"
+
+# Logging Configuration
+logging:
+  level: "info"
+  file: "logs/app.log"
+  max_size: "10m"
+  max_files: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Cache Configuration
+cache:
+  redis:
+    host: "localhost"
+    port: 6379
+    password: "${REDIS_PASSWORD}"
+    db: 0
+  ttl: 3600  # 1 hour in seconds
+
+# Feature Flags
+features:
+  user_registration: true
+  email_verification: true
+  password_reset: true
+  two_factor_auth: false
+  audit_logging: true
+  rate_limiting: true
+  file_upload: true
+  api_documentation: true
+
+# Limits and Constraints
+limits:
+  max_users_per_page: 50
+  max_file_size: "5MB"
+  max_request_size: "10MB"
+  rate_limit_window: 15  # minutes
+  rate_limit_max: 100    # requests per window
+
+# Supported Languages
+supported_languages:
+  - "en"
+  - "vi"
+  - "fr"
+  - "de"
+  - "es"
+  - "ja"
+  - "ko"
+
+# Theme Configurations
+themes:
+  light:
+    primary: "#007bff"
+    secondary: "#6c757d"
+    success: "#28a745"
+    danger: "#dc3545"
+    warning: "#ffc107"
+    info: "#17a2b8"
+    background: "#ffffff"
+    text: "#212529"
+
+  dark:
+    primary: "#0d6efd"
+    secondary: "#6c757d"
+    success: "#198754"
+    danger: "#dc3545"
+    warning: "#ffc107"
+    info: "#0dcaf0"
+    background: "#212529"
+    text: "#ffffff"
+
+# API Configuration
+api:
+  version: "v1"
+  base_path: "/api/v1"
+  endpoints:
+    users: "/users"
+    auth: "/auth"
+    admin: "/admin"
+
+# Monitoring and Observability
+monitoring:
+  enabled: true
+  metrics: true
+  health_check: "/health"
+  metrics_endpoint: "/metrics"
+
+  prometheus:
+    enabled: false
+    port: 9090
+
+# Deployment Configuration
+deployment:
+  environment: "development"
+
+  docker:
+    enabled: false
+    registry: "myregistry.com"
+    image: "user-management-api"
+
+  kubernetes:
+    enabled: false
+    namespace: "production"
+    replicas: 3
+
+# Development Settings
+development:
+  hot_reload: true
+  auto_restart: true
+  debug_mode: true
+  mock_data: true
+  test_database: true
+
+# Security Settings
+security:
+  helmet: true
+  cors: true
+  rate_limiting: true
+  input_validation: true
+  sql_injection_protection: true
+  xss_protection: true
+  csrf_protection: false
+  https_enforcement: false
+  hsts: false
+
+# Third-party Integrations
+integrations:
+  stripe:
+    enabled: false
+    public_key: "${STRIPE_PUBLIC_KEY}"
+    secret_key: "${STRIPE_SECRET_KEY}"
+
+  sendgrid:
+    enabled: false
+    api_key: "${SENDGRID_API_KEY}"
+
+  slack:
+    enabled: false
+    webhook_url: "${SLACK_WEBHOOK_URL}"
+
+# Backup Configuration
+backup:
+  enabled: true
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  retention_days: 30
+  provider: "local"
+  path: "./backups"
+
+# Performance Settings
+performance:
+  compression: true
+  caching: true
+  minification: true
+  cdn: false
+  lazy_loading: true
+
+# Testing Configuration
+testing:
+  unit_tests: true
+  integration_tests: true
+  e2e_tests: false
+  coverage_threshold: 80
+  framework: "jest"
+
+# User Roles and Permissions
+user_roles:
+  admin:
+    permissions:
+      - "user.create"
+      - "user.read"
+      - "user.update"
+      - "user.delete"
+      - "system.config"
+      - "audit.read"
+
+  moderator:
+    permissions:
+      - "user.read"
+      - "user.update"
+      - "audit.read"
+
+  user:
+    permissions:
+      - "profile.read"
+      - "profile.update"
+
+# API Rate Limits by Role
+rate_limits:
+  admin:
+    requests_per_minute: 1000
+    burst_limit: 100
+
+  moderator:
+    requests_per_minute: 500
+    burst_limit: 50
+
+  user:
+    requests_per_minute: 100
+    burst_limit: 20
+
+# Error Handling
+error_handling:
+  log_errors: true
+  notify_admin: true
+  fallback_responses: true
+  graceful_shutdown: true
+
+# Internationalization
+i18n:
+  default_locale: "en"
+  supported_locales:
+    - "en"
+    - "vi"
+    - "fr"
+    - "de"
+    - "es"
+  fallback_locale: "en"

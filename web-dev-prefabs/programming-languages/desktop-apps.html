@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💻 Desktop Applications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .tech-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .tech-description {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "💻 ";
+            font-weight: bold;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .beginner { background: #d4edda; color: #155724; }
+        .intermediate { background: #fff3cd; color: #856404; }
+        .advanced { background: #f8d7da; color: #721c24; }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>💻 Ứng dụng máy tính (Desktop)</h1>
+            <p>Các công nghệ phát triển phần mềm cho máy tính cá nhân</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- C/C++ -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">⚡</span>
+                    <div>
+                        <h2 class="tech-title">C/C++</h2>
+                        <span class="difficulty-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>C/C++</strong> là ngôn ngữ lập trình hệ thống truyền thống với hiệu năng cao và khả năng kiểm soát phần cứng tốt.
+                </div>
+                <div class="features-list">
+                    <li>Hiệu năng cao và tối ưu</li>
+                    <li>Truy cập trực tiếp hardware</li>
+                    <li>Portable cross-platform</li>
+                    <li>Large ecosystem và libraries</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// C++ Console Application
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string name;
+
+    std::cout &lt;&lt; "Nhập tên của bạn: ";
+    std::getline(std::cin, name);
+
+    std::cout &lt;&lt; "Xin chào, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; std::endl;
+
+    return 0;
+}</code></pre>
+                </div>
+                <a href="https://isocpp.org/" class="cta-button" target="_blank">Học C++</a>
+            </div>
+
+            <!-- Python (PyQt) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🐍</span>
+                    <div>
+                        <h2 class="tech-title">Python (PyQt)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>PyQt</strong> là binding Python cho Qt framework, cho phép tạo GUI applications mạnh mẽ và cross-platform.
+                </div>
+                <div class="features-list">
+                    <li>Cross-platform GUI development</li>
+                    <li>Rich set of widgets</li>
+                    <li>Signal-slot mechanism</li>
+                    <li>Integration với Qt Designer</li>
+                </div>
+                <div class="code-example">
+                    <pre><code># PyQt Desktop Application
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
+
+class MyWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle('PyQt App')
+        self.setGeometry(100, 100, 300, 200)
+
+        self.button = QPushButton('Click me!', self)
+        self.button.clicked.connect(self.on_click)
+        self.button.move(100, 80)
+
+    def on_click(self):
+        print('Button clicked!')
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = MyWindow()
+    window.show()
+    sys.exit(app.exec_())</code></pre>
+                </div>
+                <a href="https://www.riverbankcomputing.com/software/pyqt/" class="cta-button" target="_blank">Học PyQt</a>
+            </div>
+
+            <!-- C# (WPF) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🔷</span>
+                    <div>
+                        <h2 class="tech-title">C# (WPF)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>WPF (Windows Presentation Foundation)</strong> là framework của Microsoft để xây dựng desktop applications trên Windows.
+                </div>
+                <div class="features-list">
+                    <li>Rich XAML-based UI</li>
+                    <li>Data binding và MVVM pattern</li>
+                    <li>Hardware acceleration</li>
+                    <li>Styling và theming support</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// WPF C# Application (XAML + C#)
+// MainWindow.xaml.cs
+using System.Windows;
+
+namespace MyWpfApp {
+    public partial class MainWindow : Window {
+        public MainWindow() {
+            InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            MessageBox.Show("Hello from WPF!");
+        }
+    }
+}</code></pre>
+                </div>
+                <a href="https://docs.microsoft.com/en-us/dotnet/desktop/wpf/" class="cta-button" target="_blank">Học WPF</a>
+            </div>
+
+            <!-- Electron (JavaScript) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🌐</span>
+                    <div>
+                        <h2 class="tech-title">Electron (JavaScript)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Electron</strong> cho phép bạn xây dựng desktop applications sử dụng công nghệ web (HTML, CSS, JavaScript).
+                </div>
+                <div class="features-list">
+                    <li>Web technologies cho desktop</li>
+                    <li>Cross-platform deployment</li>
+                    <li>Access to native APIs</li>
+                    <li>Large ecosystem với npm</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Electron main process
+const { app, BrowserWindow } = require('electron');
+
+function createWindow() {
+    const win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+
+    win.loadFile('index.html');
+}
+
+app.whenReady().then(createWindow);
+
+// Renderer process (index.html)
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello from Electron!&lt;/h1&gt;
+    &lt;button onclick="alert('Desktop app!')"&gt;Click me&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <a href="https://www.electronjs.org/" class="cta-button" target="_blank">Học Electron</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>💻 Tạo ứng dụng desktop mạnh mẽ với các công nghệ hiện đại!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tech-card');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

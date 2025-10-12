@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Page</title>
+    <link rel="stylesheet" href="product.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="index.html">Trang chủ</a>
+            <span>/</span>
+            <a href="category.html">Điện thoại</a>
+            <span>/</span>
+            <span>iPhone 15 Pro Max</span>
+        </nav>
+
+        <!-- Product Main Section -->
+        <div class="product-main">
+            <!-- Product Images -->
+            <div class="product-images">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&h=600&fit=crop" alt="iPhone 15 Pro Max" id="mainProductImage">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=100&h=100&fit=crop" alt="iPhone 15 Pro Max" class="thumbnail active" onclick="changeImage(this.src)">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=100&h=100&fit=crop" alt="iPhone 15 Pro Max" class="thumbnail" onclick="changeImage(this.src)">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="iPhone 15 Pro Max" class="thumbnail" onclick="changeImage(this.src)">
+                        <img src="https://images.unsplash.com/photo-1567721913486-6585f069b332?w=100&h=100&fit=crop" alt="iPhone 15 Pro Max" class="thumbnail" onclick="changeImage(this.src)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Information -->
+            <div class="product-info">
+                <div class="product-header">
+                    <h1 class="product-title">iPhone 15 Pro Max</h1>
+                    <div class="product-rating">
+                        <div class="stars">
+                            ★★★★★ <span class="rating-text">(4.8/5 - 2,341 đánh giá)</span>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">32.990.000₫</span>
+                        <span class="original-price">34.990.000₫</span>
+                        <span class="discount">-6%</span>
+                    </div>
+                </div>
+
+                <!-- Product Options -->
+                <div class="product-options">
+                    <!-- Storage Options -->
+                    <div class="option-group">
+                        <label class="option-label">Dung lượng:</label>
+                        <div class="option-buttons">
+                            <button class="option-btn active" data-value="128gb">128GB</button>
+                            <button class="option-btn" data-value="256gb">256GB</button>
+                            <button class="option-btn" data-value="512gb">512GB</button>
+                            <button class="option-btn" data-value="1tb">1TB</button>
+                        </div>
+                    </div>
+
+                    <!-- Color Options -->
+                    <div class="option-group">
+                        <label class="option-label">Màu sắc:</label>
+                        <div class="color-options">
+                            <div class="color-option active" data-color="titanium-natural" style="background: linear-gradient(135deg, #8B7355, #A0905A);"></div>
+                            <div class="color-option" data-color="titanium-blue" style="background: linear-gradient(135deg, #4A5568, #2D3748);"></div>
+                            <div class="color-option" data-color="titanium-white" style="background: linear-gradient(135deg, #F7FAFC, #EDF2F7);"></div>
+                            <div class="color-option" data-color="titanium-black" style="background: linear-gradient(135deg, #2D3748, #1A202C);"></div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="option-group">
+                        <label class="option-label">Số lượng:</label>
+                        <div class="quantity-selector">
+                            <button class="qty-btn" onclick="changeQuantity(-1)">-</button>
+                            <input type="number" value="1" min="1" max="10" class="qty-input" id="quantityInput">
+                            <button class="qty-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-primary btn-add-to-cart">
+                        <span class="btn-icon">🛒</span>
+                        Thêm vào giỏ hàng
+                    </button>
+                    <button class="btn btn-secondary btn-buy-now">
+                        <span class="btn-icon">⚡</span>
+                        Mua ngay
+                    </button>
+                    <button class="btn btn-wishlist" onclick="toggleWishlist()">
+                        <span class="btn-icon">❤️</span>
+                        Yêu thích
+                    </button>
+                </div>
+
+                <!-- Product Details -->
+                <div class="product-details">
+                    <div class="detail-section">
+                        <h3>Thông số kỹ thuật</h3>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Màn hình:</span>
+                                <span class="spec-value">6.7 inch Super Retina XDR OLED</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Chip:</span>
+                                <span class="spec-value">A17 Pro</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Camera:</span>
+                                <span class="spec-value">48MP Triple Camera</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Pin:</span>
+                                <span class="spec-value">4,422 mAh</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">OS:</span>
+                                <span class="spec-value">iOS 17</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Kích thước:</span>
+                                <span class="spec-value">159.9 x 76.7 x 8.25 mm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Mô tả sản phẩm</h3>
+                        <div class="description">
+                            <p>iPhone 15 Pro Max là chiếc điện thoại cao cấp nhất của Apple với thiết kế titan cao cấp, màn hình Super Retina XDR 6.7 inch và chip A17 Pro mạnh mẽ.</p>
+
+                            <h4>Tính năng nổi bật:</h4>
+                            <ul>
+                                <li>Thiết kế titan aerospace-grade với khung viền mỏng</li>
+                                <li>Hệ thống camera Pro với khả năng chụp ảnh chuyên nghiệp</li>
+                                <li>Chip A17 Pro với Neural Engine thế hệ mới</li>
+                                <li>Pin sử dụng cả ngày với sạc nhanh</li>
+                                <li>Tính năng Action Button có thể tùy chỉnh</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <h2>Sản phẩm liên quan</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=300&fit=crop" alt="iPhone 15 Pro">
+                    <div class="product-card-info">
+                        <h3>iPhone 15 Pro</h3>
+                        <p class="price">28.990.000₫</p>
+                        <button class="btn btn-outline">Xem chi tiết</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="iPhone 15">
+                    <div class="product-card-info">
+                        <h3>iPhone 15</h3>
+                        <p class="price">22.990.000₫</p>
+                        <button class="btn btn-outline">Xem chi tiết</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1567721913486-6585f069b332?w=300&h=300&fit=crop" alt="iPhone 14 Pro Max">
+                    <div class="product-card-info">
+                        <h3>iPhone 14 Pro Max</h3>
+                        <p class="price">26.990.000₫</p>
+                        <button class="btn btn-outline">Xem chi tiết</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=300&h=300&fit=crop" alt="Samsung Galaxy S24">
+                    <div class="product-card-info">
+                        <h3>Samsung Galaxy S24 Ultra</h3>
+                        <p class="price">31.990.000₫</p>
+                        <button class="btn btn-outline">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification" id="successNotification">
+        <div class="notification-content">
+            <span class="notification-icon">✓</span>
+            <span class="notification-message">Đã thêm vào giỏ hàng!</span>
+        </div>
+    </div>
+
+    <script src="product.js"></script>
+</body>
+</html>

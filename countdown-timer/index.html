@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng hồ đếm ngược</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Đồng hồ đếm ngược</h1>
+        <div class="input-section">
+            <label for="hours">Giờ:</label>
+            <input type="number" id="hours" min="0" value="0">
+            <label for="minutes">Phút:</label>
+            <input type="number" id="minutes" min="0" max="59" value="0">
+            <label for="seconds">Giây:</label>
+            <input type="number" id="seconds" min="0" max="59" value="10">
+            <button id="start">Bắt đầu</button>
+            <button id="reset">Đặt lại</button>
+        </div>
+        <div class="timer" id="timer">
+            <span id="display">00:00:10</span>
+        </div>
+        <audio id="alarm" src="alarm.mp3" preload="auto"></audio> <!-- Thêm file âm thanh nếu muốn -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

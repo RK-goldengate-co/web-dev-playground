@@ -1,0 +1,230 @@
+{
+  "name": "User Management System",
+  "version": "1.0.0",
+  "description": "Modern user management application with multiple technology stacks",
+  "author": "Code Prefency Team",
+  "license": "MIT",
+
+  "server": {
+    "host": "localhost",
+    "port": 8000,
+    "environment": "development",
+    "debug": true,
+    "cors": {
+      "origins": ["*"],
+      "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      "headers": ["Content-Type", "Authorization"]
+    }
+  },
+
+  "database": {
+    "type": "postgresql",
+    "host": "localhost",
+    "port": 5432,
+    "name": "user_management",
+    "username": "postgres",
+    "password": "${DB_PASSWORD}",
+    "ssl": false,
+    "pool": {
+      "min": 2,
+      "max": 10,
+      "timeout": 30
+    }
+  },
+
+  "authentication": {
+    "jwt": {
+      "secret": "${JWT_SECRET}",
+      "expiresIn": "24h",
+      "refreshTokenExpiresIn": "7d"
+    },
+    "session": {
+      "secret": "${SESSION_SECRET}",
+      "maxAge": 86400000,
+      "secure": false,
+      "httpOnly": true
+    }
+  },
+
+  "email": {
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "auth": {
+        "user": "${SMTP_USER}",
+        "pass": "${SMTP_PASSWORD}"
+      }
+    },
+    "from": "noreply@example.com",
+    "templates": {
+      "welcome": "templates/welcome.html",
+      "passwordReset": "templates/password-reset.html"
+    }
+  },
+
+  "logging": {
+    "level": "info",
+    "file": "logs/app.log",
+    "maxSize": "10m",
+    "maxFiles": 5,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+
+  "cache": {
+    "redis": {
+      "host": "localhost",
+      "port": 6379,
+      "password": "${REDIS_PASSWORD}",
+      "db": 0
+    },
+    "ttl": 3600
+  },
+
+  "features": {
+    "userRegistration": true,
+    "emailVerification": true,
+    "passwordReset": true,
+    "twoFactorAuth": false,
+    "auditLogging": true,
+    "rateLimiting": true,
+    "fileUpload": true,
+    "apiDocumentation": true
+  },
+
+  "limits": {
+    "maxUsersPerPage": 50,
+    "maxFileSize": "5MB",
+    "maxRequestSize": "10MB",
+    "rateLimitWindow": 15,
+    "rateLimitMax": 100
+  },
+
+  "supportedLanguages": [
+    "en",
+    "vi",
+    "fr",
+    "de",
+    "es",
+    "ja",
+    "ko"
+  ],
+
+  "themes": {
+    "light": {
+      "primary": "#007bff",
+      "secondary": "#6c757d",
+      "success": "#28a745",
+      "danger": "#dc3545",
+      "warning": "#ffc107",
+      "info": "#17a2b8",
+      "background": "#ffffff",
+      "text": "#212529"
+    },
+    "dark": {
+      "primary": "#0d6efd",
+      "secondary": "#6c757d",
+      "success": "#198754",
+      "danger": "#dc3545",
+      "warning": "#ffc107",
+      "info": "#0dcaf0",
+      "background": "#212529",
+      "text": "#ffffff"
+    }
+  },
+
+  "api": {
+    "version": "v1",
+    "basePath": "/api/v1",
+    "endpoints": {
+      "users": "/users",
+      "auth": "/auth",
+      "admin": "/admin"
+    }
+  },
+
+  "monitoring": {
+    "enabled": true,
+    "metrics": true,
+    "healthCheck": "/health",
+    "metricsEndpoint": "/metrics",
+    "prometheus": {
+      "enabled": false,
+      "port": 9090
+    }
+  },
+
+  "deployment": {
+    "environment": "development",
+    "docker": {
+      "enabled": false,
+      "registry": "myregistry.com",
+      "image": "user-management-api"
+    },
+    "kubernetes": {
+      "enabled": false,
+      "namespace": "production",
+      "replicas": 3
+    }
+  },
+
+  "development": {
+    "hotReload": true,
+    "autoRestart": true,
+    "debugMode": true,
+    "mockData": true,
+    "testDatabase": true
+  },
+
+  "security": {
+    "helmet": true,
+    "cors": true,
+    "rateLimiting": true,
+    "inputValidation": true,
+    "sqlInjection": true,
+    "xss": true,
+    "csrf": false,
+    "https": false,
+    "hsts": false
+  },
+
+  "integrations": {
+    "stripe": {
+      "enabled": false,
+      "publicKey": "${STRIPE_PUBLIC_KEY}",
+      "secretKey": "${STRIPE_SECRET_KEY}"
+    },
+    "sendgrid": {
+      "enabled": false,
+      "apiKey": "${SENDGRID_API_KEY}"
+    },
+    "slack": {
+      "enabled": false,
+      "webhook": "${SLACK_WEBHOOK_URL}"
+    }
+  },
+
+  "backup": {
+    "enabled": true,
+    "schedule": "0 2 * * *",
+    "retention": 30,
+    "provider": "local",
+    "path": "./backups"
+  },
+
+  "performance": {
+    "compression": true,
+    "caching": true,
+    "minification": true,
+    "cdn": false,
+    "lazyLoading": true
+  },
+
+  "testing": {
+    "unit": true,
+    "integration": true,
+    "e2e": false,
+    "coverage": 80,
+    "framework": "jest"
+  }
+}

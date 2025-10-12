@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕹️ Lập trình Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .tech-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .tech-description {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "🕹️ ";
+            font-weight: bold;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .beginner { background: #d4edda; color: #155724; }
+        .intermediate { background: #fff3cd; color: #856404; }
+        .advanced { background: #f8d7da; color: #721c24; }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🕹️ Lập trình Game</h1>
+            <p>Tạo ra những trò chơi hấp dẫn với các engine và ngôn ngữ chuyên dụng</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- C# (Unity) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🎮</span>
+                    <div>
+                        <h2 class="tech-title">C# (Unity)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Unity</strong> là game engine phổ biến nhất hiện nay, sử dụng C# làm ngôn ngữ chính.
+                </div>
+                <div class="features-list">
+                    <li>2D và 3D game development</li>
+                    <li>Asset Store với hàng nghìn resources</li>
+                    <li>Cross-platform deployment</li>
+                    <li>Visual scripting với Bolt</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Unity C# Script
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public float speed = 5f;
+    private Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent&lt;Rigidbody&gt;();
+    }
+
+    void Update()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        rb.AddForce(movement * speed);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            Debug.Log("Game Over!");
+        }
+    }
+}</code></pre>
+                </div>
+                <a href="https://unity.com/" class="cta-button" target="_blank">Học Unity</a>
+            </div>
+
+            <!-- C++ (Unreal Engine) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">⚡</span>
+                    <div>
+                        <h2 class="tech-title">C++ (Unreal Engine)</h2>
+                        <span class="difficulty-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Unreal Engine</strong> là game engine chuyên nghiệp với đồ họa đỉnh cao, sử dụng C++.
+                </div>
+                <div class="features-list">
+                    <li>High-end graphics và visual effects</li>
+                    <li>Blueprint visual scripting</li>
+                    <li>Multiplayer networking</li>
+                    <li>VR/AR development support</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Unreal Engine C++ Actor
+#include "GameFramework/Actor.h"
+#include "MyActor.generated.h"
+
+UCLASS()
+class MYGAME_API AMyActor : public AActor
+{
+    GENERATED_BODY()
+
+public:
+    AMyActor();
+
+    virtual void BeginPlay() override;
+    virtual void Tick(float DeltaTime) override;
+
+    UPROPERTY(EditAnywhere)
+    float Speed = 100.0f;
+
+private:
+    void Move(float DeltaTime);
+};</code></pre>
+                </div>
+                <a href="https://www.unrealengine.com/" class="cta-button" target="_blank">Học Unreal Engine</a>
+            </div>
+
+            <!-- Godot Engine -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🎯</span>
+                    <div>
+                        <h2 class="tech-title">Godot Engine</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Godot</strong> là game engine open-source mạnh mẽ với giao diện thân thiện.
+                </div>
+                <div class="features-list">
+                    <li>Completely free và open-source</li>
+                    <li>GDScript (Python-like syntax)</li>
+                    <li>2D và 3D development</li>
+                    <li>Built-in physics engine</li>
+                </div>
+                <div class="code-example">
+                    <pre><code># Godot GDScript
+extends KinematicBody2D
+
+export var speed = 200
+
+func _physics_process(delta):
+    var velocity = Vector2()
+
+    if Input.is_action_pressed("ui_right"):
+        velocity.x += 1
+    if Input.is_action_pressed("ui_left"):
+        velocity.x -= 1
+    if Input.is_action_pressed("ui_down"):
+        velocity.y += 1
+    if Input.is_action_pressed("ui_up"):
+        velocity.y -= 1
+
+    velocity = velocity.normalized() * speed
+    move_and_slide(velocity)
+
+func _on_Area2D_body_entered(body):
+    if body.is_in_group("enemies"):
+        get_tree().reload_current_scene()</code></pre>
+                </div>
+                <a href="https://godotengine.org/" class="cta-button" target="_blank">Học Godot</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>🕹️ Tạo nên những trò chơi tuyệt vời và hấp dẫn người chơi!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tech-card');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

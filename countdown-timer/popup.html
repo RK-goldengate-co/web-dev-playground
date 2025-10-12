@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popup Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top bar giống macOS với 3 circles và nút resize -->
+    <div class="top-bar">
+        <div class="circles">
+            <div class="circle red"></div>
+            <div class="circle yellow"></div>
+            <div class="circle green"></div>
+        </div>
+        <div class="resize-buttons">
+            <button class="resize-btn" id="increaseSize">+</button>
+            <button class="resize-btn" id="decreaseSize">-</button>
+        </div>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="content">
+        <!-- Large digital timer -->
+        <div class="timer-display" id="timerDisplay">02:00</div>
+
+        <!-- Input để set countdown -->
+        <div class="input-section">
+            <input type="text" class="input-field" id="timeInput" placeholder="10m, 1h..." value="10m">
+        </div>
+    </div>
+
+    <!-- Tên nguồn RK ở góc dưới -->
+    <div class="source-name">RK</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

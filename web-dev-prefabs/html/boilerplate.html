@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mô tả ngắn gọn về trang web của bạn">
+    <meta name="keywords" content="từ khóa, phân cách, bằng dấu phẩy">
+    <meta name="author" content="Tên tác giả">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tiêu đề trang web">
+    <meta property="og:description" content="Mô tả cho mạng xã hội">
+    <meta property="og:image" content="đường-dẫn-đến-ảnh">
+    <meta property="og:url" content="https://yourwebsite.com">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tiêu đề trang web">
+    <meta name="twitter:description" content="Mô tả cho Twitter">
+    <meta name="twitter:image" content="đường-dẫn-đến-ảnh">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <title>Tiêu đề trang web</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#4267B2">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Bỏ qua đến nội dung chính</a>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="/" class="logo">Logo</a>
+            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/" class="nav-link active">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/services" class="nav-link">Dịch vụ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link">Liên hệ</a>
+                </li>
+            </ul>
+            <button class="navbar-toggler" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <!-- Nội dung chính của bạn ở đây -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liên hệ</h3>
+                <p>Email: contact@example.com</p>
+                <p>Điện thoại: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Theo dõi chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tên công ty. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Service Worker for PWA (tùy chọn) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+</body>
+</html>

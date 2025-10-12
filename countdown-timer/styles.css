@@ -1,0 +1,93 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+    width: 200px; /* Giảm từ 250px */
+    height: 150px; /* Giảm từ 200px xuống 150px để rút gọn dọc tối đa */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    resize: both; /* Thêm tính năng resize */
+    overflow: hidden; /* Ẩn overflow khi resize */
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1px; /* Giảm từ 2px để rút gọn dọc tối đa */
+    background: rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.circles {
+    display: flex;
+    gap: 1px; /* Giảm từ 3px để compact */
+}
+
+.circle {
+    width: 6px; /* Giảm từ 8px để rút gọn tối đa */
+    height: 6px; /* Giảm từ 8px để rút gọn tối đa */
+    border-radius: 50%;
+}
+
+.circle.red { background-color: #ff5f57; }
+.circle.yellow { background-color: #ffbd2e; }
+.circle.green { background-color: #28ca42; }
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px; /* Giảm từ 5px để rút gọn dọc tối đa */
+}
+
+.timer-display {
+    font-size: 24px; /* Giảm từ 30px để rút gọn dọc tối đa */
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0; /* Loại bỏ margin để compact */
+    text-align: center;
+}
+
+.input-section {
+    text-align: center;
+}
+
+.input-field {
+    font-size: 8px; /* Giảm từ 10px để rút gọn dọc tối đa */
+    padding: 1px 2px; /* Giảm padding tối đa */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 180px;
+    outline: none;
+}
+
+.resize-buttons {
+    display: flex;
+    gap: 1px; /* Giảm từ 2px để compact tối đa */
+}
+
+.resize-btn {
+    background: none;
+    border: none;
+    font-size: 10px; /* Giảm từ 12px để rút gọn */
+    color: #666;
+    cursor: pointer;
+    padding: 1px 2px; /* Giảm padding tối đa */
+    border-radius: 2px;
+}
+
+.source-name {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 8px;
+    color: #999;
+    font-weight: normal;
+}

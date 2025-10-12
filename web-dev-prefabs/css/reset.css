@@ -1,0 +1,226 @@
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default styling from lists */
+ol,
+ul {
+    list-style: none;
+}
+
+/* Remove default styling from buttons */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Remove default styling from form elements */
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+/* Remove default styling from links */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove default styling from tables */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Improve form element styling */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+/* Improve button and input styling in Firefox */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/* Remove default styling from details/summary */
+details > summary {
+    list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Improve focus styles for accessibility */
+:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+/* Improve focus styles for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Improve text rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Improve line height for better readability */
+p,
+li,
+figcaption {
+    max-width: 65ch;
+}
+
+/* Improve code styling */
+code,
+kbd,
+samp,
+pre {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-size: 0.875em;
+}
+
+/* Improve abbr styling */
+abbr[title] {
+    text-decoration: underline;
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/* Improve button styling */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+/* Improve disabled button styling */
+button:disabled,
+input:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Improve fieldset styling */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Improve legend styling */
+legend {
+    padding: 0;
+}
+
+/* Improve textarea styling */
+textarea {
+    resize: vertical;
+}
+
+/* Improve select styling */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23666' d='m2 0-2 2h4zm0 5 2-2h-4z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 0.65em auto;
+    padding-right: 2rem;
+}
+
+/* Improve option styling */
+option {
+    padding: 0;
+}
+
+/* Improve hr styling */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 1rem 0;
+}
+
+/* Improve blockquote styling */
+blockquote {
+    border-left: 4px solid #0066cc;
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+}
+
+/* Improve figure styling */
+figure {
+    margin: 0;
+}
+
+/* Improve figcaption styling */
+figcaption {
+    font-size: 0.875em;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5rem;
+}

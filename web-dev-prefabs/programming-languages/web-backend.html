@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐 Lập trình Web Backend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .tech-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .tech-description {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "⚙️ ";
+            font-weight: bold;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .beginner { background: #d4edda; color: #155724; }
+        .intermediate { background: #fff3cd; color: #856404; }
+        .advanced { background: #f8d7da; color: #721c24; }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌐 Lập trình Web Backend</h1>
+            <p>Các công nghệ xử lý phía máy chủ và xây dựng API</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Node.js -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🟢</span>
+                    <div>
+                        <h2 class="tech-title">Node.js</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Node.js</strong> là runtime environment JavaScript chạy trên server, cho phép sử dụng JS cho backend development.
+                </div>
+                <div class="features-list">
+                    <li>JavaScript trên server-side</li>
+                    <li>Non-blocking I/O và event-driven</li>
+                    <li>Large ecosystem với npm</li>
+                    <li>Real-time applications với Socket.io</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Node.js + Express cơ bản
+const express = require('express');
+const app = express();
+
+app.get('/api/users', (req, res) => {
+    res.json([
+        { id: 1, name: 'Nguyễn Văn A' },
+        { id: 2, name: 'Trần Thị B' }
+    ]);
+});
+
+app.listen(3000, () => {
+    console.log('Server đang chạy trên port 3000');
+});</code></pre>
+                </div>
+                <a href="https://nodejs.org/" class="cta-button" target="_blank">Học Node.js</a>
+            </div>
+
+            <!-- Python (Django) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🐍</span>
+                    <div>
+                        <h2 class="tech-title">Python (Django)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Django</strong> là framework web Python high-level, giúp phát triển ứng dụng web nhanh chóng và an toàn.
+                </div>
+                <div class="features-list">
+                    <li>"Batteries included" philosophy</li>
+                    <li>ORM tích hợp (Django ORM)</li>
+                    <li>Admin interface tự động</li>
+                    <li>Built-in security features</li>
+                </div>
+                <div class="code-example">
+                    <pre><code># Django View cơ bản
+from django.http import JsonResponse
+
+def get_users(request):
+    users = [
+        {'id': 1, 'name': 'Nguyễn Văn A'},
+        {'id': 2, 'name': 'Trần Thị B'}
+    ]
+    return JsonResponse(users, safe=False)
+
+# URL pattern
+path('api/users/', get_users, name='get_users')</code></pre>
+                </div>
+                <a href="https://www.djangoproject.com/" class="cta-button" target="_blank">Học Django</a>
+            </div>
+
+            <!-- PHP (Laravel) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🐘</span>
+                    <div>
+                        <h2 class="tech-title">PHP (Laravel)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Laravel</strong> là framework PHP phổ biến, giúp xây dựng ứng dụng web hiện đại với syntax đẹp và dễ hiểu.
+                </div>
+                <div class="features-list">
+                    <li>Eloquent ORM mạnh mẽ</li>
+                    <li>Artisan CLI tool</li>
+                    <li>Built-in authentication</li>
+                    <li>Blade templating engine</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Laravel Route và Controller
+Route::get('/users', [UserController::class, 'index']);
+
+class UserController extends Controller
+{
+    public function index()
+    {
+        $users = User::all();
+        return response()->json($users);
+    }
+}</code></pre>
+                </div>
+                <a href="https://laravel.com/" class="cta-button" target="_blank">Học Laravel</a>
+            </div>
+
+            <!-- Java (Spring Boot) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">☕</span>
+                    <div>
+                        <h2 class="tech-title">Java (Spring Boot)</h2>
+                        <span class="difficulty-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Spring Boot</strong> giúp tạo ứng dụng Java độc lập, dễ sản xuất với cấu hình tối thiểu.
+                </div>
+                <div class="features-list">
+                    <li>Auto-configuration</li>
+                    <li>Standalone applications</li>
+                    <li>Production-ready features</li>
+                    <li>Large enterprise ecosystem</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Spring Boot REST Controller
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @GetMapping
+    public List&lt;User&gt; getAllUsers() {
+        return userRepository.findAll();
+    }
+}</code></pre>
+                </div>
+                <a href="https://spring.io/projects/spring-boot" class="cta-button" target="_blank">Học Spring Boot</a>
+            </div>
+
+            <!-- C# (.NET Core) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🔷</span>
+                    <div>
+                        <h2 class="tech-title">C# (.NET Core)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>.NET Core</strong> là framework cross-platform của Microsoft để xây dựng ứng dụng web hiện đại.
+                </div>
+                <div class="features-list">
+                    <li>Cross-platform compatibility</li>
+                    <li>High performance</li>
+                    <li>Built-in dependency injection</li>
+                    <li>ASP.NET Core MVC/Web API</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// ASP.NET Core Web API
+[ApiController]
+[Route("api/[controller]")]
+public class UsersController : ControllerBase
+{
+    [HttpGet]
+    public IActionResult GetUsers()
+    {
+        var users = new List&lt;User&gt;();
+        return Ok(users);
+    }
+}</code></pre>
+                </div>
+                <a href="https://dotnet.microsoft.com/" class="cta-button" target="_blank">Học .NET Core</a>
+            </div>
+
+            <!-- Go (Golang) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🐹</span>
+                    <div>
+                        <h2 class="tech-title">Go (Golang)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Go (Golang)</strong> là ngôn ngữ lập trình đơn giản, hiệu năng cao được Google phát triển.
+                </div>
+                <div class="features-list">
+                    <li>Simple syntax và fast compilation</li>
+                    <li>Built-in concurrency (goroutines)</li>
+                    <li>Static typing với garbage collection</li>
+                    <li>Excellent for microservices</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Go HTTP server cơ bản
+package main
+
+import (
+    "encoding/json"
+    "net/http"
+)
+
+type User struct {
+    ID   int    `json:"id"`
+    Name string `json:"name"`
+}
+
+func getUsers(w http.ResponseWriter, r *http.Request) {
+    users := []User{
+        {ID: 1, Name: "Nguyễn Văn A"},
+        {ID: 2, Name: "Trần Thị B"},
+    }
+    json.NewEncoder(w).Encode(users)
+}
+
+func main() {
+    http.HandleFunc("/api/users", getUsers)
+    http.ListenAndServe(":8080", nil)
+}</code></pre>
+                </div>
+                <a href="https://golang.org/" class="cta-button" target="_blank">Học Go</a>
+            </div>
+
+            <!-- Rust -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🦀</span>
+                    <div>
+                        <h2 class="tech-title">Rust</h2>
+                        <span class="difficulty-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Rust</strong> là ngôn ngữ hệ thống tập trung vào hiệu năng cao và an toàn bộ nhớ.
+                </div>
+                <div class="features-list">
+                    <li>Memory safety without garbage collection</li>
+                    <li>Zero-cost abstractions</li>
+                    <li>Excellent performance</li>
+                    <li>Growing web ecosystem (Rocket, Axum)</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Rust web server với Axum
+use axum::{routing::get, Json, Router};
+use serde::Serialize;
+
+#[derive(Serialize)]
+struct User {
+    id: u32,
+    name: String,
+}
+
+async fn get_users() -> Json<Vec<User>> {
+    let users = vec![
+        User { id: 1, name: "Nguyễn Văn A".to_string() },
+        User { id: 2, name: "Trần Thị B".to_string() },
+    ];
+    Json(users)
+}
+
+#[tokio::main]
+async fn main() {
+    let app = Router::new()
+        .route("/api/users", get(get_users));
+
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000")
+        .await
+        .unwrap();
+
+    axum::serve(listener, app).await.unwrap();
+}</code></pre>
+                </div>
+                <a href="https://www.rust-lang.org/" class="cta-button" target="_blank">Học Rust</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>⚙️ Chọn ngôn ngữ backend phù hợp với dự án và kỹ năng của bạn!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tech-card');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Tech Company</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-code"></i> TechCorp</h1>
+                    <p>Innovative Technology Solutions</p>
+                </div>
+
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Trang chủ</a></li>
+                        <li><a href="services.html" class="nav-link">Dịch vụ</a></li>
+                        <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
+                        <li><a href="portfolio.html" class="nav-link">Dự án</a></li>
+                        <li><a href="contact.html" class="nav-link active">Liên hệ</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Liên hệ với chúng tôi</h1>
+                <p class="hero-subtitle">Hãy cùng nhau biến ý tưởng thành hiện thực</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Thông tin liên hệ</h2>
+                    <p>Hãy liên hệ với chúng tôi để được tư vấn và hỗ trợ tốt nhất</p>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Địa chỉ</h3>
+                                <p>123 Đường Công nghệ<br>Hà Nội, Việt Nam</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Điện thoại</h3>
+                                <p>+84 123 456 789<br>+84 987 654 321</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Email</h3>
+                                <p>info@techcorp.vn<br>sales@techcorp.vn</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Giờ làm việc</h3>
+                                <p>Thứ 2 - Thứ 6: 8:00 - 18:00<br>Thứ 7: 8:00 - 12:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.097!2d105.8342!3d21.0278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe3c2d865e1b9e7c!2zSGFub2ksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1640000000000!5m2!1sen!2s"
+                            width="100%"
+                            height="300"
+                            style="border:0; border-radius: 10px;"
+                            allowfullscreen=""
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Gửi tin nhắn</h2>
+                    <p>Chúng tôi sẽ phản hồi trong vòng 24 giờ</p>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Họ <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Tên <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Công ty</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Chủ đề <span class="required">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Chọn chủ đề</option>
+                                <option value="general">Tổng quát</option>
+                                <option value="web-development">Phát triển web</option>
+                                <option value="mobile-development">Phát triển mobile</option>
+                                <option value="consulting">Tư vấn</option>
+                                <option value="support">Hỗ trợ kỹ thuật</option>
+                                <option value="partnership">Hợp tác</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tin nhắn <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" placeholder="Hãy mô tả dự án hoặc câu hỏi của bạn..." required></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span class="checkmark"></span>
+                                Đăng ký nhận bản tin hàng tháng
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" id="terms" required>
+                                <span class="checkmark"></span>
+                                Tôi đồng ý với <a href="#" class="terms-link">điều khoản và chính sách</a> <span class="required">*</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Gửi tin nhắn</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Đang gửi...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Câu hỏi thường gặp</h2>
+                <p>Câu trả lời cho những câu hỏi phổ biến</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Làm thế nào để bắt đầu một dự án?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Để bắt đầu dự án, bạn có thể liên hệ với chúng tôi qua form trên hoặc gọi điện thoại. Chúng tôi sẽ tư vấn và đưa ra giải pháp phù hợp nhất cho nhu cầu của bạn.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Thời gian hoàn thành dự án là bao lâu?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Thời gian hoàn thành phụ thuộc vào độ phức tạp của dự án. Dự án đơn giản có thể hoàn thành trong 1-2 tuần, dự án phức tạp có thể mất 2-6 tháng.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Các công nghệ nào được sử dụng?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Chúng tôi sử dụng các công nghệ hiện đại như React, Vue.js, Node.js, Python, PHP, Java, .NET, React Native, Flutter, và nhiều công nghệ khác tùy theo yêu cầu dự án.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Có hỗ trợ sau khi hoàn thành dự án không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Có, chúng tôi cung cấp gói bảo trì và hỗ trợ sau khi hoàn thành dự án với các mức độ khác nhau tùy theo nhu cầu của khách hàng.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Làm thế nào để thanh toán?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Chúng tôi chấp nhận thanh toán qua chuyển khoản ngân hàng, thẻ tín dụng, và các phương thức thanh toán điện tử phổ biến khác.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Sẵn sàng bắt đầu dự án?</h2>
+                <p>Liên hệ với chúng tôi ngay hôm nay để nhận tư vấn miễn phí</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">Liên hệ ngay</button>
+                    <button class="btn btn-secondary">Gọi: +84 123 456 789</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><i class="fas fa-code"></i> TechCorp</h3>
+                        <p>Innovative Technology Solutions</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Dịch vụ</h4>
+                    <ul>
+                        <li><a href="#">Phát triển web</a></li>
+                        <li><a href="#">Ứng dụng mobile</a></li>
+                        <li><a href="#">AI & Machine Learning</a></li>
+                        <li><a href="#">DevOps & Cloud</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Dự án</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@techcorp.vn</p>
+                        <p><i class="fas fa-phone"></i> +84 123 456 789</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechCorp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+</html>
