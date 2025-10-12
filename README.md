@@ -26,6 +26,19 @@ web-dev-playground/
 │   ├── README.md                # Hướng dẫn chi tiết
 │   ├── run.bat                  # Script chạy trên Windows
 │   └── .gitignore               # Git ignore rules
+├── youtube-video-downloader-extension/ # 🎥 Chrome Extension tải video YouTube
+│   ├── manifest.json            # Cấu hình extension
+│   ├── popup.html               # Giao diện popup chính
+│   ├── popup.css                # Styling cho popup
+│   ├── popup.js                 # Logic xử lý popup
+│   ├── background.js            # Background script và API
+│   ├── content.js               # Content script cho YouTube
+│   ├── icons/                   # Icon files
+│   │   ├── icon16.png
+│   │   ├── icon32.png
+│   │   ├── icon48.png
+│   │   └── icon128.png
+│   └── README.md                # Hướng dẫn cài đặt và sử dụng
 ├── web-dev-prefabs/             # Bộ sưu tập web development
 │   ├── README.md
 │   ├── html/                    # HTML templates cơ bản
@@ -69,7 +82,8 @@ web-dev-playground/
 1. **Web Development Prefabs**: Bộ sưu tập các template, component và utilities sẵn sàng sử dụng
 2. **Programming Language References**: Các file mẫu định dạng cho nhiều ngôn ngữ lập trình khác nhau
 3. **Discord Bot Applications**: Các bot Discord chức năng cho cộng đồng và server management
-4. **Code Prefency Collection**: 📦 **Bộ sưu tập 67 files code mẫu thực tế** đã được tổ chức chuyên nghiệp:
+4. **Browser Extensions**: Các extension Chrome tiện ích cho trình duyệt
+5. **Code Prefency Collection**: 📦 **Bộ sưu tập 67 files code mẫu thực tế** đã được tổ chức chuyên nghiệp:
    - **Frontend**: 18 files (HTML, CSS, React, JavaScript)
    - **Backend**: 24 files (PHP, Java, C#, Go, Python)
    - **Mobile/Desktop**: 4 files (Kotlin Android, C++ Desktop)
@@ -125,6 +139,10 @@ cd discord-reaction-role-bot/
 python bot.py
 # hoặc trên Windows:
 ./run.bat
+
+# YouTube Video Downloader Extension
+# Cài đặt vào Chrome qua chrome://extensions/
+# Load thư mục youtube-video-downloader-extension/
 ```
 
 ### Programming Language References
