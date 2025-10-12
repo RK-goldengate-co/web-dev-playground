@@ -241,4 +241,4 @@ Nếu gặp vấn đề:
 
 **Happy Downloading! 🎬**
 
-*Made with ❤️ by RK Team - Web Dev Playground*
+*Made with ❤️ by RK - plus.ex-creative*
