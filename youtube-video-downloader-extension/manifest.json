@@ -1,5 +1,8 @@
 {
   "manifest_version": 3,
+  "name": "YouTube Video Downloader",
+  "version": "1.0.0",
+  "description": "Extension để tải video từ YouTube một cách dễ dàng",
   "author": "RK - plus.ex-creative",
   "homepage_url": "https://github.com/RK-goldengate-co/web-dev-playground",
   "permissions": [
