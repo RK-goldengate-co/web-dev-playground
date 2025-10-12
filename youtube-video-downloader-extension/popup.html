@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Downloader</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>YouTube Video Downloader</h1>
+            <p>Tải video từ YouTube một cách dễ dàng</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" id="youtubeUrl" placeholder="Nhập URL video YouTube..." />
+                <button id="getVideoBtn">Lấy thông tin</button>
+            </div>
+            <button id="pasteFromTabBtn" class="secondary-btn">Dán từ tab hiện tại</button>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Đang xử lý...</p>
+        </div>
+
+        <div id="videoInfo" class="video-info hidden">
+            <div class="video-thumbnail">
+                <img id="videoThumbnail" src="" alt="Video thumbnail" />
+                <div class="video-overlay">
+                    <span id="videoDuration" class="duration">0:00</span>
+                </div>
+            </div>
+
+            <div class="video-details">
+                <h3 id="videoTitle">Tiêu đề video</h3>
+                <p id="videoChannel">Kênh: <span id="channelName">Unknown</span></p>
+                <p id="videoViews">Lượt xem: <span id="viewCount">0</span></p>
+                <p id="videoDate">Ngày đăng: <span id="publishDate">Unknown</span></p>
+            </div>
+        </div>
+
+        <div id="downloadOptions" class="download-options hidden">
+            <h4>Chọn định dạng tải:</h4>
+            <div class="format-buttons">
+                <button class="format-btn" data-format="mp4" data-quality="720">
+                    <span class="format-icon">🎥</span>
+                    <span class="format-text">MP4 720p</span>
+                </button>
+                <button class="format-btn" data-format="mp4" data-quality="480">
+                    <span class="format-icon">📱</span>
+                    <span class="format-text">MP4 480p</span>
+                </button>
+                <button class="format-btn" data-format="mp3" data-quality="128">
+                    <span class="format-icon">🎵</span>
+                    <span class="format-text">Audio MP3</span>
+                </button>
+                <button class="format-btn" data-format="webm" data-quality="720">
+                    <span class="format-icon">🌐</span>
+                    <span class="format-text">WebM 720p</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="downloadProgress" class="download-progress hidden">
+            <div class="progress-header">
+                <h4>Đang tải...</h4>
+                <button id="cancelDownload" class="cancel-btn">Hủy</button>
+            </div>
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <p id="progressText">Chuẩn bị tải...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden">
+            <span class="error-icon">⚠️</span>
+            <p id="errorText">Có lỗi xảy ra</p>
+        </div>
+
+        <div class="footer">
+            <button id="openSettings" class="settings-btn">⚙️ Cài đặt</button>
+            <div class="version">v1.0.0</div>
+        </div>
+
+        <!-- Copyright notice -->
+        <div class="copyright">
+            © 2025 RK - plus.ex-creative
+        </div>
+
+        <!-- Support section -->
+        <div class="support-section">
+            <div class="support-links">
+                <a href="https://github.com/RK-goldengate-co" target="_blank" class="support-link">
+                    <span class="support-icon">🌟</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://ko-fi.com/abyxcdxyzsad7143" target="_blank" class="support-link">
+                    <span class="support-icon">☕</span>
+                    <span>Donate</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

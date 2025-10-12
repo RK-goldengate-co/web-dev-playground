@@ -101,35 +101,37 @@ Extension sẽ yêu cầu các quyền:
 
 ```
 youtube-video-downloader-extension/
-├── manifest.json              # Cấu hình extension
-├── README.md                  # Tài liệu hướng dẫn chính
-├── src/                       # Source code chính
-│   ├── popup/                 # Popup interface
-│   │   ├── popup.html         # Giao diện popup
-│   │   ├── popup.css          # Styling cho popup
-│   │   └── popup.js           # Logic xử lý popup
-│   ├── settings/              # Settings interface
-│   │   ├── settings.html      # Trang cài đặt
-│   │   ├── settings.css       # Styling cho cài đặt
-│   │   └── settings.js        # Logic xử lý cài đặt
-│   └── scripts/               # Background và content scripts
-│       ├── background.js      # Background script và API calls
-│       └── content.js         # Content script cho YouTube
-├── assets/                    # Assets và resources
+├── manifest.json              # ✅ Cấu hình extension (ở gốc để Chrome tìm thấy)
+├── popup.html                 # ✅ Giao diện popup (ở gốc để Chrome tìm thấy)
+├── popup.css                  # ✅ Styling cho popup (ở gốc để Chrome tìm thấy)
+├── popup.js                   # ✅ Logic xử lý popup (ở gốc để Chrome tìm thấy)
+├── background.js              # ✅ Background script (ở gốc để Chrome tìm thấy)
+├── content.js                 # ✅ Content script (ở gốc để Chrome tìm thấy)
+├── settings.html             # ✅ Trang cài đặt (ở gốc để Chrome tìm thấy)
+├── settings.css              # ✅ Styling cho cài đặt (ở gốc để Chrome tìm thấy)
+├── settings.js                # ✅ Logic xử lý cài đặt (ở gốc để Chrome tìm thấy)
+├── README.md                  # ✅ Tài liệu hướng dẫn chính
+├── src/                       # 🔧 Source code tổ chức (cho development)
+│   ├── popup/                 # Source files của popup
+│   ├── settings/              # Source files của settings
+│   └── scripts/               # Source files của scripts
+├── assets/                    # 🎨 Assets và resources
 │   └── icons/                 # Icon files
-│       ├── icon16.png
-│       ├── icon32.png
-│       ├── icon48.png
-│       └── icon128.png
-└── docs/                      # Documentation bổ sung
+│       ├── icon16.png         # 16x16px icon
+│       ├── icon32.png         # 32x32px icon
+│       ├── icon48.png         # 48x48px icon
+│       └── icon128.png        # 128x128px icon
+└── docs/                      # 📚 Documentation bổ sung
     └── README.md              # Copy của README chính
 ```
+
+**Lưu ý:** Các file cần thiết được đặt ở gốc extension để Chrome extension loader có thể tìm thấy và load chúng. Thư mục `src/` chứa source code tổ chức tốt cho việc phát triển và bảo trì.
 
 ## 🔧 Phát triển
 
 ### Thêm định dạng mới
 
-Trong `src/popup/popup.js`, thêm vào `formatButtons` event listener:
+Trong `popup.js` (ở gốc extension), thêm vào `formatButtons` event listener:
 
 ```javascript
 // Trong handleDownload function
@@ -138,7 +140,7 @@ const formatButtons = document.querySelectorAll('.format-btn');
 
 ### Tùy chỉnh API
 
-Trong `src/scripts/background.js`, cập nhật `API_ENDPOINTS`:
+Trong `background.js` (ở gốc extension), cập nhật `API_ENDPOINTS`:
 
 ```javascript
 const API_ENDPOINTS = {
@@ -149,7 +151,7 @@ const API_ENDPOINTS = {
 
 ### Thay đổi giao diện
 
-Chỉnh sửa `src/popup/popup.css` để tùy chỉnh:
+Chỉnh sửa `popup.css` (ở gốc extension) để tùy chỉnh:
 - Colors và gradients
 - Font sizes và spacing
 - Animations và transitions
