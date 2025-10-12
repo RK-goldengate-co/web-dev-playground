@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog - Công nghệ và Lập trình</title>
+    <link rel="stylesheet" href="blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-code"></i> TechBlog</h1>
+                    <p>Công nghệ & Lập trình</p>
+                </div>
+
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home" class="nav-link active">Trang chủ</a></li>
+                        <li><a href="#articles" class="nav-link">Bài viết</a></li>
+                        <li><a href="#tutorials" class="nav-link">Hướng dẫn</a></li>
+                        <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+                        <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="search-toggle" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar" id="searchBar">
+                <div class="search-input-container">
+                    <input type="text" placeholder="Tìm kiếm bài viết..." class="search-input" id="searchInput">
+                    <button class="search-submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <button class="search-close" onclick="toggleSearch()">×</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Chia sẻ kiến thức <span class="highlight">Công nghệ</span></h1>
+                <p class="hero-subtitle">Khám phá thế giới lập trình với những bài viết chất lượng, hướng dẫn chi tiết và tin tức công nghệ mới nhất</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary">Đọc bài viết mới</button>
+                    <button class="btn btn-secondary">Đăng ký nhận tin</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="featured-articles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bài viết nổi bật</h2>
+                <p>Các bài viết được quan tâm nhiều nhất</p>
+            </div>
+
+            <div class="articles-grid">
+                <article class="featured-article">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop" alt="React Tutorial">
+                        <div class="article-category">React</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">
+                                <i class="fas fa-calendar"></i>
+                                15/10/2024
+                            </span>
+                            <span class="article-read-time">
+                                <i class="fas fa-clock"></i>
+                                8 phút đọc
+                            </span>
+                        </div>
+                        <h3 class="article-title">
+                            <a href="#">Hướng dẫn React Hooks từ cơ bản đến nâng cao</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            Tìm hiểu cách sử dụng React Hooks một cách hiệu quả với các ví dụ thực tế và best practices...
+                        </p>
+                        <div class="article-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" alt="Author" class="author-avatar">
+                            <span class="author-name">Nguyễn Văn A</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="featured-article">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=400&fit=crop" alt="Python AI">
+                        <div class="article-category">Python</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">
+                                <i class="fas fa-calendar"></i>
+                                12/10/2024
+                            </span>
+                            <span class="article-read-time">
+                                <i class="fas fa-clock"></i>
+                                12 phút đọc
+                            </span>
+                        </div>
+                        <h3 class="article-title">
+                            <a href="#">Ứng dụng AI với Python và TensorFlow</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            Hướng dẫn xây dựng mô hình machine learning đầu tiên với Python và TensorFlow...
+                        </p>
+                        <div class="article-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face" alt="Author" class="author-avatar">
+                            <span class="author-name">Trần Thị B</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="latest-articles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bài viết mới nhất</h2>
+                <a href="#" class="view-all-link">Xem tất cả</a>
+            </div>
+
+            <div class="articles-list">
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=300&h=200&fit=crop" alt="Docker Tutorial">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-category">DevOps</div>
+                        <h3><a href="#">Docker từ cơ bản đến nâng cao</a></h3>
+                        <p class="article-excerpt">Học cách containerize ứng dụng với Docker...</p>
+                        <div class="article-meta">
+                            <span class="article-date">10/10/2024</span>
+                            <span class="article-read-time">6 phút</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=300&h=200&fit=crop" alt="CSS Grid">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-category">CSS</div>
+                        <h3><a href="#">Mastering CSS Grid Layout</a></h3>
+                        <p class="article-excerpt">Tạo layout phức tạp dễ dàng với CSS Grid...</p>
+                        <div class="article-meta">
+                            <span class="article-date">08/10/2024</span>
+                            <span class="article-read-time">10 phút</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=300&h=200&fit=crop" alt="Node.js API">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-category">Node.js</div>
+                        <h3><a href="#">Building REST APIs with Node.js</a></h3>
+                        <p class="article-excerpt">Xây dựng API mạnh mẽ với Express.js...</p>
+                        <div class="article-meta">
+                            <span class="article-date">05/10/2024</span>
+                            <span class="article-read-time">15 phút</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" alt="Database Design">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-category">Database</div>
+                        <h3><a href="#">Database Design Best Practices</a></h3>
+                        <p class="article-excerpt">Thiết kế cơ sở dữ liệu hiệu quả...</p>
+                        <div class="article-meta">
+                            <span class="article-date">03/10/2024</span>
+                            <span class="article-read-time">12 phút</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Đăng ký nhận tin</h2>
+                    <p>Nhận bài viết mới nhất và cập nhật về công nghệ trực tiếp vào email của bạn</p>
+                </div>
+                <div class="newsletter-form">
+                    <form class="newsletter-form-element">
+                        <input type="email" placeholder="Nhập email của bạn" class="newsletter-input" required>
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Danh mục</h2>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3>React</h3>
+                    <p>Hướng dẫn và ví dụ React</p>
+                    <span class="category-count">24 bài viết</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python</h3>
+                    <p>Lập trình Python cơ bản và nâng cao</p>
+                    <span class="category-count">18 bài viết</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>ES6+, Async/Await, và hơn thế nữa</p>
+                    <span class="category-count">32 bài viết</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database</h3>
+                    <p>SQL, NoSQL, và quản lý dữ liệu</p>
+                    <span class="category-count">15 bài viết</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3>DevOps</h3>
+                    <p>CI/CD, Docker, Kubernetes</p>
+                    <span class="category-count">12 bài viết</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile</h3>
+                    <p>React Native, Flutter, iOS/Android</p>
+                    <span class="category-count">20 bài viết</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><i class="fas fa-code"></i> TechBlog</h3>
+                        <p>Chia sẻ kiến thức công nghệ và lập trình</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Danh mục</h4>
+                    <ul>
+                        <li><a href="#">React</a></li>
+                        <li><a href="#">Python</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">Database</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Điều khoản</a></li>
+                        <li><a href="#">Chính sách</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> contact@techblog.com</p>
+                        <p><i class="fas fa-phone"></i> +84 123 456 789</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechBlog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="blog.js"></script>
+</body>
+</html>
