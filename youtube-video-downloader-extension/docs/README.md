@@ -101,35 +101,28 @@ Extension sẽ yêu cầu các quyền:
 
 ```
 youtube-video-downloader-extension/
-├── manifest.json              # Cấu hình extension
-├── README.md                  # Tài liệu hướng dẫn chính
-├── src/                       # Source code chính
-│   ├── popup/                 # Popup interface
-│   │   ├── popup.html         # Giao diện popup
-│   │   ├── popup.css          # Styling cho popup
-│   │   └── popup.js           # Logic xử lý popup
-│   ├── settings/              # Settings interface
-│   │   ├── settings.html      # Trang cài đặt
-│   │   ├── settings.css       # Styling cho cài đặt
-│   │   └── settings.js        # Logic xử lý cài đặt
-│   └── scripts/               # Background và content scripts
-│       ├── background.js      # Background script và API calls
-│       └── content.js         # Content script cho YouTube
-├── assets/                    # Assets và resources
-│   └── icons/                 # Icon files
-│       ├── icon16.png
-│       ├── icon32.png
-│       ├── icon48.png
-│       └── icon128.png
-└── docs/                      # Documentation bổ sung
-    └── README.md              # Copy của README chính
+├── manifest.json          # Cấu hình extension
+├── popup.html            # Giao diện popup
+├── popup.css             # Styling cho popup
+├── popup.js              # Logic xử lý popup
+├── background.js         # Background script và API calls
+├── content.js            # Content script cho YouTube
+├── settings.html         # Trang cài đặt
+├── settings.css          # Styling cho trang cài đặt
+├── settings.js           # Logic xử lý cài đặt
+├── icons/                # Icon files (16x16, 32x32, 48x48, 128x128)
+│   ├── icon16.png
+│   ├── icon32.png
+│   ├── icon48.png
+│   └── icon128.png
+└── README.md             # Tài liệu hướng dẫn
 ```
 
 ## 🔧 Phát triển
 
 ### Thêm định dạng mới
 
-Trong `src/popup/popup.js`, thêm vào `formatButtons` event listener:
+Trong `popup.js`, thêm vào `formatButtons` event listener:
 
 ```javascript
 // Trong handleDownload function
@@ -138,7 +131,7 @@ const formatButtons = document.querySelectorAll('.format-btn');
 
 ### Tùy chỉnh API
 
-Trong `src/scripts/background.js`, cập nhật `API_ENDPOINTS`:
+Trong `background.js`, cập nhật `API_ENDPOINTS`:
 
 ```javascript
 const API_ENDPOINTS = {
@@ -149,7 +142,7 @@ const API_ENDPOINTS = {
 
 ### Thay đổi giao diện
 
-Chỉnh sửa `src/popup/popup.css` để tùy chỉnh:
+Chỉnh sửa `popup.css` để tùy chỉnh:
 - Colors và gradients
 - Font sizes và spacing
 - Animations và transitions
