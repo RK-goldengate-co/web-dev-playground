@@ -18,6 +18,14 @@ web-dev-playground/
 │   ├── styles.css
 │   ├── script.js
 │   └── manifest.json
+├── discord-reaction-role-bot/   # 🤖 Bot Discord cho Reaction Role System
+│   ├── bot.py                   # Code chính của bot
+│   ├── config.py                # Module cấu hình
+│   ├── requirements.txt         # Dependencies Python
+│   ├── .env.example             # File cấu hình mẫu
+│   ├── README.md                # Hướng dẫn chi tiết
+│   ├── run.bat                  # Script chạy trên Windows
+│   └── .gitignore               # Git ignore rules
 ├── web-dev-prefabs/             # Bộ sưu tập web development
 │   ├── README.md
 │   ├── html/                    # HTML templates cơ bản
@@ -60,7 +68,8 @@ web-dev-playground/
 
 1. **Web Development Prefabs**: Bộ sưu tập các template, component và utilities sẵn sàng sử dụng
 2. **Programming Language References**: Các file mẫu định dạng cho nhiều ngôn ngữ lập trình khác nhau
-3. **Code Prefency Collection**: 📦 **Bộ sưu tập 67 files code mẫu thực tế** đã được tổ chức chuyên nghiệp:
+3. **Discord Bot Applications**: Các bot Discord chức năng cho cộng đồng và server management
+4. **Code Prefency Collection**: 📦 **Bộ sưu tập 67 files code mẫu thực tế** đã được tổ chức chuyên nghiệp:
    - **Frontend**: 18 files (HTML, CSS, React, JavaScript)
    - **Backend**: 24 files (PHP, Java, C#, Go, Python)
    - **Mobile/Desktop**: 4 files (Kotlin Android, C++ Desktop)
@@ -110,6 +119,12 @@ npm install && npm start
 # Python Application
 cd code-prefency/backend/python/
 python main.py
+
+# Discord Reaction Role Bot
+cd discord-reaction-role-bot/
+python bot.py
+# hoặc trên Windows:
+./run.bat
 ```
 
 ### Programming Language References
