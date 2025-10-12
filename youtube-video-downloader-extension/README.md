@@ -220,6 +220,13 @@ Nếu gặp vấn đề:
 2. **Tìm kiếm Issues** trên GitHub
 3. **Tạo Issue mới** với mô tả chi tiết
 
+## 💝 Ủng hộ dự án
+
+Nếu bạn thấy extension này hữu ích, hãy ủng hộ chúng tôi:
+
+- **🌟 GitHub:** [https://github.com/RK-goldengate-co](https://github.com/RK-goldengate-co)
+- **☕ Donate:** [Ko-fi](https://ko-fi.com/abyxcdxyzsad7143)
+
 ## 🎯 Roadmap
 
 ### Version 1.1

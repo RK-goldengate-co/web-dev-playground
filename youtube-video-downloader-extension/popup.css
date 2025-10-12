@@ -309,6 +309,41 @@ button:active {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.support-section {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.support-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.support-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 11px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.support-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.support-icon {
+    font-size: 12px;
+}
+
 .hidden {
     display: none !important;
 }

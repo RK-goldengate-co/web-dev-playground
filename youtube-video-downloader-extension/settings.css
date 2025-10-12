@@ -219,6 +219,47 @@ input[type="text"]::placeholder {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.settings-support {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settings-support h4 {
+    margin-bottom: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.settings-support-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.settings-support-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.settings-support-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.settings-support-icon {
+    font-size: 14px;
+}
+
 /* Button styles */
 button {
     padding: 10px 16px;
