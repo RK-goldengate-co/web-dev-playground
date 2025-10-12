@@ -170,7 +170,10 @@ async function validateDownloadUrl(url) {
             /\/get\//i,
             /y2mate\.com/i,
             /savefrom\.net/i,
-            /cobalt\.tools/i
+            /cobalt\.tools/i,
+            /y2mate\.nu/i,
+            /9convert\.com/i,
+            /cdn\d*\.y2mate\.nu/i
         ];
 
         return validPatterns.some(pattern => pattern.test(url));
@@ -189,7 +192,9 @@ async function getStoredSettings() {
 const DOWNLOAD_APIS = {
     Y2MATE: 'https://api.y2mate.com/v2/analyze',
     SAVEFROM: 'https://api.savefrom.net/info',
-    ALTERNATIVE: 'https://cobalt.tools/api/json'
+    COBALT: 'https://cobalt.tools/api/json',
+    Y2MATE_ALT: 'https://www.y2mate.nu/wp-json/aio-dl/video-data/',
+    CONVERTER: 'https://9convert.com/api/ajaxSearch'
 };
 
 async function getDownloadUrl(videoId, format, quality) {
@@ -217,6 +222,8 @@ async function tryMultipleAPIs(videoId, format, quality) {
 
     // Try APIs in order of preference
     const apis = [
+        { name: 'Y2Mate Alternative', fn: getY2MateAlternativeUrl },
+        { name: '9Convert', fn: get9ConvertUrl },
         { name: 'Y2Mate', fn: getY2MateUrl },
         { name: 'SaveFrom', fn: getSaveFromUrl },
         { name: 'Cobalt', fn: getCobaltUrl }
@@ -237,6 +244,118 @@ async function tryMultipleAPIs(videoId, format, quality) {
     }
 
     return null;
+}
+
+async function getY2MateAlternativeUrl(youtubeUrl, format, quality) {
+    try {
+        const videoId = extractVideoId(youtubeUrl);
+        const response = await fetch(`${DOWNLOAD_APIS.Y2MATE_ALT}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'url': youtubeUrl,
+                'video_id': videoId
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data && data.medias && data.medias.length > 0) {
+            // Find appropriate format and quality
+            const formatMap = {
+                'mp4': ['mp4', 'video'],
+                'webm': ['webm', 'video'],
+                'mp3': ['mp3', 'audio'],
+                'm4a': ['m4a', 'audio']
+            };
+
+            const qualityMap = {
+                '720': ['720p', 'hd'],
+                '480': ['480p', 'sd'],
+                '360': ['360p'],
+                '240': ['240p'],
+                '144': ['144p'],
+                '128': ['128kbps', 'audio']
+            };
+
+            for (const media of data.medias) {
+                const formatMatch = formatMap[format] && formatMap[format].some(f => media.extension?.includes(f) || media.type?.includes(f));
+                const qualityMatch = qualityMap[quality] && qualityMap[quality].some(q => media.quality?.includes(q));
+
+                if (formatMatch && qualityMatch && media.url) {
+                    return media.url;
+                }
+            }
+
+            // Fallback to first available media
+            const firstMedia = data.medias[0];
+            if (firstMedia && firstMedia.url) {
+                return firstMedia.url;
+            }
+        }
+
+        throw new Error('Không tìm thấy media phù hợp');
+
+    } catch (error) {
+        throw new Error(`Y2Mate Alternative API error: ${error.message}`);
+    }
+}
+
+async function get9ConvertUrl(youtubeUrl, format, quality) {
+    try {
+        const response = await fetch(DOWNLOAD_APIS.CONVERTER, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'vid': youtubeUrl,
+                'k_query': youtubeUrl,
+                'k_page': 'home',
+                'hl': 'en',
+                'list': 'search'
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data && data.result && data.result.length > 0) {
+            // Find appropriate format
+            const formatMap = {
+                'mp4': /mp4/i,
+                'webm': /webm/i,
+                'mp3': /mp3/i,
+                'm4a': /m4a/i
+            };
+
+            for (const result of data.result) {
+                if (result && result.dlink && formatMap[format] && formatMap[format].test(result.title || '')) {
+                    return result.dlink;
+                }
+            }
+
+            // Fallback to first result
+            const firstResult = data.result[0];
+            if (firstResult && firstResult.dlink) {
+                return firstResult.dlink;
+            }
+        }
+
+        throw new Error('Không tìm thấy kết quả tải');
+
+    } catch (error) {
+        throw new Error(`9Convert API error: ${error.message}`);
+    }
 }
 
 async function getY2MateUrl(youtubeUrl, format, quality) {

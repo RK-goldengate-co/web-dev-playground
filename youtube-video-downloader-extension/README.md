@@ -8,9 +8,13 @@ Extension Chrome mạnh mẽ để tải video từ YouTube một cách dễ dà
 - 🔗 **Nhiều cách nhập URL**: Nhập thủ công hoặc lấy từ tab hiện tại
 - 📋 **Thông tin chi tiết**: Hiển thị thumbnail, tiêu đề, kênh, lượt xem, ngày đăng
 - 📥 **Định dạng đa dạng**: Hỗ trợ MP4, WebM, MP3 với chất lượng khác nhau
+- ⚡ **Tải nhanh chóng**: Tích hợp với các API tải video thực tế (Y2Mate, SaveFrom, Cobalt)
+- 🔄 **Fallback system**: Tự động thử API khác khi một API không hoạt động
+- ✅ **Validation thông minh**: Kiểm tra URL tải trước khi tải
 - ⏳ **Theo dõi tiến trình**: Thanh tiến trình thời gian thực khi tải
 - 🎨 **Tích hợp YouTube**: Nút tải trực tiếp trên trang video YouTube
-- ⚡ **Nhanh chóng**: Xử lý nhanh với API tối ưu
+- 🔧 **Cài đặt linh hoạt**: Tùy chỉnh định dạng, chất lượng, thư mục lưu
+- 📢 **Thông báo thông minh**: Thông báo trạng thái tải với âm thanh tùy chọn
 
 ## 🚀 Cài đặt
 
@@ -168,9 +172,12 @@ Chỉnh sửa `popup.css` để tùy chỉnh:
 3. **Kiểm tra Console** (F12) để xem lỗi
 
 ### Không thể tải video
-1. **Thử URL khác** để kiểm tra
-2. **Kiểm tra kết nối mạng**
-3. **Thử lại sau** (có thể do rate limiting)
+1. **Thử định dạng khác** (MP3 thay vì MP4 nếu video bị giới hạn)
+2. **Kiểm tra kết nối mạng** và thử lại
+3. **Chờ vài phút** và thử lại (có thể do giới hạn rate của API)
+4. **Kiểm tra cài đặt tường lửa** hoặc VPN có chặn không
+5. **Xem Console** (F12) để kiểm tra lỗi API chi tiết
+6. **Extension sẽ tự động thử nhiều API khác nhau** nếu một API không hoạt động
 
 ### Popup không hiển thị
 1. **Click icon extension** trên toolbar
