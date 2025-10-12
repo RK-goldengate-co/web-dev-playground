@@ -178,6 +178,7 @@ Chỉnh sửa `popup.css` để tùy chỉnh:
 4. **Kiểm tra cài đặt tường lửa** hoặc VPN có chặn không
 5. **Xem Console** (F12) để kiểm tra lỗi API chi tiết
 6. **Extension sẽ tự động thử nhiều API khác nhau** nếu một API không hoạt động
+7. **Các API được sử dụng:** Y2Mate Alternative, 9Convert, Y2Mate, SaveFrom, Cobalt
 
 ### Popup không hiển thị
 1. **Click icon extension** trên toolbar
@@ -240,4 +241,4 @@ Nếu gặp vấn đề:
 
 **Happy Downloading! 🎬**
 
-*Made with ❤️ by Web Dev Playground Team*
+*Made with ❤️ by RK Team - Web Dev Playground*
