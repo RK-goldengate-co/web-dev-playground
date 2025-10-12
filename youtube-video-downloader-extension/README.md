@@ -53,11 +53,22 @@ Extension sẽ yêu cầu các quyền:
 2. **Click "Dán từ tab hiện tại"** trong popup
 3. **Thực hiện các bước 3-5** như trên
 
-### Phương pháp 3: Trên trang YouTube
+### Phương pháp 4: Tùy chỉnh cài đặt
 
-1. **Mở video YouTube** bất kỳ
-2. **Tìm nút "Tải xuống"** màu đỏ bên cạnh các nút Like/Share
-3. **Click nút đó** để tải trực tiếp
+1. **Click icon extension** trên toolbar Chrome
+2. **Click nút "⚙️ Cài đặt"** ở góc dưới
+3. **Tùy chỉnh các tùy chọn:**
+   - **Định dạng mặc định**: MP4, WebM, MP3, M4A
+   - **Chất lượng mặc định**: Từ 144p đến 720p
+   - **Tự động tải**: Bỏ qua bước chọn định dạng
+   - **Thư mục lưu**: Tùy chỉnh đường dẫn
+   - **Tạo thư mục con**: Theo tên kênh
+   - **Thông báo**: Bật/tắt notification
+   - **Âm thanh**: Phát tiếng khi tải xong
+   - **Phụ đề**: Tự động tải phụ đề nếu có
+   - **Thumbnail**: Tải hình đại diện
+   - **Giao diện**: Chọn chủ đề màu sắc
+4. **Lưu cài đặt** để áp dụng
 
 ## 🎨 Giao diện
 
@@ -75,6 +86,13 @@ Extension sẽ yêu cầu các quyền:
 - **Matching design** với style của YouTube
 - **Hover effects** và animations mượt mà
 
+### Settings Interface
+- **Comprehensive settings page** với giao diện đẹp
+- **Real-time theme preview** khi thay đổi
+- **Export/Import settings** để backup và chia sẻ
+- **Organized sections** cho các loại cài đặt khác nhau
+- **Responsive design** cho mọi kích thước màn hình
+
 ## ⚙️ Cấu trúc dự án
 
 ```
@@ -85,6 +103,9 @@ youtube-video-downloader-extension/
 ├── popup.js              # Logic xử lý popup
 ├── background.js         # Background script và API calls
 ├── content.js            # Content script cho YouTube
+├── settings.html         # Trang cài đặt
+├── settings.css          # Styling cho trang cài đặt
+├── settings.js           # Logic xử lý cài đặt
 ├── icons/                # Icon files (16x16, 32x32, 48x48, 128x128)
 │   ├── icon16.png
 │   ├── icon32.png
