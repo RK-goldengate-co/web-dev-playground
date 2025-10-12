@@ -175,19 +175,44 @@ Chỉnh sửa `popup.css` (ở gốc extension) để tùy chỉnh:
 
 ## 🛠️ Troubleshooting
 
-### Extension không hoạt động
-1. **Kiểm tra Developer Mode** đã bật
-2. **Load lại extension** từ chrome://extensions/
-3. **Kiểm tra Console** (F12) để xem lỗi
+### 🚨 Extension không mở được / không hoạt động
 
-### Không thể tải video
-1. **Thử định dạng khác** (MP3 thay vì MP4 nếu video bị giới hạn)
-2. **Kiểm tra kết nối mạng** và thử lại
-3. **Chờ vài phút** và thử lại (có thể do giới hạn rate của API)
-4. **Kiểm tra cài đặt tường lửa** hoặc VPN có chặn không
-5. **Xem Console** (F12) để kiểm tra lỗi API chi tiết
-6. **Extension sẽ tự động thử nhiều API khác nhau** nếu một API không hoạt động
-7. **Các API được sử dụng:** Y2Mate Alternative, 9Convert, Y2Mate, SaveFrom, Cobalt
+#### ⚡ **QUICK FIX - Thử ngay:**
+1. **Reload extension:** Vào `chrome://extensions/` → Tìm extension → Click 🔄
+2. **Remove & Re-add:** Xóa extension → Load lại từ thư mục
+3. **Restart Chrome:** Đóng hết Chrome → Mở lại → Thử lại
+
+#### 🔍 **DEBUGGING CHI TIẾT:**
+
+**Bước 1: Kiểm tra Developer Console**
+- Nhấn F12 → Tab Console
+- Tìm lỗi màu đỏ liên quan đến extension
+
+**Bước 2: Kiểm tra cấu trúc file**
+Đảm bảo các file này ở **gốc thư mục extension**:
+```
+✅ manifest.json
+✅ popup.html, popup.css, popup.js
+✅ background.js, content.js
+✅ settings.html, settings.css, settings.js
+✅ assets/icons/ (chứa 4 icon files)
+```
+
+**Bước 3: Các lỗi thường gặp**
+- **"Manifest file missing"** → File manifest.json bị thiếu hoặc lỗi
+- **"Required files missing"** → Thiếu file HTML/CSS/JS ở gốc
+- **"Permission denied"** → Đóng Chrome và thử lại
+
+**Bước 4: Nếu vẫn không được**
+- Xóa thư mục extension cũ hoàn toàn
+- Tải lại từ GitHub phiên bản mới nhất
+- Đảm bảo đường dẫn không có ký tự đặc biệt
+
+#### 📞 **Cần hỗ trợ thêm?**
+Tạo Issue trên GitHub với:
+- Screenshot lỗi từ Developer Console
+- Phiên bản Chrome đang dùng
+- Hệ điều hành
 
 ### Popup không hiển thị
 1. **Click icon extension** trên toolbar
