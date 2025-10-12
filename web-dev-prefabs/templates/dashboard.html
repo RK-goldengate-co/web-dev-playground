@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard quản trị - Theo dõi và quản lý hoạt động kinh doanh">
+    <title>Dashboard - Hệ thống quản trị</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        /* Dashboard specific styles */
+        :root {
+            --sidebar-width: 280px;
+            --header-height: 64px;
+            --primary-color: #3b82f6;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        body {
+            font-family: var(--font-family-primary);
+            background-color: var(--gray-100);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: white;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--gray-300);
+        }
+
+        .sidebar-logo {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: var(--spacing-md) 0;
+        }
+
+        .sidebar-item {
+            margin: 0;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-md) var(--spacing-lg);
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .sidebar-icon {
+            margin-right: var(--spacing-sm);
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main content */
+        .main-layout {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        .header {
+            height: var(--header-height);
+            background: white;
+            border-bottom: 1px solid var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            margin-right: var(--spacing-md);
+        }
+
+        .header-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .notification-btn,
+        .profile-btn {
+            background: none;
+            border: none;
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-full);
+            transition: var(--transition-fast);
+        }
+
+        .notification-btn:hover,
+        .profile-btn:hover {
+            background-color: var(--gray-100);
+        }
+
+        /* Dashboard content */
+        .dashboard-content {
+            padding: var(--spacing-lg);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .stat-title {
+            font-size: var(--font-size-sm);
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--dark-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-change {
+            font-size: var(--font-size-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .stat-change.positive {
+            color: var(--success-color);
+        }
+
+        .stat-change.negative {
+            color: var(--danger-color);
+        }
+
+        /* Charts section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .chart-container {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Recent activities */
+        .activities-section {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--gray-300);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            background-color: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .activity-time {
+            font-size: var(--font-size-sm);
+            color: var(--gray-600);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main-layout {
+                margin-left: 0;
+            }
+
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">Dashboard</div>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link active">
+                    <span class="sidebar-icon">📊</span>
+                    Tổng quan
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">👥</span>
+                    Người dùng
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">📦</span>
+                    Sản phẩm
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">📋</span>
+                    Đơn hàng
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">📈</span>
+                    Báo cáo
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">⚙️</span>
+                    Cài đặt
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <h1 class="header-title">Dashboard Tổng quan</h1>
+            </div>
+            <div class="header-right">
+                <button class="notification-btn" title="Thông báo">🔔</button>
+                <button class="profile-btn" title="Profile">👤</button>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <main class="dashboard-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Tổng doanh thu</div>
+                    <div class="stat-value">2,543,210 VNĐ</div>
+                    <div class="stat-change positive">
+                        <span>↗ +12.5%</span>
+                        <span>so với tháng trước</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Đơn hàng mới</div>
+                    <div class="stat-value">127</div>
+                    <div class="stat-change positive">
+                        <span>↗ +8.2%</span>
+                        <span>so với tháng trước</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Khách hàng</div>
+                    <div class="stat-value">1,429</div>
+                    <div class="stat-change negative">
+                        <span>↘ -2.1%</span>
+                        <span>so với tháng trước</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Tỷ lệ chuyển đổi</div>
+                    <div class="stat-value">3.24%</div>
+                    <div class="stat-change positive">
+                        <span>↗ +0.8%</span>
+                        <span>so với tháng trước</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-container">
+                    <h3>Doanh thu theo tháng</h3>
+                    <div class="chart-placeholder">
+                        <!-- Chart sẽ được thêm bằng JavaScript -->
+                        <canvas id="revenueChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Tỷ lệ sản phẩm</h3>
+                    <div class="chart-placeholder">
+                        <!-- Pie chart sẽ được thêm bằng JavaScript -->
+                        <canvas id="productChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activities -->
+            <div class="activities-section">
+                <h3>Hoạt động gần đây</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">🛒</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Đơn hàng mới #12345</div>
+                            <div class="activity-time">2 phút trước</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">👤</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Khách hàng mới đăng ký</div>
+                            <div class="activity-time">15 phút trước</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">📦</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Sản phẩm mới được thêm</div>
+                            <div class="activity-time">1 giờ trước</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">💰</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Thanh toán hoàn tất #12344</div>
+                            <div class="activity-time">2 giờ trước</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/form-validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Dashboard JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+            });
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                        sidebar.classList.remove('show');
+                    }
+                }
+            });
+
+            // Initialize animations
+            Animations.scrollAnimations.init('.stat-card', {
+                animationClass: 'animate-fade-in-up',
+                staggerDelay: 100
+            });
+
+            // Counter animations for stats
+            Animations.counters.animate('.stat-value');
+
+            // Initialize charts (using Chart.js as example)
+            initCharts();
+        });
+
+        function initCharts() {
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Th1', 'Th2', 'Th3', 'Th4', 'Th5', 'Th6'],
+                    datasets: [{
+                        label: 'Doanh thu',
+                        data: [12000000, 19000000, 15000000, 25000000, 22000000, 30000000],
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return (value / 1000000) + 'M';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Product Chart
+            const productCtx = document.getElementById('productChart').getContext('2d');
+            new Chart(productCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Điện tử', 'Thời trang', 'Sách', 'Khác'],
+                    datasets: [{
+                        data: [35, 25, 20, 20],
+                        backgroundColor: [
+                            'rgb(59, 130, 246)',
+                            'rgb(16, 185, 129)',
+                            'rgb(245, 158, 11)',
+                            'rgb(239, 68, 68)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+    </script>
+</body>
+</html>

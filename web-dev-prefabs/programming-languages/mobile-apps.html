@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 Ứng dụng di động</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .tech-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .tech-description {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "📱 ";
+            font-weight: bold;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .beginner { background: #d4edda; color: #155724; }
+        .intermediate { background: #fff3cd; color: #856404; }
+        .advanced { background: #f8d7da; color: #721c24; }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📱 Ứng dụng di động</h1>
+            <p>Các công nghệ phát triển ứng dụng cho điện thoại và máy tính bảng</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Kotlin (Android) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🤖</span>
+                    <div>
+                        <h2 class="tech-title">Kotlin (Android)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Kotlin</strong> là ngôn ngữ lập trình chính thức cho Android development, concise và an toàn hơn Java.
+                </div>
+                <div class="features-list">
+                    <li>Ngôn ngữ chính thức của Android</li>
+                    <li>Interoperable 100% với Java</li>
+                    <li>Null safety và concise syntax</li>
+                    <li>Coroutines cho async programming</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Kotlin Android Activity
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val button = findViewById<Button>(R.id.myButton)
+        button.setOnClickListener {
+            Toast.makeText(this, "Xin chào Kotlin!", Toast.LENGTH_SHORT).show()
+        }
+    }
+}</code></pre>
+                </div>
+                <a href="https://kotlinlang.org/" class="cta-button" target="_blank">Học Kotlin</a>
+            </div>
+
+            <!-- Swift (iOS) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🍎</span>
+                    <div>
+                        <h2 class="tech-title">Swift (iOS)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Swift</strong> là ngôn ngữ lập trình của Apple để phát triển ứng dụng iOS, macOS, watchOS và tvOS.
+                </div>
+                <div class="features-list">
+                    <li>Safe và fast programming language</li>
+                    <li>Protocol-oriented programming</li>
+                    <li>Playgrounds cho interactive coding</li>
+                    <li>Seamless integration với Objective-C</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Swift iOS ViewController
+import UIKit
+
+class ViewController: UIViewController {
+    @IBOutlet weak var myButton: UIButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Setup code here
+    }
+
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        let alert = UIAlertController(
+            title: "Xin chào!",
+            message: "Đây là Swift app",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+}</code></pre>
+                </div>
+                <a href="https://developer.apple.com/swift/" class="cta-button" target="_blank">Học Swift</a>
+            </div>
+
+            <!-- Flutter (Dart) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🚀</span>
+                    <div>
+                        <h2 class="tech-title">Flutter (Dart)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Flutter</strong> là framework UI của Google để xây dựng ứng dụng native cho mobile, web và desktop từ single codebase.
+                </div>
+                <div class="features-list">
+                    <li>Single codebase cho iOS và Android</li>
+                    <li>Hot reload cho development nhanh</li>
+                    <li>Rich set of pre-built widgets</li>
+                    <li>Dart programming language</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// Flutter app với Dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter App'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              print('Button pressed!');
+            },
+            child: Text('Click me!'),
+          ),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+                </div>
+                <a href="https://flutter.dev/" class="cta-button" target="_blank">Học Flutter</a>
+            </div>
+
+            <!-- React Native -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">⚛️</span>
+                    <div>
+                        <h2 class="tech-title">React Native</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>React Native</strong> cho phép bạn xây dựng ứng dụng mobile native sử dụng JavaScript và React.
+                </div>
+                <div class="features-list">
+                    <li>Learn once, write anywhere</li>
+                    <li>Large community và ecosystem</li>
+                    <li>Code sharing giữa platforms</li>
+                    <li>Native performance với JavaScript</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>// React Native component
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+const App = () =&gt; {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;View style={styles.container}&gt;
+      &lt;Text style={styles.text}&gt;Count: {count}&lt;/Text&gt;
+      &lt;Button
+        title="Press me"
+        onPress={() =&gt; setCount(count + 1)}
+      /&gt;
+    &lt;/View&gt;
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+});
+
+export default App;</code></pre>
+                </div>
+                <a href="https://reactnative.dev/" class="cta-button" target="_blank">Học React Native</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>📱 Bắt đầu tạo ứng dụng di động tuyệt vời của riêng bạn!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tech-card');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

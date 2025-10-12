@@ -1,0 +1,406 @@
+<!-- Contact Form -->
+<section class="contact-form-section">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company">
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="business">Business Proposal</option>
+                <option value="feedback">Feedback</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="newsletter">
+                <span class="checkmark"></span>
+                Subscribe to our newsletter for updates and news
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</section>
+
+<!-- Login Form -->
+<section class="login-form-section">
+    <h2>Login to Your Account</h2>
+    <form class="login-form">
+        <div class="form-group">
+            <label for="loginEmail">Email Address *</label>
+            <input type="email" id="loginEmail" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="loginPassword">Password *</label>
+            <div class="password-input">
+                <input type="password" id="loginPassword" name="password" required>
+                <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                    👁
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="rememberMe">
+                <span class="checkmark"></span>
+                Remember me
+            </label>
+            <a href="/forgot-password" class="forgot-password">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign In</button>
+
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary social-login">
+            <span class="social-icon">🌐</span>
+            Continue with Google
+        </button>
+
+        <p class="signup-link">
+            Don't have an account? <a href="/register">Sign up here</a>
+        </p>
+    </form>
+</section>
+
+<!-- Registration Form -->
+<section class="registration-form-section">
+    <h2>Create Your Account</h2>
+    <form class="registration-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="regFirstName">First Name *</label>
+                <input type="text" id="regFirstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="regLastName">Last Name *</label>
+                <input type="text" id="regLastName" name="lastName" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="regEmail">Email Address *</label>
+            <input type="email" id="regEmail" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="regPassword">Password *</label>
+            <div class="password-input">
+                <input type="password" id="regPassword" name="password" required>
+                <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                    👁
+                </button>
+            </div>
+            <div class="password-strength">
+                <div class="strength-meter">
+                    <div class="strength-fill"></div>
+                </div>
+                <span class="strength-text">Weak</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password *</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+
+        <div class="form-group">
+            <label for="userType">Account Type *</label>
+            <select id="userType" name="userType" required>
+                <option value="">Select account type</option>
+                <option value="personal">Personal</option>
+                <option value="business">Business</option>
+                <option value="enterprise">Enterprise</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="terms" required>
+                <span class="checkmark"></span>
+                I agree to the <a href="/terms" target="_blank">Terms of Service</a> and <a href="/privacy" target="_blank">Privacy Policy</a>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="marketing">
+                <span class="checkmark"></span>
+                I would like to receive marketing communications and product updates
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+
+        <p class="login-link">
+            Already have an account? <a href="/login">Sign in here</a>
+        </p>
+    </form>
+</section>
+
+<!-- Search Form -->
+<section class="search-form-section">
+    <h2>Search</h2>
+    <form class="search-form">
+        <div class="search-input-group">
+            <input type="search" id="searchQuery" name="query" placeholder="Search for products, articles, or help...">
+            <button type="submit" class="search-btn" aria-label="Search">
+                🔍
+            </button>
+        </div>
+
+        <div class="search-filters">
+            <div class="filter-group">
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option value="">All Categories</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="books">Books</option>
+                    <option value="clothing">Clothing</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="priceRange">Price Range</label>
+                <select id="priceRange" name="priceRange">
+                    <option value="">Any Price</option>
+                    <option value="0-25">$0 - $25</option>
+                    <option value="25-50">$25 - $50</option>
+                    <option value="50-100">$50 - $100</option>
+                    <option value="100+">$100+</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="inStock" checked>
+                    <span class="checkmark"></span>
+                    In Stock Only
+                </label>
+            </div>
+        </div>
+    </form>
+</section>
+
+<!-- Newsletter Signup Form -->
+<section class="newsletter-form-section">
+    <h2>Stay Updated</h2>
+    <p>Get the latest news, tips, and exclusive offers delivered to your inbox.</p>
+
+    <form class="newsletter-form">
+        <div class="newsletter-input-group">
+            <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+
+        <div class="newsletter-options">
+            <label class="checkbox-label">
+                <input type="checkbox" name="frequency" value="weekly" checked>
+                <span class="checkmark"></span>
+                Weekly newsletter
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="frequency" value="monthly">
+                <span class="checkmark"></span>
+                Monthly digest
+            </label>
+        </div>
+
+        <p class="newsletter-disclaimer">
+            We respect your privacy. Unsubscribe at any time.
+        </p>
+    </form>
+</section>
+
+<!-- Comment Form -->
+<section class="comment-form-section">
+    <h2>Leave a Comment</h2>
+    <form class="comment-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="commenterName">Name *</label>
+                <input type="text" id="commenterName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="commenterEmail">Email *</label>
+                <input type="email" id="commenterEmail" name="email" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="commenterWebsite">Website</label>
+            <input type="url" id="commenterWebsite" name="website" placeholder="https://">
+        </div>
+
+        <div class="form-group">
+            <label for="commentText">Comment *</label>
+            <textarea id="commentText" name="comment" rows="4" required placeholder="Share your thoughts..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="notifyReplies">
+                <span class="checkmark"></span>
+                Notify me of follow-up comments by email
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+    </form>
+</section>
+
+<!-- Survey Form -->
+<section class="survey-form-section">
+    <h2>Customer Satisfaction Survey</h2>
+    <p>Help us improve by sharing your experience with our service.</p>
+
+    <form class="survey-form">
+        <div class="form-group">
+            <label>How satisfied are you with our service?</label>
+            <div class="rating-input">
+                <input type="radio" id="rating5" name="satisfaction" value="5">
+                <label for="rating5">⭐ Very Satisfied</label>
+                <input type="radio" id="rating4" name="satisfaction" value="4">
+                <label for="rating4">⭐ Satisfied</label>
+                <input type="radio" id="rating3" name="satisfaction" value="3">
+                <label for="rating3">⭐ Neutral</label>
+                <input type="radio" id="rating2" name="satisfaction" value="2">
+                <label for="rating2">⭐ Dissatisfied</label>
+                <input type="radio" id="rating1" name="satisfaction" value="1">
+                <label for="rating1">⭐ Very Dissatisfied</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="serviceUsed">Which service did you use?</label>
+            <select id="serviceUsed" name="service">
+                <option value="">Select a service</option>
+                <option value="web-design">Web Design</option>
+                <option value="development">Development</option>
+                <option value="consulting">Consulting</option>
+                <option value="support">Technical Support</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>What did you like most about our service?</label>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="likes" value="quality">
+                    <span class="checkmark"></span>
+                    Quality of work
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="likes" value="communication">
+                    <span class="checkmark"></span>
+                    Communication
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="likes" value="timeliness">
+                    <span class="checkmark"></span>
+                    Timely delivery
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="likes" value="price">
+                    <span class="checkmark"></span>
+                    Reasonable pricing
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="improvements">What could we improve?</label>
+            <textarea id="improvements" name="improvements" rows="3" placeholder="Your suggestions..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="recommendation">How likely are you to recommend us?</label>
+            <select id="recommendation" name="recommendation">
+                <option value="">Select rating</option>
+                <option value="10">10 - Very likely</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5 - Neutral</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1 - Not likely</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Survey</button>
+    </form>
+</section>
+
+<!-- File Upload Form -->
+<section class="upload-form-section">
+    <h2>Upload Files</h2>
+    <form class="upload-form">
+        <div class="form-group">
+            <label for="fileDescription">File Description</label>
+            <input type="text" id="fileDescription" name="description" placeholder="Brief description of your files">
+        </div>
+
+        <div class="form-group">
+            <label for="fileUpload">Select Files *</label>
+            <div class="file-upload-area">
+                <input type="file" id="fileUpload" name="files" multiple accept="image/*,.pdf,.doc,.docx" required>
+                <div class="upload-content">
+                    <span class="upload-icon">📁</span>
+                    <p>Drag and drop files here or click to browse</p>
+                    <p class="upload-hint">Supported formats: JPG, PNG, PDF, DOC, DOCX (Max 10MB each)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="notifyUpload">
+                <span class="checkmark"></span>
+                Send me an email when files are processed
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload Files</button>
+    </form>
+</section>

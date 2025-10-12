@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 AI/ML & Khoa học dữ liệu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .tech-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .tech-description {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "🧠 ";
+            font-weight: bold;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .beginner { background: #d4edda; color: #155724; }
+        .intermediate { background: #fff3cd; color: #856404; }
+        .advanced { background: #f8d7da; color: #721c24; }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🧠 AI/ML & Khoa học dữ liệu</h1>
+            <p>Các công nghệ trí tuệ nhân tạo và phân tích dữ liệu</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Python (AI/ML) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🐍</span>
+                    <div>
+                        <h2 class="tech-title">Python (AI/ML)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Python</strong> thống trị lĩnh vực AI/ML với hệ sinh thái phong phú và dễ sử dụng.
+                </div>
+                <div class="features-list">
+                    <li>TensorFlow, PyTorch cho Deep Learning</li>
+                    <li>NumPy, Pandas cho xử lý dữ liệu</li>
+                    <li>Scikit-learn cho Machine Learning</li>
+                    <li>Matplotlib, Seaborn cho visualization</li>
+                </div>
+                <div class="code-example">
+                    <pre><code># Machine Learning cơ bản với Python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+# Chuẩn bị dữ liệu
+data = pd.read_csv('data.csv')
+X = data[['feature1', 'feature2']]
+y = data['target']
+
+# Chia dữ liệu train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Huấn luyện mô hình
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Dự đoán
+predictions = model.predict(X_test)
+print(f"Accuracy: {model.score(X_test, y_test)}")</code></pre>
+                </div>
+                <a href="https://www.python.org/" class="cta-button" target="_blank">Học Python AI/ML</a>
+            </div>
+
+            <!-- R (Data Science) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">📊</span>
+                    <div>
+                        <h2 class="tech-title">R (Data Science)</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>R</strong> chuyên về phân tích dữ liệu thống kê và khoa học dữ liệu.
+                </div>
+                <div class="features-list">
+                    <li>Thống kê và phân tích dữ liệu mạnh mẽ</li>
+                    <li>Visualization tuyệt vời với ggplot2</li>
+                    <li>Large collection of statistical packages</li>
+                    <li>CRAN repository với 18,000+ packages</li>
+                </div>
+                <div class="code-example">
+                    <pre><code># Data analysis với R
+library(ggplot2)
+library(dplyr)
+
+# Đọc dữ liệu
+data &lt;- read.csv("dataset.csv")
+
+# Phân tích cơ bản
+summary(data)
+str(data)
+
+# Visualization
+ggplot(data, aes(x = age, y = income)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Income vs Age",
+       x = "Age",
+       y = "Income")
+
+# Thống kê mô tả
+mean_income &lt;- mean(data$income)
+median_income &lt;- median(data$income)
+sd_income &lt;- sd(data$income)</code></pre>
+                </div>
+                <a href="https://www.r-project.org/" class="cta-button" target="_blank">Học R</a>
+            </div>
+
+            <!-- Julia (Scientific Computing) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🔬</span>
+                    <div>
+                        <h2 class="tech-title">Julia (Scientific)</h2>
+                        <span class="difficulty-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Julia</strong> được thiết kế đặc biệt cho tính toán khoa học hiệu năng cao.
+                </div>
+                <div class="features-list">
+                    <li>Performance ngang ngửa C/C++</li>
+                    <li>Dynamic typing dễ sử dụng</li>
+                    <li>Built-in package manager</li>
+                    <li>Multiple dispatch system</li>
+                </div>
+                <div class="code-example">
+                    <pre><code># Scientific computing với Julia
+using LinearAlgebra
+using Plots
+
+# Giải hệ phương trình tuyến tính
+A = [2 1; 1 3]
+b = [1; 2]
+
+x = A \ b
+println("Solution: ", x)
+
+# Vẽ đồ thị
+x = range(0, stop=2π, length=100)
+y = sin.(x)
+plot(x, y, title="Sine Wave", xlabel="x", ylabel="sin(x)")</code></pre>
+                </div>
+                <a href="https://julialang.org/" class="cta-button" target="_blank">Học Julia</a>
+            </div>
+
+            <!-- MATLAB -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">📐</span>
+                    <div>
+                        <h2 class="tech-title">MATLAB</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>MATLAB</strong> là công cụ mạnh mẽ cho nghiên cứu kỹ thuật và tính toán số.
+                </div>
+                <div class="features-list">
+                    <li>Matrix operations và linear algebra</li>
+                    <li>Simulation và modeling</li>
+                    <li>Data analysis và visualization</li>
+                    <li>Toolboxes chuyên ngành (Signal Processing, Image Processing)</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>% MATLAB cơ bản
+% Tạo ma trận và tính toán
+A = [1 2 3; 4 5 6; 7 8 9];
+B = [1; 2; 3];
+
+% Giải hệ phương trình Ax = B
+x = A \ B;
+
+% Vẽ đồ thị
+t = 0:0.01:2*pi;
+y = sin(t) .* cos(t);
+plot(t, y);
+title('Sine * Cosine');
+xlabel('Time');
+ylabel('Amplitude');
+
+% Phân tích thống kê
+data = randn(1000, 1);
+histogram(data);
+title('Normal Distribution');</code></pre>
+                </div>
+                <a href="https://www.mathworks.com/products/matlab.html" class="cta-button" target="_blank">Học MATLAB</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>🧠 Khám phá thế giới AI và khoa học dữ liệu với các công cụ mạnh mẽ!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tech-card');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

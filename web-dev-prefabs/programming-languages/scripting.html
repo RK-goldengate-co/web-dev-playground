@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧩 Script & Automation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .tech-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .tech-description {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "🧩 ";
+            font-weight: bold;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .beginner { background: #d4edda; color: #155724; }
+        .intermediate { background: #fff3cd; color: #856404; }
+        .advanced { background: #f8d7da; color: #721c24; }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🧩 Script & Tự động hóa</h1>
+            <p>Tự động hóa công việc và xử lý dữ liệu với các ngôn ngữ script</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Python (Automation) -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🐍</span>
+                    <div>
+                        <h2 class="tech-title">Python (Automation)</h2>
+                        <span class="difficulty-badge beginner">Dễ</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Python</strong> xuất sắc cho việc tự động hóa công việc hàng ngày và xử lý dữ liệu.
+                </div>
+                <div class="features-list">
+                    <li>Đọc/ghi file Excel, CSV</li>
+                    <li>Web scraping và automation</li>
+                    <li>Email automation</li>
+                    <li>Data processing và analysis</li>
+                </div>
+                <div class="code-example">
+                    <pre><code># Python automation script
+import pandas as pd
+import smtplib
+from email.mime.text import MIMEText
+import requests
+from bs4 import BeautifulSoup
+
+# Đọc dữ liệu từ Excel
+df = pd.read_excel('data.xlsx')
+
+# Lọc dữ liệu theo điều kiện
+filtered_data = df[df['status'] == 'active']
+
+# Gửi email tự động
+def send_email(recipient, subject, body):
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = 'your-email@gmail.com'
+    msg['To'] = recipient
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login('your-email@gmail.com', 'your-password')
+    server.send_message(msg)
+    server.quit()
+
+# Web scraping
+def scrape_website(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    titles = soup.find_all('h2')
+    return [title.text for title in titles]</code></pre>
+                </div>
+                <a href="https://www.python.org/" class="cta-button" target="_blank">Học Python Automation</a>
+            </div>
+
+            <!-- Bash/Shell Script -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">💻</span>
+                    <div>
+                        <h2 class="tech-title">Bash/Shell Script</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>Bash/Shell Script</strong> để tự động hóa các tác vụ hệ thống trên Linux/Unix.
+                </div>
+                <div class="features-list">
+                    <li>File và directory operations</li>
+                    <li>Process management</li>
+                    <li>Network operations</li>
+                    <li>Backup và maintenance scripts</li>
+                </div>
+                <div class="code-example">
+                    <pre><code>#!/bin/bash
+
+# Backup script tự động
+BACKUP_DIR="/backup"
+LOG_FILE="/var/log/backup.log"
+
+# Tạo thư mục backup nếu chưa tồn tại
+mkdir -p "$BACKUP_DIR"
+
+# Backup các file quan trọng
+tar -czf "$BACKUP_DIR/backup_$(date +%Y%m%d_%H%M%S).tar.gz" \
+    /home/user/documents \
+    /etc/nginx \
+    /var/www/html
+
+# Xóa backup cũ hơn 7 ngày
+find "$BACKUP_DIR" -name "*.tar.gz" -type f -mtime +7 -delete
+
+# Ghi log
+echo "$(date): Backup completed successfully" &gt;&gt; "$LOG_FILE"
+
+# Kiểm tra disk space
+DISK_USAGE=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
+if [ "$DISK_USAGE" -gt 80 ]; then
+    echo "$(date): Warning: Disk usage is above 80%" &gt;&gt; "$LOG_FILE"
+fi</code></pre>
+                </div>
+                <a href="https://www.gnu.org/software/bash/" class="cta-button" target="_blank">Học Bash</a>
+            </div>
+
+            <!-- PowerShell -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-icon">🪟</span>
+                    <div>
+                        <h2 class="tech-title">PowerShell</h2>
+                        <span class="difficulty-badge intermediate">Trung bình</span>
+                    </div>
+                </div>
+                <div class="tech-description">
+                    <strong>PowerShell</strong> là scripting language mạnh mẽ của Microsoft cho Windows automation.
+                </div>
+                <div class="features-list">
+                    <li>Object-oriented scripting</li>
+                    <li>Windows system administration</li>
+                    <li>Active Directory management</li>
+                    <li>Integration với .NET Framework</li>
+                </div>
+                <div class="code-example">
+                    <pre><code># PowerShell script quản lý user
+param(
+    [string]$Action,
+    [string]$Username,
+    [string]$Department
+)
+
+# Tạo user mới
+if ($Action -eq "Create") {
+    $Password = ConvertTo-SecureString "P@ssw0rd123!" -AsPlainText -Force
+    New-ADUser -Name $Username `
+               -AccountPassword $Password `
+               -Enabled $true `
+               -Department $Department `
+               -Path "OU=Users,DC=company,DC=com"
+    Write-Host "User $Username created successfully"
+}
+
+# Vô hiệu hóa user
+elseif ($Action -eq "Disable") {
+    Disable-ADAccount -Identity $Username
+    Write-Host "User $Username disabled"
+}
+
+# Lấy thông tin user
+elseif ($Action -eq "Info") {
+    Get-ADUser -Identity $Username -Properties * |
+    Select-Object Name, Department, LastLogonDate, Enabled
+}</code></pre>
+                </div>
+                <a href="https://docs.microsoft.com/en-us/powershell/" class="cta-button" target="_blank">Học PowerShell</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>🧩 Tự động hóa công việc và tăng hiệu suất với scripting!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tech-card');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
