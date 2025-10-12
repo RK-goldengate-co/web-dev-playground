@@ -7,7 +7,8 @@
     "activeTab",
     "storage",
     "downloads",
-    "scripting"
+    "scripting",
+    "notifications"
   ],
   "host_permissions": [
     "https://www.youtube.com/*",
@@ -44,7 +45,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["popup.html", "popup.js", "popup.css"],
+      "resources": ["popup.html", "popup.js", "popup.css", "settings.html", "settings.js", "settings.css"],
       "matches": ["https://www.youtube.com/*", "https://youtube.com/*"]
     }
   ]

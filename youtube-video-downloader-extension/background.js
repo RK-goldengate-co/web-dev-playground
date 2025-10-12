@@ -77,18 +77,49 @@ async function getVideoInfo(url) {
 
 async function downloadVideo(videoData, format, quality) {
     try {
+        // Get current settings
+        const settings = await getStoredSettings();
+
         const downloadUrl = await getDownloadUrl(videoData.id, format, quality);
 
         if (!downloadUrl) {
             throw new Error('Không thể tạo URL tải');
         }
 
-        // Start download
-        const downloadItem = await chrome.downloads.download({
+        // Create filename based on settings
+        let filename = sanitizeFilename(videoData.title) + getFileExtension(format);
+
+        // Add subfolder if enabled
+        if (settings.createSubfolders && videoData.channel) {
+            const subfolder = sanitizeFilename(videoData.channel);
+            filename = `${subfolder}/${filename}`;
+        }
+
+        // Set download path if specified
+        let downloadOptions = {
             url: downloadUrl,
-            filename: sanitizeFilename(videoData.title) + getFileExtension(format),
+            filename: filename,
             saveAs: false
-        });
+        };
+
+        if (settings.downloadPath && settings.downloadPath.trim()) {
+            // Note: Chrome extensions can't directly set custom download paths
+            // This would require additional permissions or user interaction
+            console.log('Custom download path specified:', settings.downloadPath);
+        }
+
+        // Start download
+        const downloadItem = await chrome.downloads.download(downloadOptions);
+
+        // Handle notifications if enabled
+        if (settings.showNotifications) {
+            chrome.notifications.create('download-started', {
+                type: 'basic',
+                iconUrl: 'icons/icon128.png',
+                title: 'Bắt đầu tải video',
+                message: `Đang tải: ${videoData.title.substring(0, 50)}...`
+            });
+        }
 
         console.log('Download started:', downloadItem);
         return downloadItem;
@@ -97,6 +128,14 @@ async function downloadVideo(videoData, format, quality) {
         console.error('Error downloading video:', error);
         throw error;
     }
+}
+
+async function getStoredSettings() {
+    return new Promise((resolve) => {
+        chrome.storage.local.get(['settings'], function(result) {
+            resolve(result.settings || {});
+        });
+    });
 }
 
 async function getDownloadUrl(videoId, format, quality) {
@@ -151,13 +190,48 @@ function getFileExtension(format) {
 }
 
 // Handle download progress and completion
-chrome.downloads.onChanged.addListener(function(downloadDelta) {
+chrome.downloads.onChanged.addListener(async function(downloadDelta) {
     if (downloadDelta.state && downloadDelta.state.current === 'complete') {
         console.log('Download completed:', downloadDelta.id);
+
+        // Get settings to check notification preferences
+        const settings = await getStoredSettings();
+
+        if (settings.showNotifications) {
+            chrome.notifications.create('download-completed', {
+                type: 'basic',
+                iconUrl: 'icons/icon128.png',
+                title: 'Tải video hoàn tất',
+                message: 'Video đã được tải xuống thành công!'
+            });
+
+            // Play sound if enabled
+            if (settings.playSound) {
+                // Play notification sound (you could customize this)
+                try {
+                    const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBCWM1Ojw7uE='); // Placeholder beep sound
+                    audio.volume = 0.3;
+                    audio.play().catch(e => console.log('Could not play sound:', e));
+                } catch (e) {
+                    console.log('Audio playback not supported');
+                }
+            }
+        }
     }
 
     if (downloadDelta.state && downloadDelta.state.current === 'interrupted') {
         console.log('Download interrupted:', downloadDelta.id);
+
+        // Show error notification if enabled
+        const settings = await getStoredSettings();
+        if (settings.showNotifications) {
+            chrome.notifications.create('download-failed', {
+                type: 'basic',
+                iconUrl: 'icons/icon128.png',
+                title: 'Tải video thất bại',
+                message: 'Không thể tải video. Vui lòng thử lại.'
+            });
+        }
     }
 });
 
@@ -191,5 +265,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                 });
             }
         });
+    }
+
+    if (request.action === 'settingsUpdated') {
+        // Settings have been updated, store them for use in downloads
+        console.log('Settings updated:', request.settings);
+        // The settings are already saved in chrome.storage.local by settings.js
+        // We can use them in future download requests
+        sendResponse({ success: true });
+        return true;
     }
 });

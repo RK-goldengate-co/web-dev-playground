@@ -51,9 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Open settings (placeholder)
+        // Open settings
         document.getElementById('openSettings').addEventListener('click', function() {
-            showError('Chức năng cài đặt sẽ được thêm trong phiên bản tiếp theo');
+            // Open settings page in a new tab
+            chrome.tabs.create({
+                url: chrome.runtime.getURL('settings.html')
+            });
         });
     }
 

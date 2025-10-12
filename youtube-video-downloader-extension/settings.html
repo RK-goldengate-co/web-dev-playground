@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài đặt - YouTube Video Downloader</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <header class="settings-header">
+            <h1>⚙️ Cài đặt</h1>
+            <p>Tùy chỉnh trải nghiệm tải video của bạn</p>
+        </header>
+
+        <div class="settings-content">
+            <!-- Cài đặt tải mặc định -->
+            <section class="settings-section">
+                <h2>📥 Cài đặt tải mặc định</h2>
+                <div class="setting-item">
+                    <label for="defaultFormat">Định dạng mặc định:</label>
+                    <select id="defaultFormat">
+                        <option value="mp4">MP4 (Video)</option>
+                        <option value="webm">WebM (Video)</option>
+                        <option value="mp3">MP3 (Audio)</option>
+                        <option value="m4a">M4A (Audio)</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="defaultQuality">Chất lượng mặc định:</label>
+                    <select id="defaultQuality">
+                        <option value="720">720p (HD)</option>
+                        <option value="480">480p (SD)</option>
+                        <option value="360">360p</option>
+                        <option value="240">240p</option>
+                        <option value="144">144p</option>
+                        <option value="128">Audio chỉ</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="autoDownload">
+                        <span class="checkmark"></span>
+                        Tự động tải khi click nút tải (không hiển thị tùy chọn)
+                    </label>
+                </div>
+            </section>
+
+            <!-- Cài đặt thư mục lưu -->
+            <section class="settings-section">
+                <h2>📁 Thư mục lưu trữ</h2>
+                <div class="setting-item">
+                    <label for="downloadPath">Thư mục mặc định:</label>
+                    <div class="path-input-group">
+                        <input type="text" id="downloadPath" placeholder="youtube-downloads">
+                        <button id="browseFolder" class="browse-btn">Duyệt...</button>
+                    </div>
+                    <small class="setting-hint">Để trống để sử dụng thư mục Downloads mặc định</small>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="createSubfolders">
+                        <span class="checkmark"></span>
+                        Tạo thư mục con theo tên kênh
+                    </label>
+                </div>
+            </section>
+
+            <!-- Cài đặt nâng cao -->
+            <section class="settings-section">
+                <h2>🔧 Tính năng nâng cao</h2>
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showNotifications">
+                        <span class="checkmark"></span>
+                        Hiển thị thông báo khi tải xong
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="playSound">
+                        <span class="checkmark"></span>
+                        Phát âm thanh khi tải xong
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="downloadSubtitles">
+                        <span class="checkmark"></span>
+                        Tự động tải phụ đề nếu có
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="downloadThumbnail">
+                        <span class="checkmark"></span>
+                        Tải thumbnail cùng với video
+                    </label>
+                </div>
+            </section>
+
+            <!-- Cài đặt giao diện -->
+            <section class="settings-section">
+                <h2>🎨 Giao diện</h2>
+                <div class="setting-item">
+                    <label for="theme">Chủ đề màu sắc:</label>
+                    <select id="theme">
+                        <option value="gradient">Gradient (Mặc định)</option>
+                        <option value="dark">Dark Mode</option>
+                        <option value="light">Light Mode</option>
+                        <option value="youtube">YouTube Red</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="compactMode">
+                        <span class="checkmark"></span>
+                        Chế độ nhỏ gọn (ẩn thông tin chi tiết)
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showPreview">
+                        <span class="checkmark"></span>
+                        Hiển thị preview video trong popup
+                    </label>
+                </div>
+            </section>
+
+            <!-- Cài đặt mạng -->
+            <section class="settings-section">
+                <h2>🌐 Mạng và Hiệu suất</h2>
+                <div class="setting-item">
+                    <label for="timeout">Thời gian chờ (giây):</label>
+                    <input type="number" id="timeout" min="10" max="300" value="60">
+                    <small class="setting-hint">Thời gian tối đa chờ phản hồi từ server</small>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="useProxy">
+                        <span class="checkmark"></span>
+                        Sử dụng proxy khi tải (chậm hơn nhưng ổn định hơn)
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="retryOnFailure">
+                        <span class="checkmark"></span>
+                        Thử lại tự động khi tải thất bại
+                    </label>
+                </div>
+            </section>
+        </div>
+
+        <footer class="settings-footer">
+            <button id="resetSettings" class="secondary-btn">🔄 Khôi phục mặc định</button>
+            <div class="footer-actions">
+                <button id="exportSettings" class="secondary-btn">📤 Xuất cài đặt</button>
+                <button id="importSettings" class="secondary-btn">📥 Nhập cài đặt</button>
+                <button id="saveSettings" class="primary-btn">💾 Lưu cài đặt</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
