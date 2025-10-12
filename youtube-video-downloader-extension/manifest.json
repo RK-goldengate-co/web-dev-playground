@@ -13,9 +13,9 @@
   "host_permissions": [
     "https://www.youtube.com/*",
     "https://youtube.com/*",
-    "https://*.y2mate.com/*",
-    "https://*.savefrom.net/*",
-    "https://*.y2meta.app/*"
+    "https://api.y2mate.com/*",
+    "https://api.savefrom.net/*",
+    "https://cobalt.tools/*"
   ],
   "background": {
     "service_worker": "background.js"

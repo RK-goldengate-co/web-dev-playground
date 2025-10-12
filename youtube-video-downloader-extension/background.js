@@ -86,6 +86,12 @@ async function downloadVideo(videoData, format, quality) {
             throw new Error('Không thể tạo URL tải');
         }
 
+        // Validate download URL before proceeding
+        const isValidUrl = await validateDownloadUrl(downloadUrl);
+        if (!isValidUrl) {
+            throw new Error('URL tải không hợp lệ hoặc không thể truy cập');
+        }
+
         // Create filename based on settings
         let filename = sanitizeFilename(videoData.title) + getFileExtension(format);
 
@@ -126,7 +132,48 @@ async function downloadVideo(videoData, format, quality) {
 
     } catch (error) {
         console.error('Error downloading video:', error);
+
+        // Show error notification if enabled
+        const settings = await getStoredSettings();
+        if (settings.showNotifications) {
+            chrome.notifications.create('download-error', {
+                type: 'basic',
+                iconUrl: 'icons/icon128.png',
+                title: 'Lỗi tải video',
+                message: error.message || 'Không thể tải video. Vui lòng thử lại.'
+            });
+        }
+
         throw error;
+    }
+}
+
+async function validateDownloadUrl(url) {
+    try {
+        // Try to fetch the URL headers to validate it
+        const response = await fetch(url, {
+            method: 'HEAD',
+            mode: 'no-cors' // Allow cross-origin requests
+        });
+
+        // If we get here, the URL is accessible (even if no-cors blocks the response)
+        return true;
+
+    } catch (error) {
+        console.warn('URL validation failed:', error.message);
+
+        // For some APIs, we can't validate with HEAD request due to CORS
+        // So we'll assume the URL is valid if it has a proper format
+        const validPatterns = [
+            /\.(mp4|webm|mp3|m4a)(\?.*)?$/i,
+            /\/download\//i,
+            /\/get\//i,
+            /y2mate\.com/i,
+            /savefrom\.net/i,
+            /cobalt\.tools/i
+        ];
+
+        return validPatterns.some(pattern => pattern.test(url));
     }
 }
 
@@ -138,21 +185,204 @@ async function getStoredSettings() {
     });
 }
 
+// API endpoints for video download
+const DOWNLOAD_APIS = {
+    Y2MATE: 'https://api.y2mate.com/v2/analyze',
+    SAVEFROM: 'https://api.savefrom.net/info',
+    ALTERNATIVE: 'https://cobalt.tools/api/json'
+};
+
 async function getDownloadUrl(videoId, format, quality) {
     try {
-        // For this demo, we'll use a simple approach
-        // In a real implementation, you'd integrate with a proper video download API
+        console.log(`Getting download URL for video ${videoId} in ${format} format at ${quality} quality`);
 
-        // Simulate API call delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Try multiple APIs for better reliability
+        const downloadUrl = await tryMultipleAPIs(videoId, format, quality);
 
-        // For demo purposes, return a placeholder URL
-        // In production, this would be a real download URL from a service like y2mate, savefrom, etc.
-        return `https://example.com/download/${videoId}/${format}/${quality}`;
+        if (downloadUrl) {
+            console.log('Successfully got download URL:', downloadUrl);
+            return downloadUrl;
+        } else {
+            throw new Error('Không thể lấy URL tải từ bất kỳ API nào');
+        }
 
     } catch (error) {
         console.error('Error getting download URL:', error);
-        return null;
+        throw error;
+    }
+}
+
+async function tryMultipleAPIs(videoId, format, quality) {
+    const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+    // Try APIs in order of preference
+    const apis = [
+        { name: 'Y2Mate', fn: getY2MateUrl },
+        { name: 'SaveFrom', fn: getSaveFromUrl },
+        { name: 'Cobalt', fn: getCobaltUrl }
+    ];
+
+    for (const api of apis) {
+        try {
+            console.log(`Trying ${api.name} API...`);
+            const url = await api.fn(youtubeUrl, format, quality);
+            if (url) {
+                console.log(`✅ ${api.name} API successful`);
+                return url;
+            }
+        } catch (error) {
+            console.log(`❌ ${api.name} API failed:`, error.message);
+            continue;
+        }
+    }
+
+    return null;
+}
+
+async function getY2MateUrl(youtubeUrl, format, quality) {
+    try {
+        // Step 1: Analyze video
+        const analyzeResponse = await fetch(DOWNLOAD_APIS.Y2MATE, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'url': youtubeUrl,
+                'q_auto': '0',
+                'ajax': '1'
+            })
+        });
+
+        if (!analyzeResponse.ok) {
+            throw new Error(`HTTP ${analyzeResponse.status}`);
+        }
+
+        const analyzeData = await analyzeResponse.json();
+
+        if (!analyzeData || !analyzeData.success) {
+            throw new Error('Không thể phân tích video');
+        }
+
+        // Step 2: Get download link
+        const formatMap = {
+            'mp4': 'mp4',
+            'webm': 'webm',
+            'mp3': 'mp3',
+            'm4a': 'm4a'
+        };
+
+        const qualityMap = {
+            '720': '720',
+            '480': '480',
+            '360': '360',
+            '240': '240',
+            '144': '144',
+            '128': '128'
+        };
+
+        const formatCode = formatMap[format] || 'mp4';
+        const qualityCode = qualityMap[quality] || '480';
+
+        // Find appropriate video format
+        let selectedLink = null;
+        if (analyzeData.links && analyzeData.links[formatCode]) {
+            const formats = analyzeData.links[formatCode];
+            // Try to find exact quality, fallback to available quality
+            selectedLink = formats[qualityCode] || formats[Object.keys(formats)[0]];
+        }
+
+        if (selectedLink && selectedLink.url) {
+            return selectedLink.url;
+        }
+
+        throw new Error('Không tìm thấy định dạng phù hợp');
+
+    } catch (error) {
+        throw new Error(`Y2Mate API error: ${error.message}`);
+    }
+}
+
+async function getSaveFromUrl(youtubeUrl, format, quality) {
+    try {
+        const response = await fetch(`${DOWNLOAD_APIS.SAVEFROM}?${new URLSearchParams({
+            url: youtubeUrl
+        })}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!data.url || !Array.isArray(data.url)) {
+            throw new Error('Không thể lấy thông tin tải');
+        }
+
+        // Find appropriate format
+        const formatMap = {
+            'mp4': /mp4/i,
+            'webm': /webm/i,
+            'mp3': /mp3/i,
+            'm4a': /m4a/i
+        };
+
+        const qualityMap = {
+            '720': /720p?/i,
+            '480': /480p?/i,
+            '360': /360p?/i,
+            '240': /240p?/i,
+            '144': /144p?/i,
+            '128': /audio/i
+        };
+
+        for (const downloadInfo of data.url) {
+            if (downloadInfo && downloadInfo.url) {
+                const formatMatch = formatMap[format] && downloadInfo.type && formatMap[format].test(downloadInfo.type);
+                const qualityMatch = qualityMap[quality] && downloadInfo.quality && qualityMap[quality].test(downloadInfo.quality);
+
+                if (formatMatch && qualityMatch) {
+                    return downloadInfo.url;
+                }
+            }
+        }
+
+        throw new Error('Không tìm thấy định dạng phù hợp');
+
+    } catch (error) {
+        throw new Error(`SaveFrom API error: ${error.message}`);
+    }
+}
+
+async function getCobaltUrl(youtubeUrl, format, quality) {
+    try {
+        const response = await fetch(DOWNLOAD_APIS.ALTERNATIVE, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                url: youtubeUrl,
+                aFormat: format,
+                vQuality: quality
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.url) {
+            return data.url;
+        }
+
+        throw new Error('Không thể lấy URL tải');
+
+    } catch (error) {
+        throw new Error(`Cobalt API error: ${error.message}`);
     }
 }
 

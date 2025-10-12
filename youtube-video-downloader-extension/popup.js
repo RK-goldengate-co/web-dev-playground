@@ -154,7 +154,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 showSuccess('Video đã bắt đầu tải!');
             } else {
                 hideDownloadProgress();
-                showError(response.error || 'Không thể tải video');
+                showError(response.error || 'Không thể tải video. Vui lòng thử lại.');
+
+                // Show additional troubleshooting info
+                setTimeout(() => {
+                    showTroubleshootingInfo();
+                }, 3000);
             }
         } catch (error) {
             hideDownloadProgress();
@@ -200,10 +205,14 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessageDiv.classList.remove('hidden');
         document.getElementById('errorText').textContent = message;
 
-        // Auto hide after 5 seconds
-        setTimeout(() => {
-            hideError();
-        }, 5000);
+        // Don't auto-hide if we have troubleshooting info
+        const hasTroubleshooting = errorMessageDiv.querySelector('.troubleshooting-info');
+        if (!hasTroubleshooting) {
+            // Auto hide after 5 seconds only if no troubleshooting info
+            setTimeout(() => {
+                hideError();
+            }, 5000);
+        }
     }
 
     function hideError() {
@@ -219,9 +228,25 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadProgressDiv.classList.add('hidden');
     }
 
-    function showSuccess(message) {
-        // Simple success notification - you could enhance this
-        console.log('Success:', message);
+    function showTroubleshootingInfo() {
+        const troubleshootingDiv = document.createElement('div');
+        troubleshootingDiv.className = 'troubleshooting-info';
+        troubleshootingDiv.innerHTML = `
+            <div style="background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); border-radius: 8px; padding: 12px; margin-top: 8px;">
+                <strong>💡 Mẹo khắc phục:</strong>
+                <ul style="margin: 8px 0 0 0; padding-left: 20px; font-size: 12px;">
+                    <li>Thử tải định dạng khác (MP3 thay vì MP4)</li>
+                    <li>Kiểm tra kết nối internet</li>
+                    <li>Thử lại sau vài phút (có thể do giới hạn rate)</li>
+                    <li>Kiểm tra cài đặt tường lửa hoặc VPN</li>
+                </ul>
+            </div>
+        `;
+
+        const errorDiv = document.getElementById('errorMessage');
+        if (errorDiv && !errorDiv.querySelector('.troubleshooting-info')) {
+            errorDiv.appendChild(troubleshootingDiv);
+        }
     }
 
     function isValidYouTubeUrl(url) {
