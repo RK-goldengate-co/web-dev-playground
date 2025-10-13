@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Countdown Timer Extension",
+  "version": "1.0",
+  "description": "Một extension đồng hồ đếm ngược đơn giản dựa trên dự án web.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Mở đồng hồ đếm ngược"
+  },
+  "permissions": ["activeTab"]
+}
