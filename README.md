@@ -12,27 +12,62 @@ web-dev-playground/
 │   ├── styles.css
 │   ├── script.js
 │   └── README.md
-├── countdown-timer/             # Extension Chrome đếm ngược với giao diện tùy chỉnh
-│   ├── index.html
-│   ├── popup.html
-│   ├── styles.css
-│   ├── script.js
-│   └── manifest.json
-├── discord-reaction-role-bot/   # 🤖 Bot Discord cho Reaction Role System
-│   ├── bot.py                   # Code chính của bot
-│   ├── config.py                # Module cấu hình
-│   ├── requirements.txt         # Dependencies Python
-│   ├── .env.example             # File cấu hình mẫu
-│   ├── README.md                # Hướng dẫn chi tiết
-│   ├── run.bat                  # Script chạy trên Windows
-│   └── .gitignore               # Git ignore rules
-├── youtube-video-downloader-extension/ # 🎥 Chrome Extension tải video YouTube
+├── countdown-timer/         ## 🔍 HTML Scraper Tool Extension
+
+Extension Chrome mạnh mẽ để lấy và phân tích HTML của bất kỳ trang web nào. Với giao diện đẹp mắt và animation gradient, công cụ này giúp developer dễ dàng xem cấu trúc trang, tải HTML, và phân tích thống kê.
+
+### ✨ Tính năng chính
+- **Lấy HTML Từ Trang Hiện Tại**: Nhấn nút để lấy toàn bộ HTML của tab đang mở.
+- **Nhập URL Tùy Chỉnh**: Điền URL vào khung nhập để lấy HTML từ trang bất kỳ.
+- **Lấy URL Từ Tab Hiện Tại**: Tự động điền URL của tab đang xem vào khung nhập.
+- **Tải HTML Xuống**: Tải file .html về máy với một cú click.
+- **Phân Tích Cấu Trúc**: Hiển thị thống kê chi tiết về số lượng elements, divs, links, v.v.
+- **Giao Diện Đẹp**: Animation gradient nền, buttons với hiệu ứng hover và click.
+- **Icon Chuẩn**: Icon tùy chỉnh cho extension với nhiều kích thước.
+
+### 🚀 Cách sử dụng
+1. **Cài đặt Extension**:
+   - Mở `chrome://extensions/`
+   - Bật "Developer mode"
+   - Nhấn "Load unpacked" và chọn thư mục `html-scraper-extension/`
+
+2. **Sử dụng Cơ Bản**:
+   - Nhấn nút "Get Current URL" để điền URL tab hiện tại.
+   - Nhấn "Fetch" để lấy HTML và hiển thị trong khung văn bản.
+   - Nhấn "Download" để tải HTML về máy.
+   - Xem thống kê ở status bar.
+
+3. **Tính năng Nâng Cao**:
+   - Nhập URL tùy chỉnh để scrape trang bất kỳ.
+   - Phân tích cấu trúc trang với thống kê chi tiết.
+
+### 📁 Cấu trúc file
+- `manifest.json`: Cấu hình extension với permissions và icons.
+- `popup.html`: Giao diện popup chính.
+- `popup.css`: Styling với animation gradient và hiệu ứng đẹp.
+- `popup.js`: Logic xử lý popup, phân tích HTML, và tương tác.
+- `background.js`: Background script cho extension.
+- `content.js`: Content script để lấy HTML từ trang.
+- `icons/`: Thư mục chứa icon cho extension.
+
+### 🎨 Giao diện và Animation
+- **Background Gradient**: Chuyển động chéo liên tục với 13 màu sắc cầu vồng.
+- **Buttons Interactive**: Hiệu ứng hover, click với pulse và bounce.
+- **Responsive Design**: Tối ưu cho mọi kích thước popup.
+
+### 🔧 Phát triển
+Extension được xây dựng với Manifest V3, sử dụng modern JavaScript và CSS animations. Dễ mở rộng với thêm tính năng như export PDF hoặc tích hợp API.
+
+---
+
+**Happy Scraping! 🎉**
+├── html-scraper-extension/      # 🔍 Chrome Extension lấy HTML của trang web
 │   ├── manifest.json            # Cấu hình extension
 │   ├── popup.html               # Giao diện popup chính
-│   ├── popup.css                # Styling cho popup
-│   ├── popup.js                 # Logic xử lý popup
-│   ├── background.js            # Background script và API
-│   ├── content.js               # Content script cho YouTube
+│   ├── popup.css                # Styling cho popup với animation gradient
+│   ├── popup.js                 # Logic xử lý popup và phân tích HTML
+│   ├── background.js            # Background script
+│   ├── content.js               # Content script để lấy HTML
 │   ├── icons/                   # Icon files
 │   │   ├── icon16.png
 │   │   ├── icon32.png
@@ -140,9 +175,9 @@ python bot.py
 # hoặc trên Windows:
 ./run.bat
 
-# YouTube Video Downloader Extension
+# HTML Scraper Tool Extension
 # Cài đặt vào Chrome qua chrome://extensions/
-# Load thư mục youtube-video-downloader-extension/
+# Load thư mục html-scraper-extension/
 ```
 
 ### Programming Language References
