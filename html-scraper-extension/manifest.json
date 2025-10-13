@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "HTML Scraper Tool",
+  "version": "1.0",
+  "description": "Extract and view the HTML source of the current webpage automatically.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "notifications",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Get HTML"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
