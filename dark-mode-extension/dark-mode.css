@@ -1,0 +1,138 @@
+/* Dark Mode Extension CSS - Được áp dụng cho mọi trang web */
+
+/* Thiết lập màu nền và chữ cơ bản cho dark mode */
+html, body {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Đảm bảo tất cả các elements đều có màu phù hợp */
+div, span, p, h1, h2, h3, h4, h5, h6, section, article, aside, nav, header, footer, main {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+/* Xử lý các input fields */
+input[type="text"], input[type="password"], input[type="email"], input[type="search"], input[type="url"], input[type="tel"], input[type="number"], textarea, select {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border: 1px solid #555555 !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: #444444 !important;
+  border-color: #66b3ff !important;
+  outline: none;
+}
+
+/* Xử lý các nút */
+button, input[type="submit"], input[type="button"], [role="button"] {
+  background-color: #444444 !important;
+  color: #ffffff !important;
+  border: 1px solid #666666 !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover, [role="button"]:hover {
+  background-color: #555555 !important;
+  border-color: #777777 !important;
+}
+
+/* Xử lý các liên kết */
+a {
+  color: #66b3ff !important;
+  transition: color 0.3s ease;
+}
+
+a:visited {
+  color: #cc99ff !important;
+}
+
+a:hover {
+  color: #80c5ff !important;
+}
+
+/* Xử lý các bảng */
+table, th, td {
+  background-color: #2a2a2a !important;
+  border: 1px solid #555555 !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+th {
+  background-color: #444444 !important;
+}
+
+/* Xử lý các list items */
+li {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+/* Xử lý các dropdown và options */
+option {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+/* Xử lý các modal, dialog và overlay */
+.modal, .popup, .overlay, [role="dialog"] {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: 1px solid #555555 !important;
+}
+
+/* Đảm bảo các ảnh và media giữ nguyên màu gốc */
+img, video, canvas, svg, embed, object {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+/* Loại trừ các elements không nên áp dụng dark mode */
+.dark-mode-exclude, [data-dark-mode="exclude"] {
+  background-color: inherit !important;
+  color: inherit !important;
+}
+
+/* Đảm bảo các shadow effects không bị ảnh hưởng */
+[style*="box-shadow"], [style*="text-shadow"] {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+  text-shadow: none !important;
+}
+
+/* Đảm bảo các progress bars có màu phù hợp */
+progress {
+  background-color: #333333 !important;
+  border: 1px solid #555555 !important;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #333333 !important;
+}
+
+progress::-webkit-progress-value {
+  background-color: #66b3ff !important;
+}
+
+progress::-moz-progress-bar {
+  background-color: #66b3ff !important;
+}
+
+/* Đảm bảo các scrollbars có màu phù hợp (Webkit) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}
