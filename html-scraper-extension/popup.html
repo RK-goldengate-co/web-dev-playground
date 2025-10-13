@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Scraper Tool</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h2>HTML Scraper Tool</h2>
+  <div class="input-container">
+    <input type="text" id="urlInput" placeholder="Enter URL to scrape..." />
+  </div>
+  <div class="button-container">
+    <button id="fetchFromURL">Fetch</button>
+    <button id="getCurrentURL">Get Current URL</button>
+    <button id="downloadHTML">Download</button>
+  </div>
+  <div id="htmlPreview" style="display: none;">
+    <h3>HTML Content</h3>
+    <textarea id="htmlOutput" placeholder="HTML will appear here..."></textarea>
+  </div>
+  <div class="status" id="status">Ready to scrape!</div>
+
+  <footer class="footer">
+    <p>&copy; 2025 RK - plus.ex-creative</p>
+    <div class="footer-links">
+      <a href="https://github.com/RK-goldengate-co" target="_blank" class="footer-btn">
+        <span>GitHub</span>
+      </a>
+      <a href="https://ko-fi.com/abyxcdxyzsad7143" target="_blank" class="footer-btn">
+        <span>Ko-fi</span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
