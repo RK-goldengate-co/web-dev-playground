@@ -1,13 +1,17 @@
-// Popup script cho Dark Mode Extension
+// Popup script cho Dark Mode Extension với nhiều theme
 document.addEventListener('DOMContentLoaded', async () => {
   const toggleSwitch = document.getElementById('darkModeToggle');
   const status = document.getElementById('status');
+  const themeButtons = document.querySelectorAll('.theme-btn');
 
-  // Lấy trạng thái dark mode hiện tại từ storage
-  const { darkMode = false } = await chrome.storage.local.get(['darkMode']);
+  let currentTheme = 'classic';
+
+  // Lấy trạng thái dark mode và theme hiện tại từ storage
+  const { darkMode = false, theme = 'classic' } = await chrome.storage.local.get(['darkMode', 'theme']);
 
   // Cập nhật UI dựa trên trạng thái hiện tại
   updateUI(darkMode);
+  updateThemeButtons(theme);
 
   // Lắng nghe sự kiện click trên toggle switch
   toggleSwitch.addEventListener('click', async () => {
@@ -33,6 +37,25 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateUI(currentDarkMode);
     }
   });
+
+  // Lắng nghe sự kiện click trên các nút theme
+  themeButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+      const newTheme = button.dataset.theme;
+
+      // Cập nhật trạng thái trong storage
+      await chrome.storage.local.set({ theme: newTheme });
+      currentTheme = newTheme;
+
+      // Cập nhật UI
+      updateThemeButtons(newTheme);
+
+      // Gửi message đến background script để áp dụng theme mới
+      await chrome.runtime.sendMessage({ action: 'changeTheme', theme: newTheme });
+
+      console.log('Theme changed to:', newTheme);
+    });
+  });
 });
 
 // Hàm cập nhật giao diện người dùng
@@ -49,4 +72,17 @@ function updateUI(isDarkMode) {
     status.textContent = 'Đã tắt';
     status.className = 'status disabled';
   }
+}
+
+// Hàm cập nhật trạng thái các nút theme
+function updateThemeButtons(activeTheme) {
+  const themeButtons = document.querySelectorAll('.theme-btn');
+
+  themeButtons.forEach(button => {
+    if (button.dataset.theme === activeTheme) {
+      button.classList.add('active');
+    } else {
+      button.classList.remove('active');
+    }
+  });
 }

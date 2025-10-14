@@ -104,11 +104,37 @@
       color: #f44336;
     }
 
-    .info {
-      margin-top: 15px;
-      font-size: 10px;
-      opacity: 0.7;
-      line-height: 1.4;
+    .theme-selector {
+      margin: 15px 0;
+    }
+
+    .theme-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .theme-btn {
+      padding: 8px 12px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      cursor: pointer;
+      font-size: 11px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .theme-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .theme-btn.active {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: white;
     }
   </style>
 </head>
@@ -127,8 +153,19 @@
 
     <div id="status" class="status disabled">Đã tắt</div>
 
+    <div class="theme-selector">
+      <div style="font-size: 12px; opacity: 0.8; margin-bottom: 5px;">Chọn theme:</div>
+      <div class="theme-buttons">
+        <button class="theme-btn active" data-theme="classic">Cổ điển</button>
+        <button class="theme-btn" data-theme="blue">Xanh dương</button>
+        <button class="theme-btn" data-theme="purple">Tím</button>
+        <button class="theme-btn" data-theme="green">Xanh lá</button>
+      </div>
+    </div>
+
     <div class="info">
       Nhấn để bật/tắt dark mode<br>
+      Chọn theme để thay đổi màu sắc<br>
       Áp dụng cho tất cả các trang web
     </div>
   </div>

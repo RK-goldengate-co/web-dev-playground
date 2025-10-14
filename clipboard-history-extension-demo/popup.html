@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <title>Lịch sử Copy</title>
   <style>
-    body { font-family: Arial, sans-serif; width: 300px; padding: 10px; }
-    ul { list-style-type: none; padding: 0; }
-    li { margin: 5px 0; padding: 5px; background: #f0f0f0; cursor: pointer; }
+    body { font-family: Arial, sans-serif; width: 350px; padding: 10px; }
+    #searchContainer { margin-bottom: 10px; }
+    #searchInput { width: 100%; padding: 5px; box-sizing: border-box; }
+    ul { list-style-type: none; padding: 0; max-height: 300px; overflow-y: auto; }
+    li { margin: 5px 0; padding: 8px; background: #f0f0f0; cursor: pointer; display: none; }
+    li.visible { display: block; }
     li:hover { background: #ddd; }
+    .history-item { display: flex; justify-content: space-between; align-items: center; }
+    .history-text { flex: 1; margin-right: 10px; }
+    .history-time { font-size: 11px; color: #666; white-space: nowrap; }
     button { margin-top: 10px; width: 100%; }
+    #stats { font-size: 12px; color: #666; margin-bottom: 5px; }
   </style>
 </head>
 <body>
   <h3>Lịch sử Copy</h3>
+  <div id="searchContainer">
+    <input type="text" id="searchInput" placeholder="Tìm kiếm trong lịch sử...">
+    <div id="stats">Hiển thị <span id="visibleCount">0</span>/<span id="totalCount">0</span> mục</div>
+  </div>
   <ul id="historyList"></ul>
   <button id="clearHistory">Xóa lịch sử</button>
 

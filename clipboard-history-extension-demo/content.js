@@ -17,8 +17,19 @@ document.addEventListener('copy', async (event) => {
 async function saveToHistory(text) {
   try {
     const { clipboardHistory = [] } = await chrome.storage.local.get(['clipboardHistory']);
-    if (clipboardHistory[0] !== text) {
-      const newHistory = [text, ...clipboardHistory.slice(0, 49)];
+
+    // Tạo object với text và timestamp
+    const newItem = {
+      text: text,
+      timestamp: new Date().toISOString(),
+      id: Date.now() + Math.random() // Unique ID
+    };
+
+    // Kiểm tra duplicate dựa trên text
+    const isDuplicate = clipboardHistory.some(item => item.text === text);
+
+    if (!isDuplicate) {
+      const newHistory = [newItem, ...clipboardHistory.slice(0, 49)];
       await chrome.storage.local.set({ clipboardHistory: newHistory });
       console.log('Saved to history:', text);
     } else {
