@@ -30,6 +30,18 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;
+      align-items: center;
+    }
+    .search-container {
+      flex: 1;
+      margin-right: 10px;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
     }
     button {
       padding: 10px 15px;
@@ -92,8 +104,13 @@
   <div class="container">
     <h1>Lịch sử Copy</h1>
     <div class="controls">
-      <button id="refreshBtn">Làm mới từ Clipboard</button>
-      <button id="clearBtn">Xóa lịch sử</button>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm trong lịch sử...">
+      </div>
+      <div>
+        <button id="refreshBtn">Làm mới từ Clipboard</button>
+        <button id="clearBtn">Xóa lịch sử</button>
+      </div>
     </div>
     <ul id="historyList"></ul>
   </div>

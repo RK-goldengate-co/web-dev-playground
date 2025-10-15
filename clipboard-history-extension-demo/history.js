@@ -3,20 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const historyList = document.getElementById('historyList');
   const refreshBtn = document.getElementById('refreshBtn');
   const clearBtn = document.getElementById('clearBtn');
+  const searchInput = document.getElementById('searchInput');
 
-  // Hàm tải và hiển thị lịch sử
-  async function loadHistory() {
+  // Hàm tải và hiển thị lịch sử với bộ lọc tìm kiếm
+  async function loadHistory(filter = '') {
     const { clipboardHistory = [] } = await chrome.storage.local.get(['clipboardHistory']);
     historyList.innerHTML = '';
-    if (clipboardHistory.length === 0) {
-      historyList.innerHTML = '<li>Chưa có lịch sử copy nào.</li>';
+    const filteredHistory = clipboardHistory.filter(item => item.text.toLowerCase().includes(filter.toLowerCase()));
+    if (filteredHistory.length === 0) {
+      historyList.innerHTML = filter ? '<li>Không tìm thấy kết quả nào.</li>' : '<li>Chưa có lịch sử copy nào.</li>';
       return;
     }
-    clipboardHistory.forEach((item, index) => {
+    filteredHistory.forEach((item, index) => {
       const li = document.createElement('li');
+      const timestamp = new Date(item.timestamp).toLocaleString('vi-VN');
       li.innerHTML = `
-        <div class="text">${escapeHtml(item.length > 100 ? item.substring(0, 100) + '...' : item)}</div>
-        <button class="copy-btn" data-text="${escapeHtml(item)}">Copy lại</button>
+        <div class="text">${escapeHtml(item.text.length > 100 ? item.text.substring(0, 100) + '...' : item.text)}</div>
+        <small style="color: #666;">${timestamp}</small>
+        <button class="copy-btn" data-text="${escapeHtml(item.text)}">Copy lại</button>
       `;
       li.querySelector('.copy-btn').addEventListener('click', (e) => {
         const text = e.target.getAttribute('data-text');
@@ -40,16 +44,27 @@ document.addEventListener('DOMContentLoaded', () => {
     return div.innerHTML;
   }
 
+  // Sự kiện tìm kiếm
+  searchInput.addEventListener('input', (e) => {
+    loadHistory(e.target.value);
+  });
+
   // Nút làm mới: Đọc clipboard hiện tại và thêm vào lịch sử nếu khác
   refreshBtn.addEventListener('click', async () => {
     try {
       const text = await navigator.clipboard.readText();
       if (text.trim()) {
         const { clipboardHistory = [] } = await chrome.storage.local.get(['clipboardHistory']);
-        if (clipboardHistory[0] !== text) {
-          const newHistory = [text, ...clipboardHistory.slice(0, 49)];
+        const isDuplicate = clipboardHistory.some(item => item.text === text);
+        if (!isDuplicate) {
+          const newItem = {
+            text: text,
+            timestamp: new Date().toISOString(),
+            id: Date.now() + Math.random()
+          };
+          const newHistory = [newItem, ...clipboardHistory.slice(0, 49)];
           await chrome.storage.local.set({ clipboardHistory: newHistory });
-          loadHistory(); // Reload danh sách
+          loadHistory(searchInput.value); // Reload với bộ lọc hiện tại
         }
       }
     } catch (err) {
@@ -60,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Nút xóa lịch sử
   clearBtn.addEventListener('click', async () => {
     await chrome.storage.local.set({ clipboardHistory: [] });
-    loadHistory();
+    loadHistory(searchInput.value);
   });
 
   // Tải lịch sử khi mở trang
