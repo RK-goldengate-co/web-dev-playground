@@ -143,60 +143,35 @@ Nếu có câu hỏi, tạo issue trên GitHub.
 
 ---
 
-## Mẫu Form Tải Ảnh từ URL
+## Dự án Extension Đã Phát Triển
 
-Để giúp bạn dễ dàng tải ảnh từ URL, dưới đây là một form HTML mẫu đơn giản. Bạn có thể sao chép và sử dụng trong dự án của mình.
+Dưới đây là tổng hợp các dự án extension đã được cải tiến trong workspace này. Chúng được thiết kế để nâng cao trải nghiệm người dùng trên trình duyệt.
 
-```html
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tải Ảnh từ URL</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        form { max-width: 400px; margin: 0 auto; }
-        input, button { display: block; width: 100%; margin: 10px 0; padding: 10px; }
-        button { background: #4CAF50; color: white; border: none; cursor: pointer; }
-        button:hover { background: #45a049; }
-    </style>
-</head>
-<body>
-    <h2>Tải Ảnh từ URL</h2>
-    <form id="imageForm">
-        <input type="url" id="imageUrl" placeholder="Nhập URL của ảnh (ví dụ: https://example.com/image.jpg)" required>
-        <button type="submit">Tải Ảnh</button>
-    </form>
+### 1. Clipboard History Extension Demo (`clipboard-history-extension-demo`)
+- **Mô tả**: Extension để lưu trữ và quản lý lịch sử clipboard (văn bản đã sao chép) với giao diện web trực quan.
+- **Cải tiến chính**:
+  - **Tìm kiếm thời gian thực**: Bộ lọc để tìm kiếm văn bản trong lịch sử nhanh chóng.
+  - **Timestamps**: Hiển thị thời gian sao chép cho mỗi mục, giúp theo dõi dễ dàng hơn.
+  - **UI cải tiến**: Thiết kế popup hiện đại với gradient, hiệu ứng hover và khả năng responsive.
+- **Cách sử dụng**:
+  1. Cài đặt extension từ thư mục `clipboard-history-extension-demo`.
+  2. Nhấn vào icon extension để mở popup và xem lịch sử.
+  3. Sử dụng tìm kiếm để lọc, nhấn vào mục để sao chép lại.
+- **Files chính**: `manifest.json`, `popup.html`, `popup.js`, `history.html`, `history.js`.
 
-    <script>
-        document.getElementById('imageForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const url = document.getElementById('imageUrl').value;
-            if (url) {
-                // Tạo link tải ảnh
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'downloaded-image.jpg'; // Tên file mặc định
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                alert('Đang tải ảnh...');
-            }
-        });
-    </script>
-</body>
-</html>
-```
+### 2. Dark Mode Extension (`dark-mode-extension`)
+- **Mô tả**: Extension để chuyển đổi chế độ tối cho mọi trang web với nhiều tùy chọn theme.
+- **Cải tiến chính**:
+  - **Nhiều theme**: Hỗ trợ Classic, Blue, Purple, Green với CSS tùy chỉnh cho từng loại.
+  - **UI popup nâng cao**: Giao diện chọn theme trực quan, hiệu ứng glass-morphism.
+  - **Áp dụng toàn diện**: Tự động áp dụng cho tất cả các tab đang mở.
+- **Cách sử dụng**:
+  1. Cài đặt extension từ thư mục `dark-mode-extension`.
+  2. Nhấn vào icon để mở popup và bật/tắt dark mode.
+  3. Chọn theme từ danh sách để thay đổi màu sắc.
+- **Files chính**: `manifest.json`, `popup.html`, `popup.js`, `content.js`, `background.js`.
 
-### Cách sử dụng:
-1. Sao chép code trên vào một file HTML mới (ví dụ: `download-image.html`).
-2. Mở file trong trình duyệt.
-3. Nhập URL của ảnh vào ô input.
-4. Nhấn nút "Tải Ảnh" để tải về máy.
-
-Nếu bạn cần tùy chỉnh thêm (như xử lý lỗi hoặc hỗ trợ nhiều định dạng), hãy mở rộng code theo ý mình!
+Những extension này được phát triển để học tập và chia sẻ. Nếu bạn muốn đóng góp hoặc báo lỗi, hãy tạo issue trên GitHub!
 
 ---
 
