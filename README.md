@@ -1,147 +1,107 @@
-# 🚀 Web Development Playground
+# 🌟 Web Development Playground
 
-Bộ sưu tập toàn diện các template, component, utilities và code samples cho việc phát triển web và phần mềm hiện đại. Dự án này cung cấp một nền tảng học tập và phát triển với các ví dụ thực tế từ cơ bản đến nâng cao.
+Chào mừng đến với **Web Development Playground** – một bộ sưu tập vui vẻ và toàn diện các công cụ, template và ví dụ code để giúp bạn học tập và phát triển ứng dụng web hiện đại! Từ chatbot AI đến extension Chrome, từ bot Discord đến code samples đa ngôn ngữ, dự án này là sân chơi lý tưởng cho developer mọi cấp độ.
 
-## 📁 Cấu trúc dự án
+## 📂 Cấu trúc dự án
+
+Dự án được tổ chức gọn gàng để dễ khám phá:
 
 ```
 web-dev-playground/
-├── README.md                          # Tài liệu hướng dẫn này
-├── AI-chatbot/                        # Chatbot AI với Hugging Face API
-│   ├── index.html                     # Giao diện chính của chatbot
-│   ├── styles.css                     # Styling cho chatbot với responsive design
-│   ├── script.js                      # Logic xử lý trò chuyện và API calls
-│   └── README.md                      # Hướng dẫn cài đặt và sử dụng chatbot
-├── countdown-timer/                   # Extension Chrome đếm ngược với giao diện tùy chỉnh
-│   ├── index.html                     # Trang chính cho extension
-│   ├── popup.html                     # Popup giao diện đếm ngược
-│   ├── styles.css                     # CSS cho giao diện đẹp mắt
-│   ├── script.js                      # JavaScript xử lý logic đếm ngược
-│   └── manifest.json                  # Cấu hình Chrome extension
-├── discord-reaction-role-bot/         # Bot Discord cho Reaction Role System
-│   ├── bot.py                         # Code chính của bot Discord
-│   ├── config.py                      # Module cấu hình bot và token
-│   ├── requirements.txt               # Dependencies Python cần thiết
-│   ├── README.md                      # Hướng dẫn chi tiết cách chạy bot
-│   └── .gitignore                     # Git ignore rules cho bảo mật
-├── html-scraper-extension/            # Extension Chrome lấy HTML của trang web
-│   ├── manifest.json                  # Cấu hình extension với permissions
-│   ├── popup.html                     # Giao diện popup chính với form nhập URL
-│   ├── popup.js                       # Logic xử lý popup và phân tích HTML
-│   ├── background.js                  # Background script cho extension
-│   └── content.js                     # Content script để lấy HTML từ trang web
-├── youtube-video-downloader-extension/ # Extension Chrome tải video YouTube
-│   ├── manifest.json                  # Cấu hình extension với permissions
-│   ├── popup.html                     # Giao diện popup với form nhập URL YouTube
-│   ├── popup.js                       # Logic xử lý tải video và giao diện
-│   ├── background.js                  # Background script xử lý API và tải
-│   └── content.js                     # Content script cho trang YouTube
-├── web-dev-prefabs/                   # Bộ sưu tập web development
-│   ├── README.md                      # Tài liệu hướng dẫn cho prefabs
-│   ├── html/                          # HTML templates cơ bản
-│   │   ├── basic-template.html        # Template HTML cơ bản với semantic
-│   │   └── responsive-layout.html     # Layout responsive với CSS Grid
-│   ├── css/                           # CSS utilities và components
-│   │   ├── reset.css                  # CSS reset chuẩn
-│   │   └── utilities.css               # Utilities classes cho margin/padding
-│   └── js/                            # JavaScript helpers và utils
-│       └── utils.js                   # Utilities functions chung
-└── code-prefency/                     # Bộ sưu tập code mẫu đa ngôn ngữ
-    ├── README_STRUCTURE.md            # Hướng dẫn cấu trúc thư mục chi tiết
-    ├── frontend/                      # Frontend Applications
-    │   └── web/                       # Web applications samples
-    │       ├── html-css-js/           # Pure HTML/CSS/JavaScript examples
-    │       │   ├── index.html         # Trang chủ với responsive design
-    │       │   └── styles.css         # CSS với Flexbox và Grid
-    │       └── react/                 # React applications samples
-    │           ├── App.jsx            # Component chính với hooks
-    │           └── index.js           # Entry point với ReactDOM
-    └── backend/                       # Backend Applications
-        └── python/                    # Python backend examples
-            ├── main.py                # Flask app với routes cơ bản
-            └── requirements.txt       # Dependencies Python
+├── AI-chatbot/                    # 🤖 Chatbot AI tích hợp Hugging Face
+├── countdown-timer/               # ⏰ Extension đếm ngược Chrome
+├── discord-reaction-role-bot/     # 🤖 Bot Discord quản lý role
+├── html-scraper-extension/        # 🔍 Extension lấy HTML trang web
+├── youtube-video-downloader/      # 🎥 Extension tải video YouTube
+├── web-dev-prefabs/               # 🛠️ Template và utilities web
+└── code-prefency/                 # 📦 67 code samples đa lĩnh vực
 ```
 
-## 🎯 Mục tiêu dự án
+## 🚀 Các dự án nổi bật
 
-- **Web Development Prefabs**: Template và utilities cho phát triển web nhanh.
-- **Programming Language References**: File mẫu cho nhiều ngôn ngữ lập trình.
-- **Discord Bot Applications**: Bot cho cộng đồng và quản lý server.
-- **Browser Extensions**: Extension Chrome tiện ích (đếm ngược, tải video, scrape HTML).
-- **Code Prefency Collection**: 67 file code mẫu đa lĩnh vực (Frontend, Backend, Mobile, v.v.).
+- **🤖 AI Chatbot**: Trò chuyện với AI thông minh, giao diện đẹp mắt và dễ tùy chỉnh. Chỉ cần nhập API key là chạy ngay!
+- **⏰ Countdown Timer Extension**: Đếm ngược thời gian với thông báo, hoàn hảo cho công việc hoặc học tập.
+- **🤖 Discord Reaction Role Bot**: Quản lý server Discord tự động, gán role dựa trên reaction – siêu tiện!
+- **🔍 HTML Scraper Extension**: Lấy và phân tích HTML từ bất kỳ URL nào, hữu ích cho scraping dữ liệu.
+- **🎥 YouTube Video Downloader Extension**: Tải video hoặc audio từ YouTube nhanh chóng và dễ dàng.
+- **🛠️ Web Dev Prefabs**: Bộ sưu tập template HTML/CSS/JS, utilities và mẫu trang hoàn chỉnh để khởi đầu dự án.
+- **📦 Code Prefency Collection**: Hơn 67 file code mẫu cho Frontend, Backend, Mobile và nhiều lĩnh vực khác – sẵn sàng chạy!
 
-## 🔍 Chi tiết các dự án
+## 🚀 Dự án Extension Phát Triển
 
-### 🤖 AI Chatbot
-Ứng dụng chatbot AI tích hợp Hugging Face API. Tính năng: giao diện đẹp, xử lý ngôn ngữ tự nhiên, responsive. Cách chạy: Mở index.html, nhập API key.
+Hai extension đã được cải tiến đặc biệt để nâng cao trải nghiệm người dùng:
 
-### ⏰ Countdown Timer Extension
-Extension Chrome đếm ngược với thông báo. Tính năng: đặt thời gian, giao diện tùy chỉnh. Cách cài: Load vào Chrome Extensions.
+- **📋 Clipboard History Extension**: Quản lý lịch sử clipboard với tìm kiếm thời gian thực, timestamps và giao diện popup hiện đại. Dễ dàng sao chép lại văn bản đã lưu!
+- **🌙 Dark Mode Extension**: Chuyển mọi trang web sang chế độ tối với nhiều theme tùy chọn (Classic, Blue, Purple, Green). Áp dụng toàn diện và dễ bật/tắt.
 
-### 🤖 Discord Reaction Role Bot
-Bot Discord cho hệ thống Reaction Role. Tính năng: gán role tự động, quản lý server. Cách chạy: Cài dependencies, cấu hình token, chạy bot.py.
+Những extension này là ví dụ thực tế về phát triển Chrome extension, sẵn sàng để học tập và mở rộng.
 
-### 🔍 HTML Scraper Extension
-Extension Chrome lấy và phân tích HTML trang web. Tính năng: lấy HTML từ URL, tải file, phân tích thống kê. Cách cài: Load vào Chrome.
+## 📂 Cấu trúc chi tiết các extension
 
-### 🎥 YouTube Video Downloader Extension
-Extension tải video/audio từ YouTube. Tính năng: tải MP4/MP3 với thumbnail. Cách cài: Load vào Chrome, sử dụng trên YouTube.
+Dưới đây là cây thư mục chi tiết của hai extension đã phát triển:
 
-### 🛠️ Web Dev Prefabs
-Bộ sưu tập template và utilities cho web. Bao gồm HTML templates, CSS utilities, JS helpers, templates hoàn chỉnh (landing page, dashboard, portfolio).
+### Clipboard History Extension Demo (`clipboard-history-extension-demo/`)
+```
+clipboard-history-extension-demo/
+├── manifest.json                  # Cấu hình extension với permissions
+├── background.js                  # Background script để mở giao diện
+├── content.js                     # Content script lưu clipboard history
+├── popup.html                     # Giao diện popup chính với tìm kiếm
+├── popup.js                       # Logic xử lý popup và tìm kiếm
+├── history.html                   # Trang web hiển thị lịch sử đầy đủ
+└── history.js                     # JavaScript xử lý giao diện lịch sử
+```
 
-### 📦 Code Prefency Collection
-Bộ sưu tập 67 file code mẫu đa lĩnh vực: Frontend (HTML/CSS/React), Backend (PHP/Java/C#/Go/Python), Mobile/Desktop (Kotlin/C++), Database, Infrastructure, Config, Security, Docs, Testing, Tools. Mỗi file hoàn chỉnh và có thể chạy ngay.
+### Dark Mode Extension (`dark-mode-extension/`)
+```
+dark-mode-extension/
+├── manifest.json                  # Cấu hình extension với permissions
+├── background.js                  # Background script xử lý messages
+├── content.js                     # Content script áp dụng dark mode
+├── popup.html                     # Giao diện popup chọn theme
+├── popup.js                       # Logic xử lý popup và theme
+├── dark-mode.css                  # CSS tùy chỉnh cho dark mode
+└── icons/                         # Thư mục chứa icon extension
+    ├── icon16.svg
+    ├── icon32.svg
+    ├── icon48.svg
+    └── icon128.svg
+```
 
-## 🚀 Hướng dẫn chạy và sử dụng
+## 🛠️ Cách chạy nhanh
 
-### Cài đặt Browser Extensions
-1. Mở `chrome://extensions/` trong Chrome, bật Developer mode.
-2. Nhấn "Load unpacked" và chọn thư mục extension (countdown-timer, html-scraper-extension, youtube-video-downloader-extension).
-3. Extension sẽ xuất hiện để sử dụng.
+### Browser Extensions (Chrome)
+1. Mở `chrome://extensions/`, bật Developer mode.
+2. Nhấn "Load unpacked" và chọn thư mục extension (ví dụ: `countdown-timer/`).
+3. Extension sẵn sàng sử dụng!
 
-### Chạy Ứng dụng Web
-- **AI Chatbot**: Mở `AI-chatbot/index.html` trong trình duyệt, nhập API key.
-- **Web Prefabs**: Copy templates từ `web-dev-prefabs/` vào dự án.
+### Ứng dụng Web và Bot
+- **AI Chatbot**: Mở `AI-chatbot/index.html` trong trình duyệt, nhập API key và bắt đầu chat.
+- **Discord Bot**: Cài dependencies từ `requirements.txt`, cấu hình token trong `config.py`, chạy `python bot.py`.
+- **Code Samples**: Copy file từ `code-prefency/` và chạy theo ngôn ngữ (ví dụ: `npm start` cho React, `python main.py` cho Python).
 
-### Chạy Backend và Bot
-- **Discord Bot**: Cài dependencies từ requirements.txt, cấu hình token, chạy `python bot.py`.
-- **Python Backend**: Cài requirements, chạy `python main.py` trong thư mục tương ứng.
+### Web Prefabs
+- Copy template từ `web-dev-prefabs/` vào dự án của bạn để bắt đầu nhanh chóng.
 
-### Sử dụng Code Samples
-- Copy file từ `code-prefency/` và chạy theo ngôn ngữ (npm start cho React, python main.py cho Python, v.v.).
+## 📚 Tài nguyên hữu ích
 
-## 📚 Tài nguyên học tập và tham khảo
+- **Web Dev**: [MDN Web Docs](https://developer.mozilla.org/), [CSS Tricks](https://css-tricks.com/), [Web.dev](https://web.dev/)
+- **Languages**: [React.dev](https://react.dev/), [Python.org](https://python.org/), [Node.js Docs](https://nodejs.org/)
+- **Tools**: [Visual Studio Code](https://code.visualstudio.com/), [GitHub](https://github.com/)
 
-### Web Development
-- [MDN Web Docs](https://developer.mozilla.org/) - Tài liệu web chuẩn
-- [CSS Tricks](https://css-tricks.com/) - Thủ thuật CSS
-- [Web.dev](https://web.dev/) - Best practices
+## 🤝 Đóng góp
 
-### Programming Languages và Frameworks
-- [React.dev](https://react.dev/) - Hướng dẫn React
-- [Python.org](https://python.org/) - Tài liệu Python
-- [Node.js Docs](https://nodejs.org/) - Node.js
+Bạn muốn thêm tính năng mới hoặc sửa lỗi? Tuyệt vời! Fork dự án, tạo branch, commit thay đổi và gửi Pull Request trên GitHub. Chúng tôi chào đón mọi đóng góp từ cộng đồng!
 
-### Development Tools
-- [Visual Studio Code](https://code.visualstudio.com/) - Editor miễn phí
-- [GitHub](https://github.com/) - Quản lý mã nguồn
+## 📜 Giấy phép
 
-## 🤝 Đóng góp vào dự án
-
-Mọi đóng góp đều được chào đón! Fork dự án, tạo branch, commit và tạo Pull Request trên GitHub. Các loại đóng góp: bug fixes, tính năng mới, cải thiện docs, UI/UX, refactoring.
-
-## 📄 Giấy phép
-
-Dự án dưới giấy phép MIT License. Xem file `LICENSE` để biết chi tiết.
+Dự án này sử dụng giấy phép MIT License. Xem file `LICENSE` để biết chi tiết.
 
 ## 🙏 Lời cảm ơn
 
-Cảm ơn tất cả contributors và cộng đồng developer! Dự án xây dựng với mục tiêu học tập và chia sẻ kiến thức.
-
-Nếu có câu hỏi, tạo issue trên GitHub.
+Cảm ơn bạn đã ghé thăm! Dự án này được xây dựng với mục tiêu học tập và chia sẻ kiến thức. Nếu có câu hỏi, hãy tạo issue trên GitHub hoặc liên hệ chúng tôi.
 
 ---
 
 **Happy Coding! 🎉**  
-*Built with ❤️ by the Code Prefency Team*
+*Được tạo với ❤️ bởi đội ngũ Code Prefency*
