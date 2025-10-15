@@ -27,6 +27,15 @@ web-dev-playground/
 - **🛠️ Web Dev Prefabs**: Bộ sưu tập template HTML/CSS/JS, utilities và mẫu trang hoàn chỉnh để khởi đầu dự án.
 - **📦 Code Prefency Collection**: Hơn 67 file code mẫu cho Frontend, Backend, Mobile và nhiều lĩnh vực khác – sẵn sàng chạy!
 
+## 🚀 Dự án Extension Phát Triển
+
+Hai extension đã được cải tiến đặc biệt để nâng cao trải nghiệm người dùng:
+
+- **📋 Clipboard History Extension**: Quản lý lịch sử clipboard với tìm kiếm thời gian thực, timestamps và giao diện popup hiện đại. Dễ dàng sao chép lại văn bản đã lưu!
+- **🌙 Dark Mode Extension**: Chuyển mọi trang web sang chế độ tối với nhiều theme tùy chọn (Classic, Blue, Purple, Green). Áp dụng toàn diện và dễ bật/tắt.
+
+Những extension này là ví dụ thực tế về phát triển Chrome extension, sẵn sàng để học tập và mở rộng.
+
 ## 🛠️ Cách chạy nhanh
 
 ### Browser Extensions (Chrome)
