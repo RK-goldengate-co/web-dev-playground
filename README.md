@@ -4,17 +4,64 @@ Chào mừng đến với **Web Development Playground** – một bộ sưu t�
 
 ## 📂 Cấu trúc dự án
 
-Dự án được tổ chức gọn gàng để dễ khám phá:
+Dưới đây là cây thư mục chi tiết của dự án:
 
 ```
 web-dev-playground/
-├── AI-chatbot/                    # 🤖 Chatbot AI tích hợp Hugging Face
-├── countdown-timer/               # ⏰ Extension đếm ngược Chrome
-├── discord-reaction-role-bot/     # 🤖 Bot Discord quản lý role
-├── html-scraper-extension/        # 🔍 Extension lấy HTML trang web
-├── youtube-video-downloader/      # 🎥 Extension tải video YouTube
-├── web-dev-prefabs/               # 🛠️ Template và utilities web
-└── code-prefency/                 # 📦 67 code samples đa lĩnh vực
+├── README.md                          # Tài liệu hướng dẫn này
+├── AI-chatbot/                        # Chatbot AI với Hugging Face API
+│   ├── index.html                     # Giao diện chính của chatbot
+│   ├── styles.css                     # Styling cho chatbot với responsive design
+│   ├── script.js                      # Logic xử lý trò chuyện và API calls
+│   └── README.md                      # Hướng dẫn cài đặt và sử dụng chatbot
+├── countdown-timer/                   # Extension Chrome đếm ngược với giao diện tùy chỉnh
+│   ├── index.html                     # Trang chính cho extension
+│   ├── popup.html                     # Popup giao diện đếm ngược
+│   ├── styles.css                     # CSS cho giao diện đẹp mắt
+│   ├── script.js                      # JavaScript xử lý logic đếm ngược
+│   └── manifest.json                  # Cấu hình Chrome extension
+├── discord-reaction-role-bot/         # Bot Discord cho Reaction Role System
+│   ├── bot.py                         # Code chính của bot Discord
+│   ├── config.py                      # Module cấu hình bot và token
+│   ├── requirements.txt               # Dependencies Python cần thiết
+│   ├── README.md                      # Hướng dẫn chi tiết cách chạy bot
+│   └── .gitignore                     # Git ignore rules cho bảo mật
+├── html-scraper-extension/            # Extension Chrome lấy HTML của trang web
+│   ├── manifest.json                  # Cấu hình extension với permissions
+│   ├── popup.html                     # Giao diện popup chính với form nhập URL
+│   ├── popup.js                       # Logic xử lý popup và phân tích HTML
+│   ├── background.js                  # Background script cho extension
+│   └── content.js                     # Content script để lấy HTML từ trang web
+├── youtube-video-downloader-extension/ # Extension Chrome tải video YouTube
+│   ├── manifest.json                  # Cấu hình extension với permissions
+│   ├── popup.html                     # Giao diện popup với form nhập URL YouTube
+│   ├── popup.js                       # Logic xử lý tải video và giao diện
+│   ├── background.js                  # Background script xử lý API và tải
+│   └── content.js                     # Content script cho trang YouTube
+├── web-dev-prefabs/                   # Bộ sưu tập web development
+│   ├── README.md                      # Tài liệu hướng dẫn cho prefabs
+│   ├── html/                          # HTML templates cơ bản
+│   │   ├── basic-template.html        # Template HTML cơ bản với semantic
+│   │   └── responsive-layout.html     # Layout responsive với CSS Grid
+│   ├── css/                           # CSS utilities và components
+│   │   ├── reset.css                  # CSS reset chuẩn
+│   │   └── utilities.css               # Utilities classes cho margin/padding
+│   └── js/                            # JavaScript helpers và utils
+│       └── utils.js                   # Utilities functions chung
+└── code-prefency/                     # Bộ sưu tập code mẫu đa ngôn ngữ
+    ├── README_STRUCTURE.md            # Hướng dẫn cấu trúc thư mục chi tiết
+    ├── frontend/                      # Frontend Applications
+    │   └── web/                       # Web applications samples
+    │       ├── html-css-js/           # Pure HTML/CSS/JavaScript examples
+    │       │   ├── index.html         # Trang chủ với responsive design
+    │       │   └── styles.css         # CSS với Flexbox và Grid
+    │       └── react/                 # React applications samples
+    │           ├── App.jsx            # Component chính với hooks
+    │           └── index.js           # Entry point với ReactDOM
+    └── backend/                       # Backend Applications
+        └── python/                    # Python backend examples
+            ├── main.py                # Flask app với routes cơ bản
+            └── requirements.txt       # Dependencies Python
 ```
 
 ## 🚀 Các dự án nổi bật
