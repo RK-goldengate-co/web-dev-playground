@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Xóa lịch sử
   clearButton.addEventListener('click', async () => {
     await chrome.storage.local.set({ clipboardHistory: [] });
-    historyList.innerHTML = '';
+    historyList.innerHTML = '<li class="empty-state">Chưa có lịch sử copy nào.</li>';
     allHistoryItems = [];
     updateStats();
   });
@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   function displayHistory(history) {
     historyList.innerHTML = '';
     allHistoryItems = [];
+
+    if (history.length === 0) {
+      historyList.innerHTML = '<li class="empty-state">Chưa có lịch sử copy nào.</li>';
+      updateStats();
+      return;
+    }
 
     history.forEach((item, index) => {
       const li = document.createElement('li');
@@ -55,8 +61,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       li.addEventListener('click', () => {
         // Copy lại vào clipboard khi nhấn
         navigator.clipboard.writeText(item.text).then(() => {
-          li.style.background = '#c8e6c9'; // Đổi màu để xác nhận
-          setTimeout(() => li.style.background = '#f0f0f0', 1000);
+          li.style.background = 'rgba(76, 175, 80, 0.3)'; // Đổi màu để xác nhận
+          setTimeout(() => li.style.background = 'rgba(255, 255, 255, 0.1)', 1000);
         });
       });
 

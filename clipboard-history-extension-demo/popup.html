@@ -2,30 +2,151 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lịch sử Copy</title>
   <style>
-    body { font-family: Arial, sans-serif; width: 350px; padding: 10px; }
-    #searchContainer { margin-bottom: 10px; }
-    #searchInput { width: 100%; padding: 5px; box-sizing: border-box; }
-    ul { list-style-type: none; padding: 0; max-height: 300px; overflow-y: auto; }
-    li { margin: 5px 0; padding: 8px; background: #f0f0f0; cursor: pointer; display: none; }
-    li.visible { display: block; }
-    li:hover { background: #ddd; }
-    .history-item { display: flex; justify-content: space-between; align-items: center; }
-    .history-text { flex: 1; margin-right: 10px; }
-    .history-time { font-size: 11px; color: #666; white-space: nowrap; }
-    button { margin-top: 10px; width: 100%; }
-    #stats { font-size: 12px; color: #666; margin-bottom: 5px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      width: 350px;
+      padding: 0;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 400px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin: 10px;
+    }
+
+    h3 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    #searchContainer {
+      margin-bottom: 15px;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    #searchInput::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    #searchInput:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    #stats {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-height: 250px;
+      overflow-y: auto;
+      margin: 0;
+    }
+
+    li {
+      margin: 5px 0;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    li.visible {
+      display: block;
+    }
+
+    li:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .history-text {
+      flex: 1;
+      margin-right: 10px;
+      word-break: break-word;
+      font-size: 13px;
+    }
+
+    .history-time {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.6);
+      white-space: nowrap;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .empty-state {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-style: italic;
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
-  <h3>Lịch sử Copy</h3>
-  <div id="searchContainer">
-    <input type="text" id="searchInput" placeholder="Tìm kiếm trong lịch sử...">
-    <div id="stats">Hiển thị <span id="visibleCount">0</span>/<span id="totalCount">0</span> mục</div>
+  <div class="container">
+    <h3>📋 Lịch sử Copy</h3>
+    <div id="searchContainer">
+      <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm trong lịch sử...">
+      <div id="stats">Hiển thị <span id="visibleCount">0</span>/<span id="totalCount">0</span> mục</div>
+    </div>
+    <ul id="historyList">
+      <li class="empty-state">Chưa có lịch sử copy nào.</li>
+    </ul>
+    <button id="clearHistory">🗑️ Xóa lịch sử</button>
   </div>
-  <ul id="historyList"></ul>
-  <button id="clearHistory">Xóa lịch sử</button>
 
   <script src="popup.js"></script>
 </body>
