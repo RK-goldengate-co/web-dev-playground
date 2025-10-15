@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="https://i.pinimg.com/736x/e2/76/49/e276496b10609acfe44f25ce3f65d630.jpg" alt="Web Development Playground Banner" width="1368" height="766" />
+</div>
+
+
+
 # 🌟 Web Development Playground
 
 Chào mừng đến với **Web Development Playground** – một bộ sưu tập vui vẻ và toàn diện các công cụ, template và ví dụ code để giúp bạn học tập và phát triển ứng dụng web hiện đại! Từ chatbot AI đến extension Chrome, từ bot Discord đến code samples đa ngôn ngữ, dự án này là sân chơi lý tưởng cho developer mọi cấp độ.
