@@ -143,5 +143,62 @@ Nếu có câu hỏi, tạo issue trên GitHub.
 
 ---
 
+## Mẫu Form Tải Ảnh từ URL
+
+Để giúp bạn dễ dàng tải ảnh từ URL, dưới đây là một form HTML mẫu đơn giản. Bạn có thể sao chép và sử dụng trong dự án của mình.
+
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tải Ảnh từ URL</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; margin: 0 auto; }
+        input, button { display: block; width: 100%; margin: 10px 0; padding: 10px; }
+        button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <h2>Tải Ảnh từ URL</h2>
+    <form id="imageForm">
+        <input type="url" id="imageUrl" placeholder="Nhập URL của ảnh (ví dụ: https://example.com/image.jpg)" required>
+        <button type="submit">Tải Ảnh</button>
+    </form>
+
+    <script>
+        document.getElementById('imageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const url = document.getElementById('imageUrl').value;
+            if (url) {
+                // Tạo link tải ảnh
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'downloaded-image.jpg'; // Tên file mặc định
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                alert('Đang tải ảnh...');
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+### Cách sử dụng:
+1. Sao chép code trên vào một file HTML mới (ví dụ: `download-image.html`).
+2. Mở file trong trình duyệt.
+3. Nhập URL của ảnh vào ô input.
+4. Nhấn nút "Tải Ảnh" để tải về máy.
+
+Nếu bạn cần tùy chỉnh thêm (như xử lý lỗi hoặc hỗ trợ nhiều định dạng), hãy mở rộng code theo ý mình!
+
+---
+
 **Happy Coding! 🎉**  
 *Built with ❤️ by the Code Prefency Team*
