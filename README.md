@@ -1,4 +1,13 @@
+###
+
+<img align="center" height="190" src="https://www.canva.com/design/DAG13FO52W8/ebZTCs5aCWJAzYPVPMib7g/view?utm_content=DAG13FO52W8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc60add6205"  />
+
+###
 # 🌟 Web Development Playground
+
+<div align="center">
+  <img src="https://via.placeholder.com/800x200/667eea/ffffff?text=Web+Dev+Playground" alt="Web Development Playground Banner" />
+</div>
 
 Chào mừng đến với **Web Development Playground** – một bộ sưu tập vui vẻ và toàn diện các công cụ, template và ví dụ code để giúp bạn học tập và phát triển ứng dụng web hiện đại! Từ chatbot AI đến extension Chrome, từ bot Discord đến code samples đa ngôn ngữ, dự án này là sân chơi lý tưởng cho developer mọi cấp độ.
 
