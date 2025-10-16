@@ -1,0 +1,58 @@
+{
+  "name": "web-playground-helper",
+  "displayName": "Web Playground Helper",
+  "description": "Extension để hỗ trợ phát triển web nhanh chóng với các template và công cụ thử nghiệm.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "web-playground-helper.createHtmlTemplate",
+        "title": "Tạo Template HTML Cơ Bản"
+      },
+      {
+        "command": "web-playground-helper.createCssTemplate",
+        "title": "Tạo Template CSS Cơ Bản"
+      },
+      {
+        "command": "web-playground-helper.createJsTemplate",
+        "title": "Tạo Template JS Cơ Bản"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "web-playground-helper.createHtmlTemplate",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "web-playground-helper.createCssTemplate",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "web-playground-helper.createJsTemplate",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/mocha": "^10.0.1",
+    "eslint": "^8.45.0",
+    "@vscode/test-electron": "^2.3.2"
+  }
+}

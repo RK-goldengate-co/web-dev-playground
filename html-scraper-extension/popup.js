@@ -61,14 +61,14 @@ document.getElementById('fetchFromURL').addEventListener('click', function() {
   }
 });
 
-document.getElementById('pasteFromTab').addEventListener('click', function() {
+document.getElementById('getCurrentURL').addEventListener('click', function() {
   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     if (tabs[0]) {
       const url = tabs[0].url;
       document.getElementById('urlInput').value = url;
-      document.getElementById('status').textContent = `URL from current tab pasted: ${url}`;
+      document.getElementById('status').textContent = `Current URL loaded: ${url}`;
     } else {
-      document.getElementById('status').textContent = 'Error: Could not get current tab URL.';
+      document.getElementById('status').textContent = 'Error: Could not get current URL.';
     }
   });
 });
@@ -76,17 +76,7 @@ document.getElementById('pasteFromTab').addEventListener('click', function() {
 document.getElementById('downloadHTML').addEventListener('click', function() {
   const html = document.getElementById('htmlOutput').value;
   if (html) {
-    const status = document.getElementById('status');
-    status.textContent = 'Downloading';
-    status.classList.add('loading');
-    
-    // Add loading dots animation
-    let dots = 0;
-    const loadingInterval = setInterval(() => {
-      dots = (dots + 1) % 4;
-      status.textContent = 'Downloading' + '.'.repeat(dots);
-    }, 500);
-    
+    document.getElementById('status').textContent = 'Downloading...';
     const blob = new Blob([html], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
     chrome.downloads.download({
@@ -94,13 +84,10 @@ document.getElementById('downloadHTML').addEventListener('click', function() {
       filename: 'page.html',
       saveAs: false
     }, function(downloadId) {
-      clearInterval(loadingInterval);
       if (chrome.runtime.lastError) {
-        status.textContent = 'Error: ' + chrome.runtime.lastError.message;
-        status.classList.remove('loading');
+        document.getElementById('status').textContent = 'Error: ' + chrome.runtime.lastError.message;
       } else {
-        status.textContent = 'Download started!';
-        status.classList.remove('loading');
+        document.getElementById('status').textContent = 'Download started!';
       }
       URL.revokeObjectURL(url);
     });

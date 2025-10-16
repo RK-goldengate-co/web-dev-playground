@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Scraper Tool</title>
-    <link rel="stylesheet" href="popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Scraper Tool</title>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <!-- Floating programming language extensions -->
-  <div class="floating-text">.js</div>
-  <div class="floating-text">.py</div>
-  <div class="floating-text">.html</div>
-  <div class="floating-text">.css</div>
-  <div class="floating-text">.java</div>
-  <div class="floating-text">.cpp</div>
-  <div class="floating-text">.php</div>
-  <div class="floating-text">.rb</div>
-  <div class="floating-text">.go</div>
-  <div class="floating-text">.swift</div>
-
   <h2>HTML Scraper Tool</h2>
   <div class="input-container">
     <input type="text" id="urlInput" placeholder="Enter URL to scrape..." />
   </div>
   <div class="button-container">
     <button id="fetchFromURL">Fetch</button>
-    <button id="pasteFromTab">Paste from Tab</button>
+    <button id="getCurrentURL">Get Current URL</button>
     <button id="downloadHTML">Download</button>
   </div>
   <div id="htmlPreview" style="display: none;">
@@ -34,22 +22,17 @@
   </div>
   <div class="status" id="status">Ready to scrape!</div>
 
-  <!-- Copyright notice -->
-  <div class="copyright">
-    © 2025 RK - plus.ex-creative
-  </div>
-
-  <!-- Support section -->
-  <div class="support-section">
-    <div class="support-links">
-      <a href="https://github.com/RK-goldengate-co" target="_blank" class="support-link">
+  <footer class="footer">
+    <p>&copy; 2025 RK - plus.ex-creative</p>
+    <div class="footer-links">
+      <a href="https://github.com/RK-goldengate-co" target="_blank" class="footer-btn">
         <span>GitHub</span>
       </a>
-      <a href="https://ko-fi.com/abyxcdxyzsad7143" target="_blank" class="support-link">
-        <span>Donate</span>
+      <a href="https://ko-fi.com/abyxcdxyzsad7143" target="_blank" class="footer-btn">
+        <span>Ko-fi</span>
       </a>
     </div>
-  </div>
+  </footer>
 
   <script src="popup.js"></script>
 </body>

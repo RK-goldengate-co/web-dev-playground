@@ -1,279 +1,113 @@
-# 🚀 Web Development Playground
+<div align="center">
+  <img src="https://i.pinimg.com/736x/e2/76/49/e276496b10609acfe44f25ce3f65d630.jpg" alt="Web Development Playground Banner" width="1368" height="766" />
+</div>
 
-Bộ sưu tập toàn diện các template, component, utilities và code samples cho việc phát triển web và phần mềm hiện đại.
 
-## 📁 Cấu trúc dự án
+
+# 🌟 Web Development Playground
+
+Chào mừng đến với **Web Development Playground** – một bộ sưu tập vui vẻ và toàn diện các công cụ, template và ví dụ code để giúp bạn học tập và phát triển ứng dụng web hiện đại! Từ chatbot AI đến extension Chrome, từ bot Discord đến code samples đa ngôn ngữ, dự án này là sân chơi lý tưởng cho developer mọi cấp độ.
+
+## 📂 Cấu trúc dự án
+
+Dự án được tổ chức gọn gàng để dễ khám phá:
 
 ```
 web-dev-playground/
-├── README.md                    # Tài liệu hướng dẫn này
-├── AI-chatbot/                  # Ứng dụng chatbot AI hoàn chỉnh với Hugging Face API
-│   ├── index.html
-│   ├── styles.css
-│   ├── script.js
-│   └── README.md
-├── countdown-timer/             # Extension Chrome đếm ngược với giao diện tùy chỉnh
-│   ├── index.html
-│   ├── popup.html
-│   ├── styles.css
-│   ├── script.js
-│   └── manifest.json
-├── discord-reaction-role-bot/   # 🤖 Bot Discord cho Reaction Role System
-│   ├── bot.py                   # Code chính của bot
-│   ├── config.py                # Module cấu hình
-│   ├── requirements.txt         # Dependencies Python
-│   ├── .env.example             # File cấu hình mẫu
-│   ├── README.md                # Hướng dẫn chi tiết
-│   ├── run.bat                  # Script chạy trên Windows
-│   └── .gitignore               # Git ignore rules
-├── youtube-video-downloader-extension/ # 🎥 Chrome Extension tải video YouTube
-│   ├── manifest.json            # Cấu hình extension
-│   ├── popup.html               # Giao diện popup chính
-│   ├── popup.css                # Styling cho popup
-│   ├── popup.js                 # Logic xử lý popup
-│   ├── background.js            # Background script và API
-│   ├── content.js               # Content script cho YouTube
-│   ├── icons/                   # Icon files
-│   │   ├── icon16.png
-│   │   ├── icon32.png
-│   │   ├── icon48.png
-│   │   └── icon128.png
-│   └── README.md                # Hướng dẫn cài đặt và sử dụng
-├── web-dev-prefabs/             # Bộ sưu tập web development
-│   ├── README.md
-│   ├── html/                    # HTML templates cơ bản
-│   ├── css/                     # CSS utilities và components
-│   ├── js/                      # JavaScript helpers
-│   ├── templates/               # Templates hoàn chỉnh
-│   └── programming-languages/   # File định dạng ngôn ngữ
-└── code-prefency/               # 📦 Bộ sưu tập code mẫu đã tổ chức
-    ├── README_STRUCTURE.md         # 📋 Hướng dẫn cấu trúc thư mục
-    ├── frontend/                   # 🌐 Frontend Applications
-    │   └── web/                    # Web applications
-    │       ├── html-css-js/        # Pure HTML/CSS/JavaScript (10 files)
-    │       ├── react/              # React applications (4 files)
-    │       └── vanilla-js/         # Vanilla JavaScript (4 files)
-    ├── backend/                    # ⚙️ Backend Applications
-    │   ├── php/                    # PHP backend (5 files)
-    │   ├── java-spring/            # Java Spring Boot (5 files)
-    │   ├── csharp-dotnet/          # C# .NET Core (5 files)
-    │   ├── go/                     # Go backend (2 files)
-    │   └── python/                 # Python backend (7 files)
-    ├── mobile/                     # 📱 Mobile Applications
-    │   └── kotlin-android/         # Kotlin Android (2 files)
-    ├── desktop/                    # 💻 Desktop Applications
-    │   └── cpp/                    # C++ desktop (2 files)
-    ├── database/                   # 🗄️ Database Files
-    │   ├── schemas/                # Database schemas (1 file)
-    │   └── seeds/                  # Seed data (1 file)
-    ├── infrastructure/             # 🏗️ Infrastructure as Code
-    │   ├── docker/                 # Docker containers (2 files)
-    │   └── terraform/              # Terraform IaC (1 file)
-    ├── config/                     # ⚙️ Configuration Files (5 files)
-    ├── security/                   # 🔒 Security & Compliance
-    │   └── policies/               # Security policies (1 file)
-    ├── docs/                       # 📚 Documentation (4 files)
-    ├── tests/                      # 🧪 Testing Files (1 file)
-    └── tools/                      # 🔧 Additional Tools (3 files)
+├── AI-chatbot/                    # 🤖 Chatbot AI tích hợp Hugging Face
+├── countdown-timer/               # ⏰ Extension đếm ngược Chrome
+├── discord-reaction-role-bot/     # 🤖 Bot Discord quản lý role
+├── html-scraper-extension/        # 🔍 Extension lấy HTML trang web
+├── youtube-video-downloader/      # 🎥 Extension tải video YouTube
+├── web-dev-prefabs/               # 🛠️ Template và utilities web
+└── code-prefency/                 # 📦 67 code samples đa lĩnh vực
 ```
 
-## 🎯 Mục tiêu dự án
+## 🚀 Các dự án nổi bật
 
-1. **Web Development Prefabs**: Bộ sưu tập các template, component và utilities sẵn sàng sử dụng
-2. **Programming Language References**: Các file mẫu định dạng cho nhiều ngôn ngữ lập trình khác nhau
-3. **Discord Bot Applications**: Các bot Discord chức năng cho cộng đồng và server management
-4. **Browser Extensions**: Các extension Chrome tiện ích cho trình duyệt
-5. **Code Prefency Collection**: 📦 **Bộ sưu tập 67 files code mẫu thực tế** đã được tổ chức chuyên nghiệp:
-   - **Frontend**: 18 files (HTML, CSS, React, JavaScript)
-   - **Backend**: 24 files (PHP, Java, C#, Go, Python)
-   - **Mobile/Desktop**: 4 files (Kotlin Android, C++ Desktop)
-   - **Database**: 2 files (SQL schema & seed data)
-   - **Infrastructure**: 3 files (Docker & Terraform)
-   - **Configuration**: 5 files (JSON, YAML, .NET config)
-   - **Security**: 1 file (Security policies)
-   - **Documentation**: 4 files (API, deployment, troubleshooting)
-   - **Testing**: 1 file (Unit tests)
-   - **Tools**: 3 files (Assembly & utilities)
+- **🤖 AI Chatbot**: Trò chuyện với AI thông minh, giao diện đẹp mắt và dễ tùy chỉnh. Chỉ cần nhập API key là chạy ngay!
+- **⏰ Countdown Timer Extension**: Đếm ngược thời gian với thông báo, hoàn hảo cho công việc hoặc học tập.
+- **🤖 Discord Reaction Role Bot**: Quản lý server Discord tự động, gán role dựa trên reaction – siêu tiện!
+- **🔍 HTML Scraper Extension**: Lấy và phân tích HTML từ bất kỳ URL nào, hữu ích cho scraping dữ liệu.
+- **🎥 YouTube Video Downloader Extension**: Tải video hoặc audio từ YouTube nhanh chóng và dễ dàng.
+- **🛠️ Web Dev Prefabs**: Bộ sưu tập template HTML/CSS/JS, utilities và mẫu trang hoàn chỉnh để khởi đầu dự án.
+- **📦 Code Prefency Collection**: Hơn 67 file code mẫu cho Frontend, Backend, Mobile và nhiều lĩnh vực khác – sẵn sàng chạy!
 
-### Code Prefency Collection - Bộ sưu tập 67 files code mẫu
-```bash
-# Frontend examples
-cp code-prefency/frontend/web/html-css-js/index.html your-project/
-cp code-prefency/frontend/web/react/App.jsx your-react-project/
+## 🚀 Dự án Extension Phát Triển
 
-# Backend Development
-open code-prefency/backend/php/api.php
-open code-prefency/backend/java-spring/UserManagementApplication.java
-open code-prefency/backend/csharp-dotnet/Program.cs
+Hai extension đã được cải tiến đặc biệt để nâng cao trải nghiệm người dùng:
 
-# Mobile và Desktop
-open code-prefency/mobile/kotlin-android/MainActivity.kt
-open code-prefency/desktop/cpp/main.cpp
+- **📋 Clipboard History Extension**: Quản lý lịch sử clipboard với tìm kiếm thời gian thực, timestamps và giao diện popup hiện đại. Dễ dàng sao chép lại văn bản đã lưu!
+- **🌙 Dark Mode Extension**: Chuyển mọi trang web sang chế độ tối với nhiều theme tùy chọn (Classic, Blue, Purple, Green). Áp dụng toàn diện và dễ bật/tắt.
 
-# Database và Infrastructure
-open code-prefency/database/schemas/schema.sql
-open code-prefency/infrastructure/docker/Dockerfile
+Những extension này là ví dụ thực tế về phát triển Chrome extension, sẵn sàng để học tập và mở rộng.
+
+## 📂 Cấu trúc chi tiết các extension
+
+Dưới đây là cây thư mục chi tiết của hai extension đã phát triển:
+
+### Clipboard History Extension Demo (`clipboard-history-extension-demo/`)
+```
+clipboard-history-extension-demo/
+├── manifest.json                  # Cấu hình extension với permissions
+├── background.js                  # Background script để mở giao diện
+├── content.js                     # Content script lưu clipboard history
+├── popup.html                     # Giao diện popup chính với tìm kiếm
+├── popup.js                       # Logic xử lý popup và tìm kiếm
+├── history.html                   # Trang web hiển thị lịch sử đầy đủ
+└── history.js                     # JavaScript xử lý giao diện lịch sử
 ```
 
-### Để xem cấu trúc chi tiết:
-```bash
-cat code-prefency/README_STRUCTURE.md
+### Dark Mode Extension (`dark-mode-extension/`)
+```
+dark-mode-extension/
+├── manifest.json                  # Cấu hình extension với permissions
+├── background.js                  # Background script xử lý messages
+├── content.js                     # Content script áp dụng dark mode
+├── popup.html                     # Giao diện popup chọn theme
+├── popup.js                       # Logic xử lý popup và theme
+├── dark-mode.css                  # CSS tùy chỉnh cho dark mode
+└── icons/                         # Thư mục chứa icon extension
+    ├── icon16.svg
+    ├── icon32.svg
+    ├── icon48.svg
+    └── icon128.svg
 ```
 
-### Để chạy ứng dụng mẫu:
-```bash
-# PHP Backend
-cd code-prefency/backend/php/
-php api.php
+## 🛠️ Cách chạy nhanh
 
-# React Frontend
-cd code-prefency/frontend/web/react/
-npm install && npm start
+### Browser Extensions (Chrome)
+1. Mở `chrome://extensions/`, bật Developer mode.
+2. Nhấn "Load unpacked" và chọn thư mục extension (ví dụ: `countdown-timer/`).
+3. Extension sẵn sàng sử dụng!
 
-# Python Application
-cd code-prefency/backend/python/
-python main.py
+### Ứng dụng Web và Bot
+- **AI Chatbot**: Mở `AI-chatbot/index.html` trong trình duyệt, nhập API key và bắt đầu chat.
+- **Discord Bot**: Cài dependencies từ `requirements.txt`, cấu hình token trong `config.py`, chạy `python bot.py`.
+- **Code Samples**: Copy file từ `code-prefency/` và chạy theo ngôn ngữ (ví dụ: `npm start` cho React, `python main.py` cho Python).
 
-# Discord Reaction Role Bot
-cd discord-reaction-role-bot/
-python bot.py
-# hoặc trên Windows:
-./run.bat
+### Web Prefabs
+- Copy template từ `web-dev-prefabs/` vào dự án của bạn để bắt đầu nhanh chóng.
 
-# YouTube Video Downloader Extension
-# Cài đặt vào Chrome qua chrome://extensions/
-# Load thư mục youtube-video-downloader-extension/
-```
+## 📚 Tài nguyên hữu ích
 
-### Programming Language References
-```bash
-# Xem ví dụ code cho từng ngôn ngữ
-# Web Frontend
-open code-prefency/index.html
-open code-prefency/App.jsx
-
-# Backend Development
-open code-prefency/main.py
-open code-prefency/api.php
-
-# Mobile Development
-open code-prefency/MainActivity.kt
-
-# Desktop Applications
-open code-prefency/desktop_app.py
-```
-
-## 📋 Nội dung chi tiết
-
-### Web Development Prefabs
-- **HTML Templates**: Boilerplate, components, forms
-- **CSS Utilities**: Reset, utilities, components, animations
-- **JavaScript Helpers**: Utils, animations, form validation
-- **Complete Templates**: Landing page, dashboard, portfolio
-
-### Programming Language References
-- **Web Frontend**: HTML, CSS, JavaScript, React, TypeScript
-- **Web Backend**: Node.js, Python, PHP, Java, C#, Go, Rust
-- **Mobile Development**: Kotlin, Swift, Flutter, React Native
-- **Desktop Applications**: C/C++, Python, C#, Java, Electron
-- **System Programming**: C/C++, Rust, Assembly
-- **AI/Data Science**: Python, R, Julia, MATLAB
-- **Game Development**: C# (Unity), C++ (Unreal), Godot
-- **Scripting**: Python, Bash, PowerShell
-
-### Code Prefency Collection
-23 file mẫu thực tế với:
-- Code hoàn chỉnh và có thể chạy được
-- Ví dụ thực tế cho từng ngôn ngữ/framework
-- Cấu trúc dự án chuẩn
-- Documentation và comments chi tiết
-- Best practices cho từng lĩnh vực
-
-## 🌟 Đặc điểm nổi bật
-
-### Web Development Prefabs
-- ✅ **Responsive Design**: Tối ưu mọi thiết bị
-- ✅ **Modern CSS**: Flexbox, Grid, CSS Variables
-- ✅ **Accessibility**: WCAG compliant
-- ✅ **Performance**: Tối ưu tốc độ tải
-- ✅ **SEO Friendly**: Meta tags chuẩn
-
-### Programming Language References
-- ✅ **Real Examples**: Code mẫu thực tế
-- ✅ **Best Practices**: Implementation chuẩn
-- ✅ **Complete Projects**: Từ setup đến deployment
-- ✅ **Modern Features**: Sử dụng tính năng mới nhất
-- ✅ **Cross-Platform**: Code đa nền tảng
-
-### Code Prefency Collection
-- ✅ **23 Languages**: Từ web đến system programming
-- ✅ **Complete Examples**: Code có thể chạy được ngay
-- ✅ **Modern Stack**: Công nghệ hiện đại
-- ✅ **Production Ready**: Code chất lượng cao
-- ✅ **Educational**: Dễ học và hiểu
-
-## 🎓 Học tập và Phát triển
-
-### Bắt đầu với Web Development
-1. Học HTML/CSS/JavaScript cơ bản
-2. Thử nghiệm với các template có sẵn
-3. Tùy chỉnh và mở rộng tính năng
-4. Deploy lên production
-
-### Khám phá các Ngôn ngữ Lập trình
-1. Chọn lĩnh vực quan tâm
-2. Xem ví dụ code mẫu
-3. Thử nghiệm và chỉnh sửa
-4. Áp dụng vào dự án thực tế
-
-### Best Practices
-- Luôn đọc documentation chính thức
-- Thử nghiệm code trong môi trường local
-- Sử dụng version control (Git)
-- Viết test cho code quan trọng
-- Theo dõi security updates
-
-## 📚 Tài nguyên tham khảo
-
-### Web Development
-- [MDN Web Docs](https://developer.mozilla.org/)
-- [CSS Tricks](https://css-tricks.com/)
-- [Can I Use](https://caniuse.com/)
-- [Web.dev](https://web.dev/)
-
-### Programming Languages
-- [Python.org](https://python.org/) - Python documentation
-- [React.dev](https://react.dev/) - React documentation
-- [TypeScript](https://typescriptlang.org/) - TypeScript handbook
-- [Node.js](https://nodejs.org/) - Node.js documentation
-- [Django](https://djangoproject.com/) - Django framework
-- [Spring Boot](https://spring.io/) - Spring Boot framework
-
-### Tools & IDEs
-- [Visual Studio Code](https://code.visualstudio.com/) - Free editor
-- [PyCharm](https://www.jetbrains.com/pycharm/) - Python IDE
-- [IntelliJ IDEA](https://www.jetbrains.com/idea/) - Java IDE
-- [Android Studio](https://developer.android.com/studio) - Android development
+- **Web Dev**: [MDN Web Docs](https://developer.mozilla.org/), [CSS Tricks](https://css-tricks.com/), [Web.dev](https://web.dev/)
+- **Languages**: [React.dev](https://react.dev/), [Python.org](https://python.org/), [Node.js Docs](https://nodejs.org/)
+- **Tools**: [Visual Studio Code](https://code.visualstudio.com/), [GitHub](https://github.com/)
 
 ## 🤝 Đóng góp
 
-Mọi đóng góp đều được chào đón! Hãy:
-1. Fork dự án
-2. Tạo branch mới cho tính năng của bạn
-3. Commit changes
-4. Push lên branch
-5. Tạo Pull Request
+Bạn muốn thêm tính năng mới hoặc sửa lỗi? Tuyệt vời! Fork dự án, tạo branch, commit thay đổi và gửi Pull Request trên GitHub. Chúng tôi chào đón mọi đóng góp từ cộng đồng!
 
-## 📄 Giấy phép
+## 📜 Giấy phép
 
-Dự án này được phân phối dưới giấy phép MIT. Xem file `LICENSE` để biết thêm chi tiết.
+Dự án này sử dụng giấy phép MIT License. Xem file `LICENSE` để biết chi tiết.
 
 ## 🙏 Lời cảm ơn
 
-Cảm ơn tất cả contributors và cộng đồng developer đã hỗ trợ dự án này!
+Cảm ơn bạn đã ghé thăm! Dự án này được xây dựng với mục tiêu học tập và chia sẻ kiến thức. Nếu có câu hỏi, hãy tạo issue trên GitHub hoặc liên hệ chúng tôi.
 
 ---
 
-**Happy Coding! 🎉**
-
-*Built with ❤️ by the Code Prefency Team*
+**Happy Coding! 🎉**  
+*Được tạo với ❤️ bởi đội ngũ Code Prefency*

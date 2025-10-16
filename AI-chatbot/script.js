@@ -5,15 +5,19 @@ const MODEL_ID = 'microsoft/DialoGPT-medium'; // Model miễn phí của Microso
 class ChatBot {
     constructor() {
         this.messages = [];
+        this.loadChatHistory(); // Tải lịch sử chat từ localStorage
         this.initializeElements();
         this.setupEventListeners();
         this.checkApiKey();
+        this.displayChatHistory(); // Hiển thị lịch sử nếu có
     }
 
     initializeElements() {
         this.chatMessages = document.getElementById('chatMessages');
         this.userInput = document.getElementById('userInput');
         this.sendButton = document.getElementById('sendButton');
+        this.clearHistoryButton = document.getElementById('clearHistoryButton');
+        this.clearHistoryButton.addEventListener('click', () => this.clearChatHistory());
     }
 
     setupEventListeners() {
@@ -26,6 +30,29 @@ class ChatBot {
 
         // Focus on input when page loads
         this.userInput.focus();
+    }
+
+    loadChatHistory() {
+        const saved = localStorage.getItem('chatHistory');
+        if (saved) {
+            this.messages = JSON.parse(saved);
+        }
+    }
+
+    saveChatHistory() {
+        localStorage.setItem('chatHistory', JSON.stringify(this.messages));
+    }
+
+    displayChatHistory() {
+        this.messages.forEach(msg => {
+            this.addMessage(msg.text, msg.type, false);
+        });
+    }
+
+    clearChatHistory() {
+        this.messages = [];
+        this.chatMessages.innerHTML = '';
+        localStorage.removeItem('chatHistory');
     }
 
     async sendMessage() {
@@ -104,7 +131,7 @@ class ChatBot {
         return generatedText || 'Xin lỗi, tôi không thể tạo phản hồi ngay bây giờ.';
     }
 
-    addMessage(text, sender) {
+    addMessage(text, sender, save = true) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${sender}-message`;
         
@@ -121,6 +148,12 @@ class ChatBot {
         
         this.chatMessages.appendChild(messageDiv);
         this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+
+        // Lưu lịch sử nếu cần
+        if (save) {
+            this.messages.push({ text, type: sender });
+            this.saveChatHistory();
+        }
     }
 
     showError(message) {

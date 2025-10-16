@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lịch sử Copy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .search-container {
+      flex: 1;
+      margin-right: 10px;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    #refreshBtn {
+      background: #4CAF50;
+      color: white;
+    }
+    #refreshBtn:hover {
+      background: #45a049;
+    }
+    #clearBtn {
+      background: #f44336;
+      color: white;
+    }
+    #clearBtn:hover {
+      background: #da190b;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    li {
+      margin: 10px 0;
+      padding: 15px;
+      background: #f9f9f9;
+      border-left: 5px solid #4CAF50;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    li:hover {
+      background: #e8f5e8;
+    }
+    .text {
+      font-family: monospace;
+      margin-bottom: 10px;
+    }
+    .copy-btn {
+      background: #2196F3;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: #0b7dda;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lịch sử Copy</h1>
+    <div class="controls">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm trong lịch sử...">
+      </div>
+      <div>
+        <button id="refreshBtn">Làm mới từ Clipboard</button>
+        <button id="clearBtn">Xóa lịch sử</button>
+      </div>
+    </div>
+    <ul id="historyList"></ul>
+  </div>
+  <script src="history.js"></script>
+</body>
+</html>

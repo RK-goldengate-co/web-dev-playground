@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Universal Dark Mode Extension",
+  "version": "1.0",
+  "description": "Chuyển đổi mọi trang web sang chế độ dark mode",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Bật/Tắt Dark Mode"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.svg",
+    "32": "icons/icon32.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  }
+}

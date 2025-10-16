@@ -32,11 +32,29 @@ body {
     padding: 15px 20px;
     text-align: center;
     border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .chat-header h2 {
     margin: 0;
     font-size: 1.5em;
+}
+
+.chat-header button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.chat-header button:hover {
+    background-color: #c82333;
 }
 
 .chat-messages {
